@@ -44,7 +44,7 @@ const unsigned char pipe_ascii[] = "Pipe";
 const unsigned char ambient_ascii[] = "Amb.";
 
 unsigned char temp_display_message[] = "Pipe temp =      \r\n";
-unsigned char asciiTemp[] = {' ',' ',' ','.',' ',};
+unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
 
 void interrupt high_ISR(void);
 bit isCommandSent;
@@ -97,8 +97,8 @@ void initADC(void){
     TRISBbits.TRISB1 = '1';
 	//PORTB = 0x00;
     //TRISB = 0x00;
-    ANCON0 = 0xFF;  //Pin AN0 and AN1 are analog, the rest digital
-    ANCON1 = 0x0C; //pin 8-12 are digital
+    ANCON0 = 0xFC;  //Pin AN0 and AN1 are analog, the rest digital
+    ANCON1 = 0x1C; //pin 8-12 are digital
     ADCON0 = 0x00;  //VSS, VDD, channel 00 (AN0), GO/DONE = 0 (idle), ADON = 1    clear ADCON0 to select channel 0 (AN0)
 	ADCON1 = 0b10111110;    //Right justified, normal ADC operation, slowest acquisition time and conversion clock
   	ADCON0bits.ADON = 0x01;//Enable A/D module
@@ -136,7 +136,7 @@ void fillInTemp(char pipe_or_ambience){
     }
     asciiTemp[1] = temp/100 + 48; 
     asciiTemp[2] = temp % 100 / 10 + 48;
-    asciiTemp[4] = temp % 10 + 48;
+    asciiTemp[3] = temp % 10 + 48;
     
     
     // Fill in the tempDisplayCommand
@@ -205,15 +205,15 @@ void main(void) {
     initInterrupts();
     while(1){
         sendUARTMessage(getVerCommand);
+        //delay();
+        
+        makeTempMessage(PIPE);
+        sendUARTMessage(temp_display_message);
         delay();
         
-//        makeTempMessage(PIPE);
-//        sendUARTMessage(temp_display_message);
-//        delay();
-//        
-//        makeTempMessage(AMBIENT);
-//        sendUARTMessage(temp_display_message);
-//        delay();                
+        makeTempMessage(AMBIENT);
+        sendUARTMessage(temp_display_message);
+        delay();                
     }
 }
 
@@ -233,7 +233,7 @@ void interrupt high_ISR(void){
             currentMessagePointer += 1;
         }
     }
-   
+    
     //Interrupt AD
     if(PIR1bits.ADIF == 1)
     {
@@ -241,24 +241,24 @@ void interrupt high_ISR(void){
         switch(currentChannel){
             case PLUS_PIPE:
                 plus_pipe = ADRES;
-                ADCON0bits.CHS = 0b1010;  //next channel is MINUS = CH10
+                ADCON0bits.CHS = 0b1000;  //next channel is MINUS_PIPE = CH08
                 currentChannel = MINUS_PIPE;
                 break;
             case MINUS_PIPE:
                 minus_pipe = ADRES;
-                ADCON0bits.CHS = 0b1001;  //next channel is PLUS = CH09
+                ADCON0bits.CHS = 0b0001;  //next channel is PLUS_AMBIENT = CH01
+                currentChannel = PLUS_AMBIENT;
+                break;
+            case PLUS_AMBIENT:
+                plus_ambient = ADRES;
+                ADCON0bits.CHS = 0b0000;  //next channel is MINUS_AMBIENT = CH0
+                currentChannel = MINUS_AMBIENT;
+                break;
+            case MINUS_AMBIENT:
+                minus_ambient = ADRES;
+                ADCON0bits.CHS = 0b1001;  //next channel is PLUS_PIE = CH09
                 currentChannel = PLUS_PIPE;
                 break;
-//            case PLUS_AMBIENT:
-//                plus_ambient = ADRES;
-//                ADCON0bits.CHS = 0b0001;  //next channel is PLUS = CH09
-//                currentChannel = MINUS_PIPE;
-//                break;
-//            case MINUS_AMBIENT:
-//                minus_ambient = ADRES;
-//                ADCON0bits.CHS = 0b0000;  //next channel is PLUS = CH09
-//                currentChannel = PLUS_PIPE;
-//                break;
         }
         ADCON0bits.GO_DONE = 1;
         
