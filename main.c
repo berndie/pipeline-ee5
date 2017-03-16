@@ -8,11 +8,12 @@
 
 #pragma config XINST = OFF
 #pragma config WDTEN = OFF
-#pragma config CFGPLLEN = ON
+#pragma config CFGPLLEN = OFF
 #pragma config OSC = INTOSCPLL
-#pragma config CPUDIV = OSC2_PLL2
-#pragma config PLLDIV = 2
+#pragma config CPUDIV = OSC1    // CPU System Clock Postscaler (No CPU system clock divide)
 
+
+#define BUFFER_SIZE 1000
 #define TRUE 1
 #define FALSE 0
 #define PLUS_PIPE 0
@@ -21,6 +22,8 @@
 #define MINUS_AMBIENT 3
 #define PIPE 0
 #define AMBIENT 1
+#define ON 1
+#define OFF 0
 
 
 
@@ -43,9 +46,11 @@ const unsigned char getVerCommand[14] = "sys get ver\r\n";
 const unsigned char pipe_ascii[] = "Pipe";
 const unsigned char ambient_ascii[] = "Amb.";
 
+unsigned char uart_receive_buffer[BUFFER_SIZE];
 unsigned char temp_display_message[] = "Pipe temp =      \r\n";
 unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
 
+unsigned int uart_receive_buffer_index = 0;
 void interrupt high_ISR(void);
 bit isCommandSent;
 unsigned char *currentMessagePointer;
@@ -55,11 +60,11 @@ unsigned char *currentMessagePointer;
 void initUART1(void){
     //Init the UART1
     //TXSTA1bits.TX9 = 0;
-    //RCSTA1bits.CREN = 0;
     TRISCbits.TRISC7 = 1;
     TRISCbits.TRISC6 = 0;
     //5 steps: see datasheet page 355
     TXSTA1bits.BRGH = 1;
+    BAUDCON1bits.BRG16 = 1;
     /////1/////
     //Baud rate calculations:
     //SPBRGHx:SPBRGx =  ((Fosc/Desired Baud Rate)/64) - 1
@@ -67,7 +72,7 @@ void initUART1(void){
     //SPBRGHx:SPBRGx = 12
     //Datasheet page: 349-350
     SPBRGH1 = 0;
-    SPBRG1 = 25;
+    SPBRG1 = 34;
     
     /////2/////
     //SYNC is default 0: Datasheet page 346
@@ -77,11 +82,12 @@ void initUART1(void){
     
     /////3/////
     PIE1bits.TXIE = 1;
+    PIE1bits.RC1IE = 1;
     //Datasheet page 113
     
     /////4/////
-    // RN2348 is 8 bit
-    
+    // page 357
+    RCSTA1bits.CREN = 1;
     
    
 }
@@ -146,15 +152,30 @@ void fillInTemp(char pipe_or_ambience){
     
 }
 
+void UARTReceive(char on_or_off){
+    if(on_or_off == ON){
+        RCSTA1bits.CREN = 1;
+    }
+    else{
+        RCSTA1bits.CREN = 0;
+    }
+}
 
 void initInterrupts(void){
     INTCON = 0b11000000;    //enable global and peripheral interrupt
     RCONbits.IPEN = 0;  //disable priority interrupts
 }
 
+void clearUARTReceiveBuffer(void){
+    for(int i = 0; i<BUFFER_SIZE; i++){
+        uart_receive_buffer[i] = '\0';
+    }
+    uart_receive_buffer_index= 0 ;
+}
+
 void sendUARTMessage(unsigned char *newMessagePointer){
     // Check if previous message is sent
-    if(isCommandSent == TRUE){
+    if(isCommandSent == TRUE){     
         //Change the current message
         currentMessagePointer = newMessagePointer;
         //The new message isn't sent yet
@@ -198,14 +219,23 @@ void makeTempMessage(char pipe_or_ambient){
 void main(void) {
     // 8Mhz mode
     OSCCONbits.IRCF0 = 1;
+    OSCCONbits.SCS0 = 1;
+    OSCCONbits.SCS1 = 1;
     //When started, a new command can be sent
     isCommandSent = TRUE;
     initUART1();
     initADC();
     initInterrupts();
+    clearUARTReceiveBuffer();
     while(1){
+        UARTReceive(ON);
         sendUARTMessage(getVerCommand);
-        //delay();
+        delay();
+        UARTReceive(OFF);
+        sendUARTMessage(uart_receive_buffer);
+        delay();
+        clearUARTReceiveBuffer();
+        delay();
         
         makeTempMessage(PIPE);
         sendUARTMessage(temp_display_message);
@@ -234,6 +264,17 @@ void interrupt high_ISR(void){
         }
     }
     
+    if(PIR1bits.RC1IF == 1){
+        PIR1bits.RC1IF = 0;
+        uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
+        uart_receive_buffer_index += 1;
+        if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
+            RCSTA1bits.CREN = 0;
+        }
+        if(uart_receive_buffer_index > BUFFER_SIZE){
+            clearUARTReceiveBuffer();
+        }
+    }
     //Interrupt AD
     if(PIR1bits.ADIF == 1)
     {
