@@ -10283,12 +10283,11 @@ extern __nonreentrant void _delay3(unsigned char);
 # 9 "main.c"
 #pragma config XINST = OFF
 #pragma config WDTEN = OFF
-#pragma config CFGPLLEN = ON
+#pragma config CFGPLLEN = OFF
 #pragma config OSC = INTOSCPLL
-#pragma config CPUDIV = OSC2_PLL2
-#pragma config PLLDIV = 2
+#pragma config CPUDIV = OSC1
 
-# 27
+# 30
 signed int plus_pipe;
 signed int minus_pipe;
 signed int plus_ambient;
@@ -10308,9 +10307,18 @@ const unsigned char getVerCommand[14] = "sys get ver\r\n";
 const unsigned char pipe_ascii[] = "Pipe";
 const unsigned char ambient_ascii[] = "Amb.";
 
-unsigned char temp_display_message[] = "Pipe temp =      \r\n";
-unsigned char asciiTemp[] = {' ',' ',' ','.',' ',};
+const unsigned char set_app_eui[] = "mac set appeui 74c542453857974a \r\n";
+const unsigned char set_app_key[] = "mac set appkey 2e15afc94a7ef69ae61a814737c38699 \r\n";
 
+
+const unsigned char set_data_rate[] = "mac set dr x \r\n";
+
+
+unsigned char uart_receive_buffer[1000];
+unsigned char temp_display_message[] = "Pipe temp =      \r\n";
+unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
+
+unsigned int uart_receive_buffer_index = 0;
 void interrupt high_ISR(void);
 bit isCommandSent;
 unsigned char *currentMessagePointer;
@@ -10320,15 +10328,15 @@ unsigned char *currentMessagePointer;
 void initUART1(void){
 
 
-
 TRISCbits.TRISC7 = 1;
 TRISCbits.TRISC6 = 0;
 
 TXSTA1bits.BRGH = 1;
+BAUDCON1bits.BRG16 = 1;
 
-# 69
+# 81
 SPBRGH1 = 0;
-SPBRG1 = 25;
+SPBRG1 = 34;
 
 
 
@@ -10338,8 +10346,14 @@ RCSTA1bits.SPEN = 1;
 
 
 PIE1bits.TXIE = 1;
+PIE1bits.RC1IE = 1;
 
-# 87
+
+
+
+RCSTA1bits.CREN = 1;
+
+
 }
 void initADC(void){
 TRISAbits.TRISA0 = '1';
@@ -10353,8 +10367,8 @@ PORTBbits.RB1 = '0';
 TRISBbits.TRISB1 = '1';
 
 
-ANCON0 = 0xFF;
-ANCON1 = 0x0C;
+ANCON0 = 0xFC;
+ANCON1 = 0x1C;
 ADCON0 = 0x00;
 ADCON1 = 0b10111110;
 ADCON0bits.ADON = 0x01;
@@ -10392,7 +10406,7 @@ asciiTemp[0] = ' ';
 }
 asciiTemp[1] = temp/100 + 48;
 asciiTemp[2] = temp % 100 / 10 + 48;
-asciiTemp[4] = temp % 10 + 48;
+asciiTemp[3] = temp % 10 + 48;
 
 
 
@@ -10402,10 +10416,25 @@ temp_display_message[i] = asciiTemp[i-12];
 
 }
 
+void UARTReceive(char on_or_off){
+if(on_or_off == 1){
+RCSTA1bits.CREN = 1;
+}
+else{
+RCSTA1bits.CREN = 0;
+}
+}
 
 void initInterrupts(void){
 INTCON = 0b11000000;
 RCONbits.IPEN = 0;
+}
+
+void clearUARTReceiveBuffer(void){
+for(int i = 0; i<1000; i++){
+uart_receive_buffer[i] = '\0';
+}
+uart_receive_buffer_index= 0 ;
 }
 
 void sendUARTMessage(unsigned char *newMessagePointer){
@@ -10422,7 +10451,12 @@ TXSTA1bits.TXEN = 1;
 
 }
 }
-
+void initLoRa(void){
+sendUARTMessage(&set_app_eui);
+delay();
+sendUARTMessage(&set_app_key);
+delay();
+}
 void delay(void){
 long time = 0;
 while(time < DELAY){
@@ -10454,16 +10488,30 @@ fillInTemp(1);
 void main(void) {
 
 OSCCONbits.IRCF0 = 1;
+OSCCONbits.SCS0 = 1;
+OSCCONbits.SCS1 = 1;
 
 isCommandSent = 1;
 initUART1();
 initADC();
 initInterrupts();
+clearUARTReceiveBuffer();
 while(1){
-sendUARTMessage(getVerCommand);
+UARTReceive(1);
+initLoRa();
+UARTReceive(0);
+sendUARTMessage(uart_receive_buffer);
+delay();
+clearUARTReceiveBuffer();
 delay();
 
-# 217
+makeTempMessage(0);
+sendUARTMessage(temp_display_message);
+delay();
+
+makeTempMessage(1);
+sendUARTMessage(temp_display_message);
+delay();
 }
 }
 
@@ -10484,6 +10532,17 @@ currentMessagePointer += 1;
 }
 }
 
+if(PIR1bits.RC1IF == 1){
+PIR1bits.RC1IF = 0;
+uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
+uart_receive_buffer_index += 1;
+if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
+RCSTA1bits.CREN = 0;
+}
+if(uart_receive_buffer_index > 1000){
+clearUARTReceiveBuffer();
+}
+}
 
 if(PIR1bits.ADIF == 1)
 {
@@ -10491,16 +10550,24 @@ PIR1bits.ADIF = 0;
 switch(currentChannel){
 case 0:
 plus_pipe = ADRES;
-ADCON0bits.CHS = 0b1010;
+ADCON0bits.CHS = 0b1000;
 currentChannel = 1;
 break;
 case 1:
 minus_pipe = ADRES;
+ADCON0bits.CHS = 0b0001;
+currentChannel = 2;
+break;
+case 2:
+plus_ambient = ADRES;
+ADCON0bits.CHS = 0b0000;
+currentChannel = 3;
+break;
+case 3:
+minus_ambient = ADRES;
 ADCON0bits.CHS = 0b1001;
 currentChannel = 0;
 break;
-
-# 262
 }
 ADCON0bits.GO_DONE = 1;
 

@@ -12,24 +12,41 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\EE5.X.production.obj
-bitnvCOMRAM COMRAM 1 1F8 3F 1 1
-cinit CODE 0 F6E F6E 36 1
-text0 CODE 0 FD0 FD0 22 1
-text1 CODE 0 1022 1022 12 1
-text2 CODE 0 100C 100C 16 1
-text3 CODE 0 1034 1034 8 1
-text4 CODE 0 FA4 FA4 2C 1
-text5 CODE 0 F1E F1E 50 1
-idataCOMRAM CODE 0 FF2 FF2 19 1
-cstackCOMRAM COMRAM 1 1A 1A 15 1
-temp COMRAM 1 40 40 1 1
-intcode CODE 0 8 8 106 1
-smallconst SMALLCONST 0 F00 F00 1E 1
-dataCOMRAM COMRAM 1 1 1 19 1
-bssCOMRAM COMRAM 1 2F 2F 10 1
-$C:\Users\Bernd\AppData\Local\Temp\s66o.obj
+bitnvCOMRAM COMRAM 1 260 4C 1 1
+cinit CODE 0 171A 171A 50 1
+text0 CODE 0 16B8 16B8 62 1
+text1 CODE 0 176A 176A 50 1
+text2 CODE 0 FB4 FB4 176 1
+text3 CODE 0 1648 1648 70 1
+text4 CODE 0 15C4 15C4 84 1
+text5 CODE 0 145E 145E B8 1
+text6 CODE 0 112A 112A 12E 1
+text7 CODE 0 1258 1258 120 1
+text8 CODE 0 1378 1378 E6 1
+text9 CODE 0 184C 184C 38 1
+text10 CODE 0 1516 1516 AE 1
+text11 CODE 0 1922 1922 1C 1
+text12 CODE 0 180A 180A 42 1
+text13 CODE 0 1958 1958 12 1
+text14 CODE 0 17BA 17BA 50 1
+text15 CODE 0 197A 197A 8 1
+text16 CODE 0 18F4 18F4 2E 1
+text17 CODE 0 1884 1884 38 1
+text18 CODE 0 196A 196A 10 1
+text20 CODE 0 18BC 18BC 38 1
+cstackCOMRAM COMRAM 1 1 1 3B 1
+cstackBANK0 BANK0 1 60 60 1C 1
+temp COMRAM 1 4D 4D 1 1
+bssBANK0 BANK0 1 95 95 2 1
+intcode CODE 0 8 8 1AA 1
+smallconst SMALLCONST 0 F00 F00 B4 1
+idataBANK0 CODE 0 193E 193E 19 1
+dataBANK0 BANK0 1 7C 7C 19 1
+bssBIGRAM BIGRAM 1 97 97 3E8 1
+bssCOMRAM COMRAM 1 3C 3C 10 1
+$C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
 reset_vec CODE 0 0 0 4 1
-end_init CODE 0 10E 10E 4 1
+end_init CODE 0 1B2 1B2 4 1
 config CONFIG 0 1FFF8 1FFF8 8 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -37,38 +54,35 @@ config CONFIG 0 1FFF8 1FFF8 8 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 60-EAF 1
+RAM 47F-EAF 1
 SFR EB0-FFF 1
-BANK0 60-FF 1
-BANK1 100-1FF 1
-BANK2 200-2FF 1
-BANK3 300-3FF 1
-BANK4 400-4FF 1
+BANK4 47F-4FF 1
 BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
-CONST 112-EFF 1
-CONST 100B-100B 1
-CONST 103C-1FFF7 1
-STACK 60-EAF 1
-SMALLCONST 100B-100B 1
-SMALLCONST 103C-1FFF7 1
+CONST 1B6-EFF 1
+CONST 1957-1957 1
+CONST 1982-1FFF7 1
+STACK 47F-EAF 1
+SMALLCONST 1957-1957 1
+SMALLCONST 1982-1FFF7 1
 CODE 4-7 1
-CODE 112-EFF 1
-CODE 100B-100B 1
-CODE 103C-1FFF7 1
+CODE 1B6-EFF 1
+CODE 1957-1957 1
+CODE 1982-1FFF7 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EAF 1
-BIGRAM 41-EAF 1
-COMRAM 41-5F 1
-MEDIUMCONST 100B-100B 1
-MEDIUMCONST 103C-FFFF 1
+BIGRAM 4E-5F 1
+BIGRAM 47F-EAF 1
+COMRAM 4E-5F 1
+MEDIUMCONST 1957-1957 1
+MEDIUMCONST 1982-FFFF 1
 MEDIUMCONST 10F00-1FFF7 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -84,110 +98,356 @@ MEDIUMCONST 10F00-1FFF7 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\EE5.X.production.obj
-8 intcode CODE >175:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-8 intcode CODE >220:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-42 intcode CODE >223:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-46 intcode CODE >225:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-5C intcode CODE >226:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-5E intcode CODE >227:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-60 intcode CODE >228:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-62 intcode CODE >231:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-74 intcode CODE >233:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-78 intcode CODE >238:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-7C intcode CODE >240:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-7E intcode CODE >241:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-80 intcode CODE >242:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-80 intcode CODE >243:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-88 intcode CODE >244:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-90 intcode CODE >245:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-98 intcode CODE >247:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-98 intcode CODE >248:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-A0 intcode CODE >249:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-A8 intcode CODE >250:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-B0 intcode CODE >262:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-B2 intcode CODE >241:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-D0 intcode CODE >262:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-D0 intcode CODE >263:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-D2 intcode CODE >266:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-F1E text5 CODE >170:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-F1E text5 CODE >171:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-F2E text5 CODE >172:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-F30 text5 CODE >173:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-F3C text5 CODE >172:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FA4 text4 CODE >88:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FA4 text4 CODE >89:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FA6 text4 CODE >90:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FA8 text4 CODE >91:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FAA text4 CODE >92:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FAC text4 CODE >94:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FAE text4 CODE >95:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FB0 text4 CODE >96:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FB2 text4 CODE >97:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FB4 text4 CODE >100:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FB8 text4 CODE >101:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FBE text4 CODE >102:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FC2 text4 CODE >103:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FC6 text4 CODE >104:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FC8 text4 CODE >106:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FCA text4 CODE >107:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FCC text4 CODE >110:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FCE text4 CODE >112:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1034 text3 CODE >150:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1034 text3 CODE >151:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1038 text3 CODE >152:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-103A text3 CODE >153:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-100C text2 CODE >55:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-100C text2 CODE >59:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-100E text2 CODE >60:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1010 text2 CODE >62:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1012 text2 CODE >69:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1016 text2 CODE >70:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-101A text2 CODE >74:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-101C text2 CODE >75:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-101E text2 CODE >79:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1020 text2 CODE >87:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1022 text1 CODE >155:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1022 text1 CODE >157:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1026 text1 CODE >159:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-102E text1 CODE >164:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1030 text1 CODE >165:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FD0 text0 CODE >198:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FD0 text0 CODE >200:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FD2 text0 CODE >202:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FD4 text0 CODE >203:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FD8 text0 CODE >204:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FDC text0 CODE >205:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FE0 text0 CODE >207:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FEC text0 CODE >208:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-FF0 text0 CODE >206:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-F6E cinit CODE >956:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F6E cinit CODE >958:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F6E cinit CODE >961:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F6E cinit CODE >1008:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F72 cinit CODE >1009:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F74 cinit CODE >1010:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F74 cinit CODE >1011:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F76 cinit CODE >1012:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F78 cinit CODE >1013:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F7A cinit CODE >1018:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F7C cinit CODE >1019:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F7E cinit CODE >1020:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F80 cinit CODE >1021:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F82 cinit CODE >1022:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F84 cinit CODE >1023:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F86 cinit CODE >1024:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F8A cinit CODE >1025:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F8E cinit CODE >1026:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F8E cinit CODE >1027:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F90 cinit CODE >1028:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F94 cinit CODE >1029:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F96 cinit CODE >1030:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F98 cinit CODE >1031:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F9A cinit CODE >1037:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F9A cinit CODE >1039:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F9C cinit CODE >1040:C:\Users\Bernd\AppData\Local\Temp\s66o.
-F9E cinit CODE >1041:C:\Users\Bernd\AppData\Local\Temp\s66o.
-FA0 cinit CODE >1042:C:\Users\Bernd\AppData\Local\Temp\s66o.
+8 intcode CODE >171:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+8 intcode CODE >267:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+42 intcode CODE >270:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+46 intcode CODE >272:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+6E intcode CODE >273:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+70 intcode CODE >274:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+72 intcode CODE >275:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+74 intcode CODE >278:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+98 intcode CODE >280:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+9C intcode CODE >284:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+A0 intcode CODE >285:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+A2 intcode CODE >286:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+B2 intcode CODE >287:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+B6 intcode CODE >288:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+C8 intcode CODE >289:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+CA intcode CODE >291:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+D4 intcode CODE >292:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+D8 intcode CODE >296:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+DC intcode CODE >298:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+DE intcode CODE >299:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+E0 intcode CODE >300:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+E0 intcode CODE >301:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+E8 intcode CODE >302:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+F0 intcode CODE >303:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+FA intcode CODE >305:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+FA intcode CODE >306:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+102 intcode CODE >307:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+10A intcode CODE >308:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+114 intcode CODE >310:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+114 intcode CODE >311:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+11C intcode CODE >312:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+124 intcode CODE >313:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+12E intcode CODE >315:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+12E intcode CODE >316:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+136 intcode CODE >317:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+13E intcode CODE >318:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+148 intcode CODE >320:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+14A intcode CODE >299:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+174 intcode CODE >320:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+174 intcode CODE >321:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+176 intcode CODE >324:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18BC text20 CODE >178:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18BC text20 CODE >179:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18D4 text20 CODE >180:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18E4 text20 CODE >179:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18EA text20 CODE >182:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18F2 text20 CODE >183:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+196A text18 CODE >164:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+196C text18 CODE >165:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1972 text18 CODE >166:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1974 text18 CODE >167:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1976 text18 CODE >168:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1976 text18 CODE >169:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1884 text17 CODE >178:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1884 text17 CODE >179:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+189C text17 CODE >180:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18AC text17 CODE >179:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18B2 text17 CODE >182:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18BA text17 CODE >183:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18F4 text16 CODE >103:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18F4 text16 CODE >104:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18F6 text16 CODE >105:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18F8 text16 CODE >106:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18FA text16 CODE >107:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18FC text16 CODE >109:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+18FE text16 CODE >110:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1900 text16 CODE >111:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1902 text16 CODE >112:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1904 text16 CODE >115:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+190A text16 CODE >116:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1910 text16 CODE >117:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1914 text16 CODE >118:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1918 text16 CODE >119:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+191A text16 CODE >121:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+191C text16 CODE >122:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+191E text16 CODE >125:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1920 text16 CODE >127:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+197A text15 CODE >173:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+197A text15 CODE >174:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+197E text15 CODE >175:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1980 text15 CODE >176:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+17BA text14 CODE >209:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+17BA text14 CODE >210:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+17CA text14 CODE >211:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+17CC text14 CODE >212:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+17D8 text14 CODE >211:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1958 text13 CODE >185:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1958 text13 CODE >187:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+195C text13 CODE >189:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1964 text13 CODE >194:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1966 text13 CODE >195:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+180A text12 CODE >199:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+180A text12 CODE >200:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1816 text12 CODE >201:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+181A text12 CODE >202:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1826 text12 CODE >203:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+182A text12 CODE >204:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1836 text12 CODE >205:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+183A text12 CODE >206:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1846 text12 CODE >207:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+184A text12 CODE >208:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1922 text11 CODE >69:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1922 text11 CODE >72:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1924 text11 CODE >73:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1926 text11 CODE >75:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1928 text11 CODE >76:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+192A text11 CODE >83:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+192E text11 CODE >84:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1932 text11 CODE >88:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1934 text11 CODE >89:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1936 text11 CODE >93:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1938 text11 CODE >94:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+193A text11 CODE >99:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+193C text11 CODE >102:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1516 text10 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1516 text10 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1526 text10 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1534 text10 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1536 text10 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+153E text10 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+155C text10 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+155E text10 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+156A text10 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1572 text10 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1590 text10 CODE >76:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+1592 text10 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+159A text10 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15A4 text10 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15A6 text10 CODE >80:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15A8 text10 CODE >81:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15AC text10 CODE >82:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15B0 text10 CODE >83:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15B4 text10 CODE >84:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+15B6 text10 CODE >85:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+184C text9 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awtoft.c
+184C text9 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awtoft.c
+1850 text9 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awtoft.c
+1854 text9 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awtoft.c
+185C text9 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awtoft.c
+1860 text9 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awtoft.c
+1378 text8 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1378 text8 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1392 text8 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13A0 text8 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13BA text8 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13C8 text8 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13D4 text8 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13DA text8 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13DE text8 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13E2 text8 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13E6 text8 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13E8 text8 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13F4 text8 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+13F6 text8 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1402 text8 CODE >76:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1406 text8 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+140E text8 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+141E text8 CODE >80:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+142A text8 CODE >81:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+142C text8 CODE >82:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+142C text8 CODE >83:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1434 text8 CODE >84:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1438 text8 CODE >85:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftdiv.c
+1258 text7 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1258 text7 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1276 text7 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1284 text7 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12A2 text7 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12B0 text7 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12BA text7 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12BE text7 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12C4 text7 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12CA text7 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12CC text7 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12CE text7 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12DA text7 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12EC text7 CODE >134:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12F2 text7 CODE >136:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+12F6 text7 CODE >137:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1308 text7 CODE >138:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1310 text7 CODE >139:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1318 text7 CODE >140:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+131E text7 CODE >143:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1324 text7 CODE >145:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1328 text7 CODE >146:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+133A text7 CODE >147:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1342 text7 CODE >148:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+134C text7 CODE >149:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+1352 text7 CODE >156:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftmul.c
+112A text6 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+112A text6 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+114E text6 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1160 text6 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1194 text6 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1196 text6 CODE >53:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11A2 text6 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11B8 text6 CODE >55:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11BE text6 CODE >56:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11C4 text6 CODE >57:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11D0 text6 CODE >58:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11E2 text6 CODE >60:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11EE text6 CODE >61:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11F4 text6 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11F6 text6 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+11FE text6 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1210 text6 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+121C text6 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1220 text6 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+122A text6 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1234 text6 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+1246 text6 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\fttol.c
+145E text5 CODE >216:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+145E text5 CODE >218:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1488 text5 CODE >219:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+150C text5 CODE >221:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+15C4 text4 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15C4 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15C8 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15CC text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15D4 text4 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15D8 text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15DC text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15E4 text4 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15E8 text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15F0 text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15F8 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15FC text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+15FE text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1604 text4 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1606 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+160A text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1610 text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+161C text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1624 text4 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1626 text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+162C text4 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1630 text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1636 text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+163E text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
+1648 text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1648 text3 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+164C text3 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1650 text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1658 text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+165C text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1660 text3 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1668 text3 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1670 text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1674 text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1676 text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+167C text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+167E text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1682 text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+168E text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+1696 text3 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+169C text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+16A0 text3 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+16A6 text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+16AE text3 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awmod.c
+FB4 text2 CODE >129:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+FB6 text2 CODE >131:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+FBC text2 CODE >132:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+FD4 text2 CODE >133:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+FF8 text2 CODE >132:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1006 text2 CODE >135:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+100E text2 CODE >136:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1010 text2 CODE >138:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1028 text2 CODE >139:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+104C text2 CODE >138:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+105A text2 CODE >141:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1062 text2 CODE >145:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1066 text2 CODE >146:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+106C text2 CODE >147:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1074 text2 CODE >148:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1076 text2 CODE >150:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+107C text2 CODE >152:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1098 text2 CODE >153:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+10C8 text2 CODE >154:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+10E4 text2 CODE >158:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+10F0 text2 CODE >159:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1126 text2 CODE >158:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+176A text1 CODE >224:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+176C text1 CODE >225:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1772 text1 CODE >226:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+178E text1 CODE >227:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1794 text1 CODE >228:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1796 text1 CODE >230:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+17B2 text1 CODE >231:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16B8 text0 CODE >237:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16B8 text0 CODE >239:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16BA text0 CODE >240:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16BC text0 CODE >241:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16BE text0 CODE >243:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16C0 text0 CODE >244:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16C4 text0 CODE >245:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16C8 text0 CODE >246:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16CC text0 CODE >247:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16D0 text0 CODE >249:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16D6 text0 CODE >250:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16DA text0 CODE >251:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16E0 text0 CODE >253:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16E4 text0 CODE >254:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16E8 text0 CODE >255:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16EC text0 CODE >257:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16F2 text0 CODE >258:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+16FE text0 CODE >259:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1702 text0 CODE >261:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1708 text0 CODE >262:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1714 text0 CODE >263:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+1718 text0 CODE >248:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
+171A cinit CODE >1165:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+171A cinit CODE >1167:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+171A cinit CODE >1170:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+171A cinit CODE >1229:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+171E cinit CODE >1230:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1722 cinit CODE >1231:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1722 cinit CODE >1232:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1724 cinit CODE >1233:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1726 cinit CODE >1234:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1728 cinit CODE >1235:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+172A cinit CODE >1236:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+172C cinit CODE >1237:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+172E cinit CODE >1240:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1730 cinit CODE >1241:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1732 cinit CODE >1242:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1734 cinit CODE >1245:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1738 cinit CODE >1246:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+173A cinit CODE >1247:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+173A cinit CODE >1248:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+173C cinit CODE >1249:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+173E cinit CODE >1250:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1740 cinit CODE >1255:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1742 cinit CODE >1256:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1744 cinit CODE >1257:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1746 cinit CODE >1258:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1748 cinit CODE >1259:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+174A cinit CODE >1260:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+174C cinit CODE >1261:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1750 cinit CODE >1262:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1754 cinit CODE >1263:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1754 cinit CODE >1264:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1756 cinit CODE >1265:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+175A cinit CODE >1266:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+175C cinit CODE >1267:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+175E cinit CODE >1268:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1760 cinit CODE >1274:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1760 cinit CODE >1276:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1762 cinit CODE >1277:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1764 cinit CODE >1278:C:\Users\Bernd\AppData\Local\Temp\s4n0.
+1766 cinit CODE >1279:C:\Users\Bernd\AppData\Local\Temp\s4n0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -200,73 +460,133 @@ FA0 cinit CODE >1042:C:\Users\Bernd\AppData\Local\Temp\s66o.
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
+___awdiv@counter 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\EE5.X.production.obj
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\EE5.X.production.obj
 __Hspace_0 20000 0 ABS 0 - dist/default/production\EE5.X.production.obj
-__Hspace_1 1F9 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__Hspace_1 47F 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\EE5.X.production.obj
+__size_of_initLoRa 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__end_of_set_data_rate F10 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+___ftdiv@exp 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\EE5.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-__pbitnvCOMRAM 1F8 -1B9 COMRAM 1 bitnvCOMRAM dist/default/production\EE5.X.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+__pbitnvCOMRAM 260 -214 COMRAM 1 bitnvCOMRAM dist/default/production\EE5.X.production.obj
+___awtoft@sign 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_makeTempMessage 17BA 0 CODE 0 text1 dist/default/production\EE5.X.production.obj
 __Lsmallconst F00 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-_main FD0 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
-btemp 40 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
-start 10E 0 CODE 0 init C:\Users\Bernd\AppData\Local\Temp\s66o.obj
+___sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+_main 16B8 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
+btemp 4D 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
+__HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\EE5.X.production.obj
+start 1B2 0 CODE 0 init C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__size_of___awmod 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__size_of___ftdiv 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__size_of___ftmul 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__size_of___fttol 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+makeTempMessage@pipe_or_ambient 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+fillInTemp@i_1008 28 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+fillInTemp@i_1009 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+i2clearUARTReceiveBuffer@i 1 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\EE5.X.production.obj
-__Hpowerup 10E 0 CODE 0 powerup dist/default/production\EE5.X.production.obj
-__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\EE5.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-intlevel0 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-intlevel1 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-intlevel2 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-intlevel3 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s66o.obj
+__size_of_fillInTemp 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__end_of_set_app_eui F80 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__end_of_set_app_key F5E 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+___ftdiv@f1 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftdiv@f2 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftdiv@f3 29 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_clearUARTReceiveBuffer 18BC 0 CODE 0 text17 dist/default/production\EE5.X.production.obj
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\EE5.X.production.obj
+fillInTemp@temp 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__Hpowerup 1B2 0 CODE 0 powerup dist/default/production\EE5.X.production.obj
+___awmod@sign 18 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\EE5.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+intlevel0 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+intlevel1 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+intlevel2 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+intlevel3 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\EE5.X.production.obj
+calculateTemp@minus 73 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+_initLoRa 180A 0 CODE 0 text12 dist/default/production\EE5.X.production.obj
 _OSCCONbits FD3 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\EE5.X.production.obj
 __LbitnvCOMRAM 0 0 ABS 0 bitnvCOMRAM dist/default/production\EE5.X.production.obj
+_makeTempMessage 176A 0 CODE 0 text1 dist/default/production\EE5.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\EE5.X.production.obj
+___awdiv@sign 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\EE5.X.production.obj
-__pidataCOMRAM FF2 0 CODE 0 idataCOMRAM dist/default/production\EE5.X.production.obj
-__end_of_ambient_ascii F06 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__end_of_initLoRa 184C 0 CODE 0 text12 dist/default/production\EE5.X.production.obj
+clearUARTReceiveBuffer@i 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftmul@f1 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftmul@f2 31 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_ambient_ascii F23 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 _ADCON0 FC2 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _ADCON1 FC1 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _ANCON0 F48 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _ANCON1 F49 0 ABS 0 - dist/default/production\EE5.X.production.obj
-_currentMessagePointer 31 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\EE5.X.production.obj
+_currentMessagePointer 3C 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+___awdiv@dividend 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+__size_of___awtoft 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __size_of_initADC 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+_calculateTemp$1598 77 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\EE5.X.production.obj
-_temp_ambient 3B 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+_temp_ambient 46 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\EE5.X.production.obj
+___fttol@f1 37 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 _TXSTA1bits FAD 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\EE5.X.production.obj
-__Hintcodelo 10E 0 CODE 0 intcodelo dist/default/production\EE5.X.production.obj
-_minus_ambient 33 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+__Hintcodelo 1B2 0 CODE 0 intcodelo dist/default/production\EE5.X.production.obj
+___awdiv@divisor 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+_minus_ambient 3E 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+__size_of___ftpack 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__end_of___awdiv 1648 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
+__end_of___awmod 16B8 0 CODE 0 text3 dist/default/production\EE5.X.production.obj
+__end_of___ftdiv 145E 0 CODE 0 text8 dist/default/production\EE5.X.production.obj
+__end_of___ftmul 1378 0 CODE 0 text7 dist/default/production\EE5.X.production.obj
+__end_of___fttol 1258 0 CODE 0 text6 dist/default/production\EE5.X.production.obj
+_UARTReceive 196A 0 CODE 0 text18 dist/default/production\EE5.X.production.obj
+_uart_receive_buffer 97 0 BIGRAM 1 bssBIGRAM dist/default/production\EE5.X.production.obj
+_calculateTemp 145E 0 CODE 0 text5 dist/default/production\EE5.X.production.obj
 __CFG_OSC$INTOSCPLL 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _INTCON FF2 0 ABS 0 - dist/default/production\EE5.X.production.obj
-sendUARTMessage@newMessagePointer 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
-_temp_display_message 1 0 COMRAM 1 dataCOMRAM dist/default/production\EE5.X.production.obj
+sendUARTMessage@newMessagePointer 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+_temp_display_message 81 0 BANK0 1 dataBANK0 dist/default/production\EE5.X.production.obj
 __size_of_delay 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
-__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\EE5.X.production.obj
-__Lintcodelo 10E 0 CODE 0 intcodelo dist/default/production\EE5.X.production.obj
-__CFG_CFGPLLEN$ON 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
-start_initialization F6E 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
+__Lintcodelo 1B2 0 CODE 0 intcodelo dist/default/production\EE5.X.production.obj
+start_initialization 171A 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\EE5.X.production.obj
+___awtoft 184C 0 CODE 0 text9 dist/default/production\EE5.X.production.obj
 _TRISAbits F92 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _TRISBbits F93 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _TRISCbits F94 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__size_of_makeTempMessage 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production\EE5.X.production.obj
-__end_of_sendUARTMessage 1034 0 CODE 0 text1 dist/default/production\EE5.X.production.obj
+_RCREG1 FAF 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__end_of_sendUARTMessage 196A 0 CODE 0 text13 dist/default/production\EE5.X.production.obj
 __size_of_initInterrupts 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__end_of___awtoft 1884 0 CODE 0 text9 dist/default/production\EE5.X.production.obj
 _SPBRG1 FB0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+___fttol@exp1 70 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+___fttol@lval 6C 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+i2_clearUARTReceiveBuffer 18BC 0 CODE 0 text20 dist/default/production\EE5.X.production.obj
 _TXREG1 FAE 0 ABS 0 - dist/default/production\EE5.X.production.obj
+___ftpack 1516 0 CODE 0 text10 dist/default/production\EE5.X.production.obj
 __HbitnvCOMRAM 0 0 ABS 0 bitnvCOMRAM dist/default/production\EE5.X.production.obj
-_currentChannel 2F 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
-__end_of_initADC FD0 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
+_join_network FA2 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+_currentChannel 95 0 BANK0 1 bssBANK0 dist/default/production\EE5.X.production.obj
+__CFG_CFGPLLEN$OFF 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+___ftpack@arg 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftpack@exp 16 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_initADC 1922 0 CODE 0 text16 dist/default/production\EE5.X.production.obj
+__end_of___ftpack 15C4 0 CODE 0 text10 dist/default/production\EE5.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\EE5.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\EE5.X.production.obj
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\EE5.X.production.obj
@@ -291,7 +611,12 @@ __Htext2 0 0 ABS 0 text2 dist/default/production\EE5.X.production.obj
 __Htext3 0 0 ABS 0 text3 dist/default/production\EE5.X.production.obj
 __Htext4 0 0 ABS 0 text4 dist/default/production\EE5.X.production.obj
 __Htext5 0 0 ABS 0 text5 dist/default/production\EE5.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\EE5.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\EE5.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\EE5.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\EE5.X.production.obj
 __Ljflash_buffer 1F800 0 CODE 0 jflash_buffer dist/default/production\EE5.X.production.obj
+__size_of_clearUARTReceiveBuffer 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hbank10 0 0 ABS 0 bank10 dist/default/production\EE5.X.production.obj
 __Hbank11 0 0 ABS 0 bank11 dist/default/production\EE5.X.production.obj
 __Hbank12 0 0 ABS 0 bank12 dist/default/production\EE5.X.production.obj
@@ -299,8 +624,8 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\EE5.X.production.obj
 __Hbank14 0 0 ABS 0 bank14 dist/default/production\EE5.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\EE5.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\EE5.X.production.obj
-__smallconst F00 0 SMALLCONST 0 smallconst C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-_getVerCommand F0F 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__smallconst F00 0 SMALLCONST 0 smallconst C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+_getVerCommand F10 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\EE5.X.production.obj
 __Hconfig 20000 0 CONFIG 0 config dist/default/production\EE5.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\EE5.X.production.obj
@@ -327,51 +652,89 @@ __Ltext2 0 0 ABS 0 text2 dist/default/production\EE5.X.production.obj
 __Ltext3 0 0 ABS 0 text3 dist/default/production\EE5.X.production.obj
 __Ltext4 0 0 ABS 0 text4 dist/default/production\EE5.X.production.obj
 __Ltext5 0 0 ABS 0 text5 dist/default/production\EE5.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\EE5.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\EE5.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\EE5.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\EE5.X.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\EE5.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\EE5.X.production.obj
 _PORTAbits F80 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _PORTBbits F81 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__size_of_calculateTemp 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/default/production\EE5.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production\EE5.X.production.obj
-__Hinit 10E 0 CODE 0 init dist/default/production\EE5.X.production.obj
+__Hinit 1B2 0 CODE 0 init dist/default/production\EE5.X.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\EE5.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\EE5.X.production.obj
-__Htemp 41 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
+__Htemp 4E 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
 __Htext 0 0 ABS 0 text dist/default/production\EE5.X.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/default/production\EE5.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production\EE5.X.production.obj
-__Linit 10E 0 CODE 0 init dist/default/production\EE5.X.production.obj
+__Linit 1B2 0 CODE 0 init dist/default/production\EE5.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\EE5.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\EE5.X.production.obj
-__Ltemp 40 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
+__Ltemp 4D 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
 __Ltext 0 0 ABS 0 text dist/default/production\EE5.X.production.obj
 __CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
-_sendUARTMessage 1022 0 CODE 0 text1 dist/default/production\EE5.X.production.obj
-int$flags 40 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
+_sendUARTMessage 1958 0 CODE 0 text13 dist/default/production\EE5.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\EE5.X.production.obj
+int$flags 4D 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production\EE5.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\EE5.X.production.obj
 __S0 20000 0 ABS 0 - dist/default/production\EE5.X.production.obj
-__S1 41 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__S1 47F 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hjflash_buffer 1F800 0 CODE 0 jflash_buffer dist/default/production\EE5.X.production.obj
-__CFG_PLLDIV$2 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
-_temp_pipe 3D 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
-__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\EE5.X.production.obj
+_set_dev_eui F80 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+_temp_pipe 48 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+___awtoft@c 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\EE5.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\EE5.X.production.obj
+__end_of_calculateTemp 1516 0 CODE 0 text5 dist/default/production\EE5.X.production.obj
+__end_of_join_network FB2 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\EE5.X.production.obj
 __Hramtop F00 0 RAM 0 ramtop dist/default/production\EE5.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\EE5.X.production.obj
 __size_of_high_ISR 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__pdataBANK0 7C 0 BANK0 1 dataBANK0 dist/default/production\EE5.X.production.obj
 __activetblptr 3 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\EE5.X.production.obj
-_pipe_ascii F06 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
-_plus_ambient 37 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\EE5.X.production.obj
+_pipe_ascii F23 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\EE5.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\EE5.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\EE5.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\EE5.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\EE5.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\EE5.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\EE5.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\EE5.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\EE5.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\EE5.X.production.obj
+?___awtoft 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+_plus_ambient 42 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+___awmod@counter 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 _PIE1bits F9D 0 ABS 0 - dist/default/production\EE5.X.production.obj
-_plus_pipe 39 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
-__end_of_initUART1 1022 0 CODE 0 text2 dist/default/production\EE5.X.production.obj
+_plus_pipe 44 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_initUART1 193E 0 CODE 0 text11 dist/default/production\EE5.X.production.obj
+__size_ofi2_clearUARTReceiveBuffer 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__ptext10 1516 0 CODE 0 text10 dist/default/production\EE5.X.production.obj
+__ptext11 1922 0 CODE 0 text11 dist/default/production\EE5.X.production.obj
+__ptext12 180A 0 CODE 0 text12 dist/default/production\EE5.X.production.obj
+__ptext13 1958 0 CODE 0 text13 dist/default/production\EE5.X.production.obj
+__ptext14 17BA 0 CODE 0 text14 dist/default/production\EE5.X.production.obj
+__ptext15 197A 0 CODE 0 text15 dist/default/production\EE5.X.production.obj
+__ptext16 18F4 0 CODE 0 text16 dist/default/production\EE5.X.production.obj
+__ptext17 1884 0 CODE 0 text17 dist/default/production\EE5.X.production.obj
+__ptext18 196A 0 CODE 0 text18 dist/default/production\EE5.X.production.obj
+__ptext20 18BC 0 CODE 0 text20 dist/default/production\EE5.X.production.obj
 __size_of_initUART1 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+___awdiv 15C4 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
+___awmod 1648 0 CODE 0 text3 dist/default/production\EE5.X.production.obj
+___ftdiv 1378 0 CODE 0 text8 dist/default/production\EE5.X.production.obj
+___ftmul 1258 0 CODE 0 text7 dist/default/production\EE5.X.production.obj
+___fttol 112A 0 CODE 0 text6 dist/default/production\EE5.X.production.obj
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\EE5.X.production.obj
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\EE5.X.production.obj
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\EE5.X.production.obj
@@ -379,72 +742,118 @@ __Lbank13 0 0 ABS 0 bank13 dist/default/production\EE5.X.production.obj
 __Lbank14 0 0 ABS 0 bank14 dist/default/production\EE5.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\EE5.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\EE5.X.production.obj
-_isCommandSent 1F8 -1B9 COMRAM 1 bitnvCOMRAM dist/default/production\EE5.X.production.obj
+_isCommandSent 260 -214 COMRAM 1 bitnvCOMRAM dist/default/production\EE5.X.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\EE5.X.production.obj
 __Lconfig 1FFF8 0 CONFIG 0 config dist/default/production\EE5.X.production.obj
+?___ftpack 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+fillInTemp@i 26 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+_fillInTemp FB4 0 CODE 0 text2 dist/default/production\EE5.X.production.obj
+UARTReceive@on_or_off 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 _RCSTA1bits FAC 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__end_of_UARTReceive 197A 0 CODE 0 text18 dist/default/production\EE5.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\EE5.X.production.obj
 __size_of_sendUARTMessage 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
-_initUART1 100C 0 CODE 0 text2 dist/default/production\EE5.X.production.obj
+_initUART1 1922 0 CODE 0 text11 dist/default/production\EE5.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\EE5.X.production.obj
-stackhi EAF 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-stacklo 60 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-_minus_pipe 35 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+stackhi EAF 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+stacklo 47F 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+_minus_pipe 40 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\EE5.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\EE5.X.production.obj
 _ADCON0bits FC2 0 ABS 0 - dist/default/production\EE5.X.production.obj
+_set_app_eui F5E 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+_set_app_key F2C 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 _high_ISR 8 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
-__end_of_getVerCommand F1D 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__pbssBIGRAM 97 0 BIGRAM 1 bssBIGRAM dist/default/production\EE5.X.production.obj
+__end_of_getVerCommand F1E 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 __Lspace_0 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
-delay@time 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
-__pbssCOMRAM 2F 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
-__end_of_pipe_ascii F0B 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+delay@time 14 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftmul@cntr 64 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+__pbssCOMRAM 3C 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+___ftmul@sign 65 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\EE5.X.production.obj
+__end_of_pipe_ascii F28 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 _PIR1bits F9E 0 ABS 0 - dist/default/production\EE5.X.production.obj
-__Lend_init 10E 0 CODE 0 end_init dist/default/production\EE5.X.production.obj
+__Lend_init 1B2 0 CODE 0 end_init dist/default/production\EE5.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\EE5.X.production.obj
-__end_of_high_ISR 10E 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
-end_of_initialization F9A 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
-_asciiTemp 15 0 COMRAM 1 dataCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_high_ISR 1B2 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
+end_of_initialization 1760 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
+_asciiTemp 7C 0 BANK0 1 dataBANK0 dist/default/production\EE5.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\EE5.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\EE5.X.production.obj
-__CFG_CPUDIV$OSC2_PLL2 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _RCONbits FD0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+___awdiv@quotient 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+?___awdiv 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+?___awmod 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+_set_data_rate F01 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+?___ftdiv 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+?___ftmul 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+?___fttol 37 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\EE5.X.production.obj
-_initADC FA4 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\EE5.X.production.obj
+calculateTemp@plus 71 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+_initADC 18F4 0 CODE 0 text16 dist/default/production\EE5.X.production.obj
+calculateTemp@temp 7A 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+___awmod@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Lramtop F00 0 RAM 0 ramtop dist/default/production\EE5.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\EE5.X.production.obj
-__pcinit F6E 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
-__ptext0 FD0 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
-__ptext1 1022 0 CODE 0 text1 dist/default/production\EE5.X.production.obj
-__ptext2 100C 0 CODE 0 text2 dist/default/production\EE5.X.production.obj
-__ptext3 1034 0 CODE 0 text3 dist/default/production\EE5.X.production.obj
-__ptext4 FA4 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
-__ptext5 F1E 0 CODE 0 text5 dist/default/production\EE5.X.production.obj
+__pcinit 171A 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
+__end_of_fillInTemp 112A 0 CODE 0 text2 dist/default/production\EE5.X.production.obj
+__ptext0 16B8 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
+__ptext1 176A 0 CODE 0 text1 dist/default/production\EE5.X.production.obj
+__ptext2 FB4 0 CODE 0 text2 dist/default/production\EE5.X.production.obj
+__ptext3 1648 0 CODE 0 text3 dist/default/production\EE5.X.production.obj
+__ptext4 15C4 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
+__ptext5 145E 0 CODE 0 text5 dist/default/production\EE5.X.production.obj
+__ptext6 112A 0 CODE 0 text6 dist/default/production\EE5.X.production.obj
+__ptext7 1258 0 CODE 0 text7 dist/default/production\EE5.X.production.obj
+__ptext8 1378 0 CODE 0 text8 dist/default/production\EE5.X.production.obj
+__ptext9 184C 0 CODE 0 text9 dist/default/production\EE5.X.production.obj
+__end_ofi2_clearUARTReceiveBuffer 18F4 0 CODE 0 text20 dist/default/production\EE5.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\EE5.X.production.obj
-__ramtop F00 0 RAM 0 ramtop C:\Users\Bernd\AppData\Local\Temp\s66o.obj
-__Lpowerup 10E 0 CODE 0 powerup dist/default/production\EE5.X.production.obj
-_initInterrupts 1034 0 CODE 0 text3 dist/default/production\EE5.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\EE5.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\EE5.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\EE5.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\EE5.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\EE5.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\EE5.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\EE5.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\EE5.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\EE5.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\EE5.X.production.obj
+__ramtop F00 0 RAM 0 ramtop C:\Users\Bernd\AppData\Local\Temp\s4n0.obj
+_clearUARTReceiveBuffer 1884 0 CODE 0 text17 dist/default/production\EE5.X.production.obj
+fillInTemp@pipe_or_ambience 25 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__Lpowerup 1B2 0 CODE 0 powerup dist/default/production\EE5.X.production.obj
+_initInterrupts 197A 0 CODE 0 text15 dist/default/production\EE5.X.production.obj
 __psmallconst F00 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\EE5.X.production.obj
 ___param_bank 10 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\EE5.X.production.obj
-__end_of__initialization F9A 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
+___ftmul@exp 60 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+__end_of__initialization 1760 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
+___awmod@divisor 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\EE5.X.production.obj
+__pidataBANK0 193E 0 CODE 0 idataBANK0 dist/default/production\EE5.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\EE5.X.production.obj
 _SPBRGH1 F7F 0 ABS 0 - dist/default/production\EE5.X.production.obj
-__pcstackCOMRAM 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
-__Hend_init 112 0 CODE 0 end_init dist/default/production\EE5.X.production.obj
-__end_of_main FF2 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
+___ftpack@sign 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftdiv@cntr 28 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+___ftdiv@sign 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
+__end_of_set_dev_eui FA2 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__Hend_init 1B6 0 CODE 0 end_init dist/default/production\EE5.X.production.obj
+__end_of_main 171A 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
 __pintcode 8 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
-__end_of_DELAY F0F 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
-_ambient_ascii F01 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__end_of_DELAY F2C 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+_ambient_ascii F1E 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 _ADRES FC3 0 ABS 0 - dist/default/production\EE5.X.production.obj
-_DELAY F0B 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
-__end_of_delay F6E 0 CODE 0 text5 dist/default/production\EE5.X.production.obj
-__end_of_initInterrupts 103C 0 CODE 0 text3 dist/default/production\EE5.X.production.obj
+_DELAY F28 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__end_of_delay 180A 0 CODE 0 text14 dist/default/production\EE5.X.production.obj
+__end_of_initInterrupts 1982 0 CODE 0 text15 dist/default/production\EE5.X.production.obj
 __HRAM 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Hbss 0 0 RAM 1 bss dist/default/production\EE5.X.production.obj
 __Hram 0 0 ABS 0 ram dist/default/production\EE5.X.production.obj
@@ -453,14 +862,22 @@ __LRAM 1 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Lbss 0 0 RAM 1 bss dist/default/production\EE5.X.production.obj
 __Lram 0 0 ABS 0 ram dist/default/production\EE5.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\EE5.X.production.obj
-_delay F1E 0 CODE 0 text5 dist/default/production\EE5.X.production.obj
-__initialization F6E 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
-__pdataCOMRAM 1 0 COMRAM 1 dataCOMRAM dist/default/production\EE5.X.production.obj
+_delay 17BA 0 CODE 0 text14 dist/default/production\EE5.X.production.obj
+__size_of_UARTReceive 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+___fttol@sign1 6B 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\EE5.X.production.obj
+_uart_receive_buffer_index 4A 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
+__CFG_CPUDIV$OSC1 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__initialization 171A 0 CODE 0 cinit dist/default/production\EE5.X.production.obj
+_BAUDCON1bits F7E 0 ABS 0 - dist/default/production\EE5.X.production.obj
+__pbssBANK0 95 0 BANK0 1 bssBANK0 dist/default/production\EE5.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\EE5.X.production.obj
-__Hsmallconst F1E 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
+__Hsmallconst FB4 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\EE5.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\EE5.X.production.obj
-__Hintcode 10E 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
+__Hintcode 1B2 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
+?_calculateTemp 71 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
+___ftmul@f3_as_product 61 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -485,10 +902,12 @@ __Hintcode 10E 0 CODE 0 intcode dist/default/production\EE5.X.production.obj
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text2 0 100C 100C 30 1
-text5 0 F1E F1E ED 1
+text2 0 FB4 FB4 9A3 1
+text13 0 1958 1958 2A 1
+cstackCOMRAM 1 1 1 4D 1
+cstackBANK0 1 60 60 37 1
 reset_vec 0 0 0 4 1
-intcode 0 8 8 10A 1
-smallconst 0 F00 F00 1E 1
-dataCOMRAM 1 1 1 40 1
+intcode 0 8 8 1AE 1
+smallconst 0 F00 F00 B4 1
+bssBIGRAM 1 97 97 3E8 1
 config 0 1FFF8 1FFF8 8 1
