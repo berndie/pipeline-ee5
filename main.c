@@ -5,6 +5,7 @@
  * Created on 17 februari 2017, 16:55
  */
 #include <xc.h>
+#include "uart.h"
 
 #pragma config XINST = OFF
 #pragma config WDTEN = OFF
@@ -13,7 +14,6 @@
 #pragma config CPUDIV = OSC1    // CPU System Clock Postscaler (No CPU system clock divide)
 
 
-#define BUFFER_SIZE 1000
 #define TRUE 1
 #define FALSE 0
 #define PLUS_PIPE 0
@@ -22,8 +22,6 @@
 #define MINUS_AMBIENT 3
 #define PIPE 0
 #define AMBIENT 1
-#define ON 1
-#define OFF 0
 
 
 
@@ -55,51 +53,16 @@ const unsigned char set_data_rate[] = "mac set dr x\r\n";
 
 const unsigned char join_network[]= "mac join otaa\r\n";
 
-unsigned char uart_receive_buffer[BUFFER_SIZE];
 unsigned char temp_display_message[] = "Pipe temp =      \r\n";
 unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
 
-unsigned int uart_receive_buffer_index = 0;
 void interrupt high_ISR(void);
 bit isCommandSent;
 unsigned char *currentMessagePointer;
 
 
 
-void initUART1(void){
-    //Init the UART1
-    //TXSTA1bits.TX9 = 0;
-    TRISCbits.TRISC7 = 1;
-    TRISCbits.TRISC6 = 0;
-    //5 steps: see datasheet page 355
-    TXSTA1bits.BRGH = 1;
-    BAUDCON1bits.BRG16 = 1;
-    /////1/////
-    //Baud rate calculations:
-    //SPBRGHx:SPBRGx =  ((Fosc/Desired Baud Rate)/64) - 1
-    //Fosc = 48MHz
-    //SPBRGHx:SPBRGx = 12
-    //Datasheet page: 349-350
-    SPBRGH1 = 0;
-    SPBRG1 = 34;
-    
-    /////2/////
-    //SYNC is default 0: Datasheet page 346
-    TXSTA1bits.SYNC = 0;
-    RCSTA1bits.SPEN = 1;
-    //Datasheet page 347
-    
-    /////3/////
-    PIE1bits.TXIE = 1;
-    PIE1bits.RC1IE = 1;
-    //Datasheet page 113
-    
-    /////4/////
-    // page 357
-    RCSTA1bits.CREN = 1;
-    
-   
-}
+
 void initADC(void){
     TRISAbits.TRISA0 = '1';
     TRISAbits.TRISA1 = '1';
@@ -161,26 +124,12 @@ void fillInTemp(char pipe_or_ambience){
     
 }
 
-void UARTReceive(char on_or_off){
-    if(on_or_off == ON){
-        RCSTA1bits.CREN = 1;
-    }
-    else{
-        RCSTA1bits.CREN = 0;
-    }
-}
 
 void initInterrupts(void){
     INTCON = 0b11000000;    //enable global and peripheral interrupt
     RCONbits.IPEN = 0;  //disable priority interrupts
 }
 
-void clearUARTReceiveBuffer(void){
-    for(int i = 0; i<BUFFER_SIZE; i++){
-        uart_receive_buffer[i] = '\0';
-    }
-    uart_receive_buffer_index= 0 ;
-}
 
 void sendUARTMessage(unsigned char *newMessagePointer){
     // Check if previous message is sent

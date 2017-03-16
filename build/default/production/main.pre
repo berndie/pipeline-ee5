@@ -10279,15 +10279,24 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 40 "uart.h"
+extern unsigned char uart_receive_buffer[100];
+unsigned int uart_receive_buffer_index;
 
-# 9 "main.c"
-#pragma config XINST = OFF
-#pragma config WDTEN = OFF
-#pragma config CFGPLLEN = OFF
+void initUART1(void);
+void UARTReceive(char on_or_off);
+void clearUARTReceiveBuffer(void);
+void sendUARTMessage(unsigned char *newMessagePointer);
+
+
+# 10 "main.c"
+#pragma config XINST = 0
+#pragma config WDTEN = 0
+#pragma config CFGPLLEN = 0
 #pragma config OSC = INTOSCPLL
 #pragma config CPUDIV = OSC1
 
-# 30
+# 28
 signed int plus_pipe;
 signed int minus_pipe;
 signed int plus_ambient;
@@ -10316,47 +10325,16 @@ const unsigned char set_data_rate[] = "mac set dr x\r\n";
 
 const unsigned char join_network[]= "mac join otaa\r\n";
 
-unsigned char uart_receive_buffer[1000];
 unsigned char temp_display_message[] = "Pipe temp =      \r\n";
 unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
 
-unsigned int uart_receive_buffer_index = 0;
 void interrupt high_ISR(void);
 bit isCommandSent;
 unsigned char *currentMessagePointer;
 
 
 
-void initUART1(void){
 
-
-TRISCbits.TRISC7 = 1;
-TRISCbits.TRISC6 = 0;
-
-TXSTA1bits.BRGH = 1;
-BAUDCON1bits.BRG16 = 1;
-
-# 83
-SPBRGH1 = 0;
-SPBRG1 = 34;
-
-
-
-TXSTA1bits.SYNC = 0;
-RCSTA1bits.SPEN = 1;
-
-
-
-PIE1bits.TXIE = 1;
-PIE1bits.RC1IE = 1;
-
-
-
-
-RCSTA1bits.CREN = 1;
-
-
-}
 void initADC(void){
 TRISAbits.TRISA0 = '1';
 TRISAbits.TRISA1 = '1';
@@ -10418,26 +10396,12 @@ temp_display_message[i] = asciiTemp[i-12];
 
 }
 
-void UARTReceive(char on_or_off){
-if(on_or_off == 1){
-RCSTA1bits.CREN = 1;
-}
-else{
-RCSTA1bits.CREN = 0;
-}
-}
 
 void initInterrupts(void){
 INTCON = 0b11000000;
 RCONbits.IPEN = 0;
 }
 
-void clearUARTReceiveBuffer(void){
-for(int i = 0; i<1000; i++){
-uart_receive_buffer[i] = '\0';
-}
-uart_receive_buffer_index= 0 ;
-}
 
 void sendUARTMessage(unsigned char *newMessagePointer){
 
@@ -10545,7 +10509,7 @@ uart_receive_buffer_index += 1;
 if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
 RCSTA1bits.CREN = 0;
 }
-if(uart_receive_buffer_index > 1000){
+if(uart_receive_buffer_index > 100){
 clearUARTReceiveBuffer();
 }
 }
