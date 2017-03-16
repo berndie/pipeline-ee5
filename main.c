@@ -45,6 +45,15 @@ const long DELAY = 120000;
 const unsigned char getVerCommand[14] = "sys get ver\r\n";
 const unsigned char pipe_ascii[] = "Pipe";
 const unsigned char ambient_ascii[] = "Amb.";
+//TODO fill in deveui, appeui, deveui
+const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
+const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
+const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
+
+//TODO choose datarate, is dependent of packet size
+const unsigned char set_data_rate[] = "mac set dr x\r\n";
+
+const unsigned char join_network[]= "mac join otaa\r\n";
 
 unsigned char uart_receive_buffer[BUFFER_SIZE];
 unsigned char temp_display_message[] = "Pipe temp =      \r\n";
@@ -187,7 +196,16 @@ void sendUARTMessage(unsigned char *newMessagePointer){
         //Datasheet page 246
     }
 }
-
+void initLoRa(void){
+    sendUARTMessage(&set_dev_eui);
+    delay();
+    sendUARTMessage(&set_app_eui);
+    delay();
+    sendUARTMessage(&set_app_key);
+    delay();
+    sendUARTMessage(&join_network);
+    delay();
+}
 void delay(void){
     long time = 0;
     while(time < DELAY){
@@ -229,10 +247,9 @@ void main(void) {
     clearUARTReceiveBuffer();
     while(1){
         UARTReceive(ON);
-        sendUARTMessage(getVerCommand);
-        delay();
-        UARTReceive(OFF);
-        sendUARTMessage(uart_receive_buffer);
+        initLoRa();
+        UARTReceive(OFF);     
+        //sendUARTMessage(uart_receive_buffer);
         delay();
         clearUARTReceiveBuffer();
         delay();
