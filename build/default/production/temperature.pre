@@ -1,5 +1,5 @@
 
-# 1 "uart.c"
+# 1 "temperature.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10279,109 +10279,144 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 42 "uart.h"
-extern unsigned char uart_receive_buffer[100];
-unsigned int uart_receive_buffer_index;
-char isCommandSent;
-unsigned char *currentMessagePointer;
+# 45 "temperature.h"
+extern const unsigned char pipe_ascii[];
+extern const unsigned char ambient_ascii[];
+signed int plus_pipe;
+signed int minus_pipe;
+signed int plus_ambient;
+signed int minus_ambient;
+signed int temp_pipe;
+signed int temp_ambient;
+unsigned int currentChannel;
+extern unsigned char temp_display_message[];
+unsigned char asciiTemp[];
+
+void initADC(void);
+signed int calculateTemp(int plus, int minus);
+void makeTempMessage(char pipe_or_ambient);
+void temperature_interrupt(void);
+
+# 12 "temperature.c"
+const unsigned char pipe_ascii[] = "Pipe";
+const unsigned char ambient_ascii[] = "Amb.";
+signed int plus_pipe;
+signed int minus_pipe;
+signed int plus_ambient;
+signed int minus_ambient;
+signed int temp_pipe;
+signed int temp_ambient;
+unsigned int currentChannel = 0;
+unsigned char temp_display_message[] = "Pipe temp =      \r\n";
+unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
+
+void initADC(void){
+TRISAbits.TRISA0 = 1;
+TRISAbits.TRISA1 = 1;
+PORTAbits.RA0 = 0;
+PORTAbits.RA1 = 0;
+
+PORTBbits.RB0 = 0;
+TRISBbits.TRISB0 = 1;
+PORTBbits.RB1 = 0;
+TRISBbits.TRISB1 = 1;
 
 
+ANCON0 = 0xFC;
+ANCON1 = 0x1C;
+ADCON0 = 0x00;
+ADCON1 = 0b10111110;
+ADCON0bits.ADON = 0x01;
 
-void initUART1(void);
-void UARTReceive(char on_or_off);
-void clearUARTReceiveBuffer(void);
-void sendUARTMessage(unsigned char *newMessagePointer);
-void uart_interrupt(void);
-
-# 14 "uart.c"
-char isCommandSent = 1;
-unsigned char *currentMessagePointer;
-unsigned char uart_receive_buffer[100];
-unsigned int uart_receive_buffer_index = 0;
-
-void initUART1(void){
+PIR1bits.ADIF = 0;
+PIE1bits.ADIE = 1;
 
 
-TRISCbits.TRISC7 = 1;
-TRISCbits.TRISC6 = 0;
-
-TXSTA1bits.BRGH = 1;
-BAUDCON1bits.BRG16 = 1;
-
-# 33
-SPBRGH1 = 0;
-SPBRG1 = 34;
-
-
-
-TXSTA1bits.SYNC = 0;
-RCSTA1bits.SPEN = 1;
-
-
-
-PIE1bits.TXIE = 1;
-PIE1bits.RC1IE = 1;
-
-
-
-
-RCSTA1bits.CREN = 1;
-}
-void UARTReceive(char on_or_off){
-if(on_or_off == 1){
-RCSTA1bits.CREN = 1;
-}
-else{
-RCSTA1bits.CREN = 0;
-}
-}
-void sendUARTMessage(unsigned char *newMessagePointer){
-
-if(isCommandSent == 1){
-
-currentMessagePointer = newMessagePointer;
-
-isCommandSent == 0;
-
-
-PIE1bits.TXIE = 1;
-TXSTA1bits.TXEN = 1;
+ADCON0bits.GO_DONE = 1;
 
 }
-}
-void clearUARTReceiveBuffer(void){
-for(int i = 0; i<100; i++){
-uart_receive_buffer[i] = '\0';
-}
-uart_receive_buffer_index= 0 ;
-}
 
-void uart_interrupt(void){
-
-if(PIR1bits.RC1IF == 1){
-PIR1bits.RC1IF = 0;
-uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
-uart_receive_buffer_index += 1;
-if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
-RCSTA1bits.CREN = 0;
+void fillInTemp(char pipe_or_ambience){
+signed int temp;
+if(pipe_or_ambience == 0){
+for(int i = 0; i<4; i++){
+temp_display_message[i] = pipe_ascii[i];
 }
-if(uart_receive_buffer_index > 100){
-clearUARTReceiveBuffer();
-}
-}
-
-
-if(PIR1bits.TX1IF == 1){
-
-if(*currentMessagePointer == '\0'){
-PIE1bits.TXIE = 0;
-isCommandSent = 1;
+temp = temp_pipe;
 }
 else{
-
-TXREG1 = *currentMessagePointer;
-
-currentMessagePointer += 1;
+for(int i = 0; i<4; i++){
+temp_display_message[i] = ambient_ascii[i];
 }
+temp = temp_ambient;
+}
+
+
+if(temp < 0){
+asciiTemp[0] = '-';
+temp = - temp;
+}
+else{
+asciiTemp[0] = ' ';
+}
+asciiTemp[1] =(char) (temp/100 + 48);
+asciiTemp[2] =(char) (temp % 100 / 10 + 48);
+asciiTemp[3] = (char) (temp % 10 + 48);
+
+
+
+for(char i = 12; i<17; i++){
+temp_display_message[i] = asciiTemp[i-12];
+}
+
+}
+signed int calculateTemp(int plus, int minus){
+signed int temp;
+temp = plus - minus;
+temp = (int)((double)(temp) / 1024 * 2750 / 10);
+
+return temp;
+}
+
+void makeTempMessage(char pipe_or_ambient){
+if(pipe_or_ambient == 0){
+temp_pipe = calculateTemp(plus_pipe, minus_pipe);
+fillInTemp(0);
+}
+else{
+temp_ambient = calculateTemp(plus_ambient, minus_ambient);
+fillInTemp(1);
+}
+
+}
+void temperature_interrupt(void){
+
+if(PIR1bits.ADIF == 1)
+{
+PIR1bits.ADIF = 0;
+switch(currentChannel){
+case 0:
+plus_pipe = ADRES;
+ADCON0bits.CHS = 0b1000;
+currentChannel = 1;
+break;
+case 1:
+minus_pipe = ADRES;
+ADCON0bits.CHS = 0b0001;
+currentChannel = 2;
+break;
+case 2:
+plus_ambient = ADRES;
+ADCON0bits.CHS = 0b0000;
+currentChannel = 3;
+break;
+case 3:
+minus_ambient = ADRES;
+ADCON0bits.CHS = 0b1001;
+currentChannel = 0;
+break;
+}
+ADCON0bits.GO_DONE = 1;
+
 }
 }

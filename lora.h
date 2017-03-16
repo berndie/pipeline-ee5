@@ -28,29 +28,26 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef UART_HEADER
-#define	UART_HEADER
-
-#include <xc.h> // include processor files - each processor file is guarded.  
-
-#define ON 1
-#define OFF 0
-#define BUFFER_SIZE 100
-#define TRUE 1
-#define FALSE 0
-
-extern unsigned char uart_receive_buffer[BUFFER_SIZE];
-unsigned int uart_receive_buffer_index;
-char isCommandSent;
-unsigned char *currentMessagePointer;
+#ifndef LORA_HEADER
+#define	LORA_HEADER
 
 
+#include <xc.h> // include processor files - each processor file is guarded.
+const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
+const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
+const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
+//TODO choose datarate, is dependent of packet size
+const unsigned char set_data_rate[] = "mac set dr x\r\n";
+const unsigned char join_network[]= "mac join otaa\r\n";
+void initLoRa(void);
+//TODO choose datarate, is dependent of packet size
 
-void initUART1(void);
-void UARTReceive(char on_or_off);
-void clearUARTReceiveBuffer(void);
-void sendUARTMessage(unsigned char *newMessagePointer);
-void uart_interrupt(void);
+
+// TODO Insert appropriate #include <>
+
+// TODO Insert C++ class definitions if appropriate
+
+// TODO Insert declarations
 
 // Comment a function and leverage automatic documentation with slash star star
 /**

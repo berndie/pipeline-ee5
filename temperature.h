@@ -28,29 +28,41 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef UART_HEADER
-#define	UART_HEADER
+#ifndef TEMPERATURE_HEADER
+#define	TEMPERATURE_HEADER
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define ON 1
-#define OFF 0
-#define BUFFER_SIZE 100
-#define TRUE 1
-#define FALSE 0
-
-extern unsigned char uart_receive_buffer[BUFFER_SIZE];
-unsigned int uart_receive_buffer_index;
-char isCommandSent;
-unsigned char *currentMessagePointer;
 
 
 
-void initUART1(void);
-void UARTReceive(char on_or_off);
-void clearUARTReceiveBuffer(void);
-void sendUARTMessage(unsigned char *newMessagePointer);
-void uart_interrupt(void);
+#define PLUS_PIPE 0
+#define MINUS_PIPE 1
+#define PLUS_AMBIENT 2
+#define MINUS_AMBIENT 3
+#define PIPE 0
+#define AMBIENT 1
+extern const unsigned char pipe_ascii[];
+extern const unsigned char ambient_ascii[];
+signed int plus_pipe;
+signed int minus_pipe;
+signed int plus_ambient;
+signed int minus_ambient;
+signed int temp_pipe;
+signed int temp_ambient;
+unsigned int currentChannel;    //defines which channel will be converted by the ADC (plus or minus terminal from temperature circuit))
+extern unsigned char temp_display_message[];
+unsigned char asciiTemp[];
+
+void initADC(void);
+signed int calculateTemp(int plus, int minus);
+void makeTempMessage(char pipe_or_ambient);
+void temperature_interrupt(void);
+// TODO Insert appropriate #include <>
+
+// TODO Insert C++ class definitions if appropriate
+
+// TODO Insert declarations
 
 // Comment a function and leverage automatic documentation with slash star star
 /**

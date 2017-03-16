@@ -10279,181 +10279,69 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 40 "uart.h"
+# 42 "uart.h"
 extern unsigned char uart_receive_buffer[100];
 unsigned int uart_receive_buffer_index;
+char isCommandSent;
+unsigned char *currentMessagePointer;
+
+
 
 void initUART1(void);
 void UARTReceive(char on_or_off);
 void clearUARTReceiveBuffer(void);
 void sendUARTMessage(unsigned char *newMessagePointer);
+void uart_interrupt(void);
 
-
-# 10 "main.c"
-#pragma config XINST = 0
-#pragma config WDTEN = 0
-#pragma config CFGPLLEN = 0
-#pragma config OSC = INTOSCPLL
-#pragma config CPUDIV = OSC1
-
-# 28
+# 45 "temperature.h"
+extern const unsigned char pipe_ascii[];
+extern const unsigned char ambient_ascii[];
 signed int plus_pipe;
 signed int minus_pipe;
 signed int plus_ambient;
 signed int minus_ambient;
 signed int temp_pipe;
 signed int temp_ambient;
-unsigned int currentChannel = 0;
+unsigned int currentChannel;
+extern unsigned char temp_display_message[];
+unsigned char asciiTemp[];
 
-void interrupt low_priority low_isr();
-void delay(void);
 void initADC(void);
+signed int calculateTemp(int plus, int minus);
+void makeTempMessage(char pipe_or_ambient);
+void temperature_interrupt(void);
 
-
-const long DELAY = 120000;
-
-const unsigned char getVerCommand[14] = "sys get ver\r\n";
-const unsigned char pipe_ascii[] = "Pipe";
-const unsigned char ambient_ascii[] = "Amb.";
-
+# 36 "lora.h"
 const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
 const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
 const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
 
-
 const unsigned char set_data_rate[] = "mac set dr x\r\n";
-
 const unsigned char join_network[]= "mac join otaa\r\n";
+void initLoRa(void);
 
-unsigned char temp_display_message[] = "Pipe temp =      \r\n";
-unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
-
-void interrupt high_ISR(void);
-bit isCommandSent;
-unsigned char *currentMessagePointer;
+# 36 "delay.h"
+void delay_ms(int ms);
 
 
+# 13 "main.c"
+#pragma config XINST = 0
+#pragma config WDTEN = 0
+#pragma config CFGPLLEN = 0
+#pragma config OSC = INTOSCPLL
+#pragma config CPUDIV = OSC1
 
+# 25
+const long DELAY = 120000;
 
-void initADC(void){
-TRISAbits.TRISA0 = '1';
-TRISAbits.TRISA1 = '1';
-PORTAbits.RA0 = '0';
-PORTAbits.RA1 = '0';
+const unsigned char getVerCommand[14] = "sys get ver\r\n";
 
-PORTBbits.RB0 = '0';
-TRISBbits.TRISB0 = '1';
-PORTBbits.RB1 = '0';
-TRISBbits.TRISB1 = '1';
-
-
-ANCON0 = 0xFC;
-ANCON1 = 0x1C;
-ADCON0 = 0x00;
-ADCON1 = 0b10111110;
-ADCON0bits.ADON = 0x01;
-
-PIR1bits.ADIF = 0;
-PIE1bits.ADIE = 1;
-
-
-ADCON0bits.GO_DONE = 1;
-
-}
-
-void fillInTemp(char pipe_or_ambience){
-signed int temp;
-if(pipe_or_ambience == 0){
-for(int i = 0; i<4; i++){
-temp_display_message[i] = pipe_ascii[i];
-}
-temp = temp_pipe;
-}
-else{
-for(int i = 0; i<4; i++){
-temp_display_message[i] = ambient_ascii[i];
-}
-temp = temp_ambient;
-}
-
-
-if(temp < 0){
-asciiTemp[0] = '-';
-temp = - temp;
-}
-else{
-asciiTemp[0] = ' ';
-}
-asciiTemp[1] = temp/100 + 48;
-asciiTemp[2] = temp % 100 / 10 + 48;
-asciiTemp[3] = temp % 10 + 48;
-
-
-
-for(char i = 12; i<17; i++){
-temp_display_message[i] = asciiTemp[i-12];
-}
-
-}
 
 
 void initInterrupts(void){
 INTCON = 0b11000000;
 RCONbits.IPEN = 0;
 }
-
-
-void sendUARTMessage(unsigned char *newMessagePointer){
-
-if(isCommandSent == 1){
-
-currentMessagePointer = newMessagePointer;
-
-isCommandSent == 0;
-
-
-PIE1bits.TXIE = 1;
-TXSTA1bits.TXEN = 1;
-
-}
-}
-void initLoRa(void){
-sendUARTMessage(&set_dev_eui);
-delay();
-sendUARTMessage(&set_app_eui);
-delay();
-sendUARTMessage(&set_app_key);
-delay();
-sendUARTMessage(&join_network);
-delay();
-}
-void delay(void){
-long time = 0;
-while(time < DELAY){
-time++;
-}
-}
-
-signed int calculateTemp(int plus, int minus){
-signed int temp;
-temp = plus - minus;
-temp = (int)((double)(temp) / 1024 * 2750 / 10);
-
-return temp;
-}
-
-void makeTempMessage(char pipe_or_ambient){
-if(pipe_or_ambient == 0){
-temp_pipe = calculateTemp(plus_pipe, minus_pipe);
-fillInTemp(0);
-}
-else{
-temp_ambient = calculateTemp(plus_ambient, minus_ambient);
-fillInTemp(1);
-}
-
-}
-
 
 void main(void) {
 
@@ -10471,75 +10359,21 @@ UARTReceive(1);
 initLoRa();
 UARTReceive(0);
 
-delay();
+delay_ms(800);
 clearUARTReceiveBuffer();
-delay();
+delay_ms(800);
 
 makeTempMessage(0);
 sendUARTMessage(temp_display_message);
-delay();
+delay_ms(800);
 
 makeTempMessage(1);
 sendUARTMessage(temp_display_message);
-delay();
+delay_ms(800);
 }
 }
 
 void interrupt high_ISR(void){
-
-
-if(PIR1bits.TX1IF == 1){
-
-if(*currentMessagePointer == '\0'){
-PIE1bits.TXIE = 0;
-isCommandSent = 1;
-}
-else{
-
-TXREG1 = *currentMessagePointer;
-
-currentMessagePointer += 1;
-}
-}
-
-if(PIR1bits.RC1IF == 1){
-PIR1bits.RC1IF = 0;
-uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
-uart_receive_buffer_index += 1;
-if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
-RCSTA1bits.CREN = 0;
-}
-if(uart_receive_buffer_index > 100){
-clearUARTReceiveBuffer();
-}
-}
-
-if(PIR1bits.ADIF == 1)
-{
-PIR1bits.ADIF = 0;
-switch(currentChannel){
-case 0:
-plus_pipe = ADRES;
-ADCON0bits.CHS = 0b1000;
-currentChannel = 1;
-break;
-case 1:
-minus_pipe = ADRES;
-ADCON0bits.CHS = 0b0001;
-currentChannel = 2;
-break;
-case 2:
-plus_ambient = ADRES;
-ADCON0bits.CHS = 0b0000;
-currentChannel = 3;
-break;
-case 3:
-minus_ambient = ADRES;
-ADCON0bits.CHS = 0b1001;
-currentChannel = 0;
-break;
-}
-ADCON0bits.GO_DONE = 1;
-
-}
+uart_interrupt();
+temperature_interrupt();
 }

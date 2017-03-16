@@ -124,6 +124,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S698 . . . ]
 "10931
 [v _PIE1bits `VS698 ~T0 @X0 0 e@3997 ]
+"10991
+[s S702 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S702 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
+"11000
+[s S703 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S703 . . SSPIF TXIF RCIF ]
+"10990
+[u S701 `S702 1 `S703 1 ]
+[n S701 . . . ]
+"11007
+[v _PIR1bits `VS701 ~T0 @X0 0 e@3998 ]
+"12582
+[v _RCREG1 `Vuc ~T0 @X0 0 e@4015 ]
+"12545
+[v _TXREG1 `Vuc ~T0 @X0 0 e@4014 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8166,130 +8181,260 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 40: extern unsigned char uart_receive_buffer[100];
-"41 uart.h
+[; ;uart.h: 42: extern unsigned char uart_receive_buffer[100];
+"43 uart.h
 [v _uart_receive_buffer_index `ui ~T0 @X0 1 e ]
-[; ;uart.h: 41: unsigned int uart_receive_buffer_index;
-[; ;uart.h: 43: void initUART1(void);
-[; ;uart.h: 44: void UARTReceive(char on_or_off);
-[; ;uart.h: 45: void clearUARTReceiveBuffer(void);
-[; ;uart.h: 46: void sendUARTMessage(unsigned char *newMessagePointer);
-"12 uart.c
+[; ;uart.h: 43: unsigned int uart_receive_buffer_index;
+"44
+[v _isCommandSent `uc ~T0 @X0 1 e ]
+[; ;uart.h: 44: char isCommandSent;
+"45
+[v _currentMessagePointer `*uc ~T0 @X0 1 e ]
+[; ;uart.h: 45: unsigned char *currentMessagePointer;
+[; ;uart.h: 49: void initUART1(void);
+[; ;uart.h: 50: void UARTReceive(char on_or_off);
+[; ;uart.h: 51: void clearUARTReceiveBuffer(void);
+[; ;uart.h: 52: void sendUARTMessage(unsigned char *newMessagePointer);
+[; ;uart.h: 53: void uart_interrupt(void);
+"44
+[i _isCommandSent
+"14 uart.c
+-> -> 1 `i `uc
+]
+[; ;uart.c: 14: char isCommandSent = 1;
+[; ;uart.c: 15: unsigned char *currentMessagePointer;
+"16
 [v _uart_receive_buffer `uc ~T0 @X0 -> 100 `i e ]
-[; ;uart.c: 12: unsigned char uart_receive_buffer[100];
-"41 uart.h
+[; ;uart.c: 16: unsigned char uart_receive_buffer[100];
+"43 uart.h
 [i _uart_receive_buffer_index
-"13 uart.c
+"17 uart.c
 -> -> 0 `i `ui
 ]
-[; ;uart.c: 13: unsigned int uart_receive_buffer_index = 0;
-"15
+[; ;uart.c: 17: unsigned int uart_receive_buffer_index = 0;
+"19
 [v _initUART1 `(v ~T0 @X0 1 ef ]
 {
-[; ;uart.c: 15: void initUART1(void){
+[; ;uart.c: 19: void initUART1(void){
 [e :U _initUART1 ]
 [f ]
-[; ;uart.c: 18: TRISCbits.TRISC7 = 1;
-"18
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-[; ;uart.c: 19: TRISCbits.TRISC6 = 0;
-"19
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;uart.c: 21: TXSTA1bits.BRGH = 1;
-"21
-[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
-[; ;uart.c: 22: BAUDCON1bits.BRG16 = 1;
+[; ;uart.c: 22: TRISCbits.TRISC7 = 1;
 "22
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 23: TRISCbits.TRISC6 = 0;
+"23
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 25: TXSTA1bits.BRGH = 1;
+"25
+[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
+[; ;uart.c: 26: BAUDCON1bits.BRG16 = 1;
+"26
 [e = . . _BAUDCON1bits 0 3 -> -> 1 `i `uc ]
-[; ;uart.c: 29: SPBRGH1 = 0;
-"29
+[; ;uart.c: 33: SPBRGH1 = 0;
+"33
 [e = _SPBRGH1 -> -> 0 `i `uc ]
-[; ;uart.c: 30: SPBRG1 = 34;
-"30
-[e = _SPBRG1 -> -> 34 `i `uc ]
-[; ;uart.c: 34: TXSTA1bits.SYNC = 0;
+[; ;uart.c: 34: SPBRG1 = 34;
 "34
+[e = _SPBRG1 -> -> 34 `i `uc ]
+[; ;uart.c: 38: TXSTA1bits.SYNC = 0;
+"38
 [e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
-[; ;uart.c: 35: RCSTA1bits.SPEN = 1;
-"35
-[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
-[; ;uart.c: 39: PIE1bits.TXIE = 1;
+[; ;uart.c: 39: RCSTA1bits.SPEN = 1;
 "39
+[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
+[; ;uart.c: 43: PIE1bits.TXIE = 1;
+"43
 [e = . . _PIE1bits 1 2 -> -> 1 `i `uc ]
-[; ;uart.c: 40: PIE1bits.RC1IE = 1;
-"40
+[; ;uart.c: 44: PIE1bits.RC1IE = 1;
+"44
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;uart.c: 45: RCSTA1bits.CREN = 1;
-"45
-[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-[; ;uart.c: 46: }
-"46
-[e :UE 1209 ]
-}
-"47
-[v _UARTReceive `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;uart.c: 47: void UARTReceive(char on_or_off){
-[e :U _UARTReceive ]
-[v _on_or_off `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;uart.c: 48: if(on_or_off == 1){
-"48
-[e $ ! == -> _on_or_off `i -> 1 `i 1211  ]
-{
 [; ;uart.c: 49: RCSTA1bits.CREN = 1;
 "49
 [e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-"50
-}
 [; ;uart.c: 50: }
-[e $U 1212  ]
+"50
+[e :UE 1209 ]
+}
 "51
-[e :U 1211 ]
-[; ;uart.c: 51: else{
+[v _UARTReceive `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;uart.c: 52: RCSTA1bits.CREN = 0;
+[; ;uart.c: 51: void UARTReceive(char on_or_off){
+[e :U _UARTReceive ]
+[v _on_or_off `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;uart.c: 52: if(on_or_off == 1){
 "52
-[e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
+[e $ ! == -> _on_or_off `i -> 1 `i 1211  ]
+{
+[; ;uart.c: 53: RCSTA1bits.CREN = 1;
 "53
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+"54
+}
+[; ;uart.c: 54: }
+[e $U 1212  ]
+"55
+[e :U 1211 ]
+[; ;uart.c: 55: else{
+{
+[; ;uart.c: 56: RCSTA1bits.CREN = 0;
+"56
+[e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
+"57
 }
 [e :U 1212 ]
-[; ;uart.c: 53: }
-[; ;uart.c: 54: }
-"54
+[; ;uart.c: 57: }
+[; ;uart.c: 58: }
+"58
 [e :UE 1210 ]
 }
-"55
+"59
+[v _sendUARTMessage `(v ~T0 @X0 1 ef1`*uc ]
+{
+[; ;uart.c: 59: void sendUARTMessage(unsigned char *newMessagePointer){
+[e :U _sendUARTMessage ]
+[v _newMessagePointer `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;uart.c: 61: if(isCommandSent == 1){
+"61
+[e $ ! == -> _isCommandSent `i -> 1 `i 1214  ]
+{
+[; ;uart.c: 63: currentMessagePointer = newMessagePointer;
+"63
+[e = _currentMessagePointer _newMessagePointer ]
+[; ;uart.c: 65: isCommandSent == 0;
+"65
+[e == -> _isCommandSent `i -> 0 `i ]
+[; ;uart.c: 68: PIE1bits.TXIE = 1;
+"68
+[e = . . _PIE1bits 1 2 -> -> 1 `i `uc ]
+[; ;uart.c: 69: TXSTA1bits.TXEN = 1;
+"69
+[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
+"71
+}
+[e :U 1214 ]
+[; ;uart.c: 71: }
+[; ;uart.c: 72: }
+"72
+[e :UE 1213 ]
+}
+"73
 [v _clearUARTReceiveBuffer `(v ~T0 @X0 1 ef ]
 {
-[; ;uart.c: 55: void clearUARTReceiveBuffer(void){
+[; ;uart.c: 73: void clearUARTReceiveBuffer(void){
 [e :U _clearUARTReceiveBuffer ]
 [f ]
-[; ;uart.c: 56: for(int i = 0; i<100; i++){
-"56
+[; ;uart.c: 74: for(int i = 0; i<100; i++){
+"74
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 1214  ]
-[e $U 1215  ]
-[e :U 1214 ]
+[e $ < _i -> 100 `i 1216  ]
+[e $U 1217  ]
+[e :U 1216 ]
 {
-[; ;uart.c: 57: uart_receive_buffer[i] = '\0';
-"57
+[; ;uart.c: 75: uart_receive_buffer[i] = '\0';
+"75
 [e = *U + &U _uart_receive_buffer * -> -> _i `ui `ux -> -> # *U &U _uart_receive_buffer `ui `ux -> -> 0 `ui `uc ]
-"58
+"76
 }
-"56
+"74
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 1214  ]
-[e :U 1215 ]
-"58
+[e $ < _i -> 100 `i 1216  ]
+[e :U 1217 ]
+"76
 }
-[; ;uart.c: 58: }
-[; ;uart.c: 59: uart_receive_buffer_index= 0 ;
-"59
+[; ;uart.c: 76: }
+[; ;uart.c: 77: uart_receive_buffer_index= 0 ;
+"77
 [e = _uart_receive_buffer_index -> -> 0 `i `ui ]
-[; ;uart.c: 60: }
-"60
-[e :UE 1213 ]
+[; ;uart.c: 78: }
+"78
+[e :UE 1215 ]
+}
+"80
+[v _uart_interrupt `(v ~T0 @X0 1 ef ]
+{
+[; ;uart.c: 80: void uart_interrupt(void){
+[e :U _uart_interrupt ]
+[f ]
+[; ;uart.c: 82: if(PIR1bits.RC1IF == 1){
+"82
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 1220  ]
+{
+[; ;uart.c: 83: PIR1bits.RC1IF = 0;
+"83
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;uart.c: 84: uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
+"84
+[e = *U + &U _uart_receive_buffer * -> _uart_receive_buffer_index `ux -> -> # *U &U _uart_receive_buffer `ui `ux _RCREG1 ]
+[; ;uart.c: 85: uart_receive_buffer_index += 1;
+"85
+[e =+ _uart_receive_buffer_index -> -> 1 `i `ui ]
+[; ;uart.c: 86: if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
+"86
+[e $ ! == -> *U + &U _uart_receive_buffer * -> _uart_receive_buffer_index `ux -> -> # *U &U _uart_receive_buffer `ui `ux `ui -> 10 `ui 1221  ]
+{
+[; ;uart.c: 87: RCSTA1bits.CREN = 0;
+"87
+[e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
+"88
+}
+[e :U 1221 ]
+[; ;uart.c: 88: }
+[; ;uart.c: 89: if(uart_receive_buffer_index > 100){
+"89
+[e $ ! > _uart_receive_buffer_index -> -> 100 `i `ui 1222  ]
+{
+[; ;uart.c: 90: clearUARTReceiveBuffer();
+"90
+[e ( _clearUARTReceiveBuffer ..  ]
+"91
+}
+[e :U 1222 ]
+"92
+}
+[e :U 1220 ]
+[; ;uart.c: 91: }
+[; ;uart.c: 92: }
+[; ;uart.c: 95: if(PIR1bits.TX1IF == 1){
+"95
+[e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 1223  ]
+{
+[; ;uart.c: 97: if(*currentMessagePointer == '\0'){
+"97
+[e $ ! == -> *U _currentMessagePointer `ui -> 0 `ui 1224  ]
+{
+[; ;uart.c: 98: PIE1bits.TXIE = 0;
+"98
+[e = . . _PIE1bits 1 2 -> -> 0 `i `uc ]
+[; ;uart.c: 99: isCommandSent = 1;
+"99
+[e = _isCommandSent -> -> 1 `i `uc ]
+"100
+}
+[; ;uart.c: 100: }
+[e $U 1225  ]
+"101
+[e :U 1224 ]
+[; ;uart.c: 101: else{
+{
+[; ;uart.c: 103: TXREG1 = *currentMessagePointer;
+"103
+[e = _TXREG1 *U _currentMessagePointer ]
+[; ;uart.c: 105: currentMessagePointer += 1;
+"105
+[e =+ _currentMessagePointer * -> -> 1 `i `x -> -> # *U _currentMessagePointer `i `x ]
+"106
+}
+[e :U 1225 ]
+"107
+}
+[e :U 1223 ]
+[; ;uart.c: 106: }
+[; ;uart.c: 107: }
+[; ;uart.c: 108: }
+"108
+[e :UE 1219 ]
 }

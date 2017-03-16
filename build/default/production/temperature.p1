@@ -1,69 +1,154 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"18231 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
-[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
-"16597
-[s S1067 :1 `uc 1 ]
-[n S1067 . NOT_BOR ]
-"16600
-[s S1068 :1 `uc 1 :1 `uc 1 ]
-[n S1068 . . NOT_POR ]
-"16604
-[s S1069 :2 `uc 1 :1 `uc 1 ]
-[n S1069 . . NOT_PD ]
-"16608
-[s S1070 :3 `uc 1 :1 `uc 1 ]
-[n S1070 . . NOT_TO ]
-"16612
-[s S1071 :4 `uc 1 :1 `uc 1 ]
-[n S1071 . . NOT_RI ]
-"16616
-[s S1072 :5 `uc 1 :1 `uc 1 ]
-[n S1072 . . NOT_CM ]
-"16620
-[s S1073 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1073 . nBOR nPOR nPD nTO nRI nCM . IPEN ]
-"16630
-[s S1074 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1074 . BOR POR PD TO RI CM ]
-"16596
-[u S1066 `S1067 1 `S1068 1 `S1069 1 `S1070 1 `S1071 1 `S1072 1 `S1073 1 `S1074 1 ]
-[n S1066 . . . . . . . . . ]
-"16639
-[v _RCONbits `VS1066 ~T0 @X0 0 e@4048 ]
-[p mainexit ]
-"17364
-[s S1124 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S1124 . SCS FLTS OSTS IRCF IDLEN ]
-"17371
-[s S1125 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1125 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"17363
-[u S1123 `S1124 1 `S1125 1 ]
-[n S1123 . . . ]
-"17380
-[v _OSCCONbits `VS1123 ~T0 @X0 0 e@4051 ]
-"49 uart.h
-[v _initUART1 `(v ~T0 @X0 0 ef ]
-"57 temperature.h
-[v _initADC `(v ~T0 @X0 0 ef ]
-"51 uart.h
-[v _clearUARTReceiveBuffer `(v ~T0 @X0 0 ef ]
-"50
-[v _UARTReceive `(v ~T0 @X0 0 ef1`uc ]
-"42 lora.h
-[v _initLoRa `(v ~T0 @X0 0 ef ]
-"36 delay.h
-[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"59 temperature.h
-[v _makeTempMessage `(v ~T0 @X0 0 ef1`uc ]
-"52 uart.h
-[v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
-"54 temperature.h
-[v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
-"53 uart.h
-[v _uart_interrupt `(v ~T0 @X0 0 ef ]
-"60 temperature.h
-[v _temperature_interrupt `(v ~T0 @X0 0 ef ]
+"10221 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
+[s S664 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S664 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 TRISA6 TRISA7 ]
+"10220
+[u S663 `S664 1 ]
+[n S663 . . ]
+"10232
+[v _TRISAbits `VS663 ~T0 @X0 0 e@3986 ]
+"8557
+[s S585 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S585 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
+"8567
+[s S586 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S586 . AN0 AN1 AN2 AN3 . AN4 OSC2 OSC1 ]
+"8577
+[s S587 :5 `uc 1 :1 `uc 1 ]
+[n S587 . . NOT_SS1 ]
+"8581
+[s S588 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S588 . C1INA C2INA VREF_MINUS VREF_PLUS . nSS1 CLKO CLKI ]
+"8591
+[s S589 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S589 . . CVREF C1INB . HLVDIN ]
+"8598
+[s S590 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S590 . RP0 RP1 C2INB . RCV ]
+"8605
+[s S591 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S591 . ULPWU VBG C1IND . RP2 ]
+"8612
+[s S592 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S592 . . C3INB . C1INC ]
+"8618
+[s S593 :5 `uc 1 :1 `uc 1 ]
+[n S593 . . LVDIN ]
+"8622
+[s S594 :7 `uc 1 :1 `uc 1 ]
+[n S594 . . RJPU ]
+"8626
+[s S595 :1 `uc 1 ]
+[n S595 . ULPWUIN ]
+"8556
+[u S584 `S585 1 `S586 1 `S587 1 `S588 1 `S589 1 `S590 1 `S591 1 `S592 1 `S593 1 `S594 1 `S595 1 ]
+[n S584 . . . . . . . . . . . . ]
+"8630
+[v _PORTAbits `VS584 ~T0 @X0 0 e@3968 ]
+"8830
+[s S597 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S597 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"8840
+[s S598 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S598 . AN12 AN10 AN8 AN9 . KBI2 KBI3 ]
+"8849
+[s S599 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S599 . INT0 . CTED1 CTED2 KBI0 KBI1 PGC PGD ]
+"8859
+[s S600 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S600 . RP3 RTCC . SCK1 SDI1 RP9 RP10 ]
+"8868
+[s S601 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S601 . . RP4 VMO VPO SCL1 SDA1 ]
+"8876
+[s S602 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S602 . . REFO RP6 RP7 RP8 ]
+"8883
+[s S603 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S603 . . C3INC RP5 C3INA CCP4 CCP5 CCP6 CCP7 ]
+"8893
+[s S604 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S604 . C3IND . C2INC ]
+"8898
+[s S605 :3 `uc 1 :1 `uc 1 ]
+[n S605 . . CCP2_PA2 ]
+"8829
+[u S596 `S597 1 `S598 1 `S599 1 `S600 1 `S601 1 `S602 1 `S603 1 `S604 1 `S605 1 ]
+[n S596 . . . . . . . . . . ]
+"8903
+[v _PORTBbits `VS596 ~T0 @X0 0 e@3969 ]
+"10277
+[s S666 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S666 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"10276
+[u S665 `S666 1 ]
+[n S665 . . ]
+"10288
+[v _TRISBbits `VS665 ~T0 @X0 0 e@3987 ]
+"5624
+[v _ANCON0 `Vuc ~T0 @X0 0 e@3912 ]
+"5667
+[v _ANCON1 `Vuc ~T0 @X0 0 e@3913 ]
+"14267
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
+"14165
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"14273
+[s S876 :1 `uc 1 :1 `uc 1 ]
+[n S876 . . GO_NOT_DONE ]
+"14277
+[s S877 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S877 . ADON GO_nDONE CHS VCFG ]
+"14283
+[s S878 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S878 . . GO_DONE CHS0 CHS1 CHS2 CHS3 VCFG0 VCFG1 ]
+"14293
+[s S879 :1 `uc 1 :1 `uc 1 ]
+[n S879 . . DONE ]
+"14297
+[s S880 :1 `uc 1 :1 `uc 1 ]
+[n S880 . . GO ]
+"14301
+[s S881 :1 `uc 1 :1 `uc 1 ]
+[n S881 . . NOT_DONE ]
+"14305
+[s S882 :1 `uc 1 :1 `uc 1 ]
+[n S882 . . nDONE ]
+"14309
+[s S883 :7 `uc 1 :1 `uc 1 ]
+[n S883 . . ADCAL ]
+"14313
+[s S884 :1 `uc 1 :1 `uc 1 ]
+[n S884 . . GODONE ]
+"14272
+[u S875 `S876 1 `S877 1 `S878 1 `S879 1 `S880 1 `S881 1 `S882 1 `S883 1 `S884 1 ]
+[n S875 . . . . . . . . . . ]
+"14318
+[v _ADCON0bits `VS875 ~T0 @X0 0 e@4034 ]
+"10991
+[s S702 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S702 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
+"11000
+[s S703 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S703 . . SSPIF TXIF RCIF ]
+"10990
+[u S701 `S702 1 `S703 1 ]
+[n S701 . . . ]
+"11007
+[v _PIR1bits `VS701 ~T0 @X0 0 e@3998 ]
+"10915
+[s S699 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S699 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE ]
+"10924
+[s S700 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S700 . . SSPIE TXIE RCIE ]
+"10914
+[u S698 `S699 1 `S700 1 ]
+[n S698 . . . ]
+"10931
+[v _PIE1bits `VS698 ~T0 @X0 0 e@3997 ]
+"14412
+[v _ADRES `Vus ~T0 @X0 0 e@4035 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8106,21 +8191,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 42: extern unsigned char uart_receive_buffer[100];
-"43 uart.h
-[v _uart_receive_buffer_index `ui ~T0 @X0 1 e ]
-[; ;uart.h: 43: unsigned int uart_receive_buffer_index;
-"44
-[v _isCommandSent `uc ~T0 @X0 1 e ]
-[; ;uart.h: 44: char isCommandSent;
-"45
-[v _currentMessagePointer `*uc ~T0 @X0 1 e ]
-[; ;uart.h: 45: unsigned char *currentMessagePointer;
-[; ;uart.h: 49: void initUART1(void);
-[; ;uart.h: 50: void UARTReceive(char on_or_off);
-[; ;uart.h: 51: void clearUARTReceiveBuffer(void);
-[; ;uart.h: 52: void sendUARTMessage(unsigned char *newMessagePointer);
-[; ;uart.h: 53: void uart_interrupt(void);
 [; ;temperature.h: 45: extern const unsigned char pipe_ascii[];
 [; ;temperature.h: 46: extern const unsigned char ambient_ascii[];
 "47 temperature.h
@@ -8152,340 +8222,436 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;temperature.h: 58: signed int calculateTemp(int plus, int minus);
 [; ;temperature.h: 59: void makeTempMessage(char pipe_or_ambient);
 [; ;temperature.h: 60: void temperature_interrupt(void);
-"36 lora.h
-[v _set_dev_eui `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_dev_eui
+"12 temperature.c
+[v _pipe_ascii `Cuc ~T0 @X0 -> 0 `x e ]
+[i _pipe_ascii
 :U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 100 `c
--> 101 `c
--> 118 `c
--> 101 `c
--> 117 `c
+-> 80 `c
 -> 105 `c
--> 32 `c
--> 48 `c
--> 48 `c
--> 48 `c
--> 52 `c
--> 65 `c
--> 51 `c
--> 48 `c
--> 66 `c
--> 48 `c
--> 48 `c
--> 49 `c
--> 65 `c
--> 67 `c
--> 70 `c
--> 55 `c
--> 68 `c
--> 13 `c
--> 10 `c
+-> 112 `c
+-> 101 `c
 -> 0 `c
 ..
 ]
-[; ;lora.h: 36: const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
-"37
-[v _set_app_eui `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_app_eui
+[; ;temperature.c: 12: const unsigned char pipe_ascii[] = "Pipe";
+"13
+[v _ambient_ascii `Cuc ~T0 @X0 -> 0 `x e ]
+[i _ambient_ascii
 :U ..
+-> 65 `c
 -> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 97 `c
--> 112 `c
--> 112 `c
--> 101 `c
--> 117 `c
+-> 98 `c
+-> 46 `c
+-> 0 `c
+..
+]
+[; ;temperature.c: 13: const unsigned char ambient_ascii[] = "Amb.";
+[; ;temperature.c: 14: signed int plus_pipe;
+[; ;temperature.c: 15: signed int minus_pipe;
+[; ;temperature.c: 16: signed int plus_ambient;
+[; ;temperature.c: 17: signed int minus_ambient;
+[; ;temperature.c: 18: signed int temp_pipe;
+[; ;temperature.c: 19: signed int temp_ambient;
+"53 temperature.h
+[i _currentChannel
+"20 temperature.c
+-> -> 0 `i `ui
+]
+[; ;temperature.c: 20: unsigned int currentChannel = 0;
+"21
+[v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
+[i _temp_display_message
+:U ..
+-> 80 `c
 -> 105 `c
--> 32 `c
--> 55 `c
--> 52 `c
--> 67 `c
--> 53 `c
--> 52 `c
--> 50 `c
--> 52 `c
--> 53 `c
--> 51 `c
--> 56 `c
--> 53 `c
--> 55 `c
--> 57 `c
--> 55 `c
--> 52 `c
--> 65 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 37: const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
-"38
-[v _set_app_key `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_app_key
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 97 `c
 -> 112 `c
+-> 101 `c
+-> 32 `c
+-> 116 `c
+-> 101 `c
+-> 109 `c
 -> 112 `c
--> 107 `c
--> 101 `c
--> 121 `c
 -> 32 `c
--> 50 `c
--> 69 `c
--> 49 `c
--> 53 `c
--> 65 `c
--> 70 `c
--> 67 `c
--> 57 `c
--> 52 `c
--> 65 `c
--> 55 `c
--> 69 `c
--> 70 `c
--> 54 `c
--> 57 `c
--> 65 `c
--> 69 `c
--> 54 `c
--> 49 `c
--> 65 `c
--> 56 `c
--> 49 `c
--> 52 `c
--> 55 `c
--> 51 `c
--> 55 `c
--> 67 `c
--> 51 `c
--> 56 `c
--> 54 `c
--> 57 `c
--> 57 `c
+-> 61 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
 -> 13 `c
 -> 10 `c
 -> 0 `c
 ..
 ]
-[; ;lora.h: 38: const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
-"40
-[v _set_data_rate `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_data_rate
+[; ;temperature.c: 21: unsigned char temp_display_message[] = "Pipe temp =      \r\n";
+"55 temperature.h
+[i _asciiTemp
 :U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 100 `c
--> 114 `c
--> 32 `c
--> 120 `c
--> 13 `c
--> 10 `c
--> 0 `c
+"22 temperature.c
+-> -> 32 `ui `uc
+-> -> 32 `ui `uc
+-> -> 32 `ui `uc
+-> -> 32 `ui `uc
+-> -> 32 `ui `uc
 ..
 ]
-[; ;lora.h: 40: const unsigned char set_data_rate[] = "mac set dr x\r\n";
-"41
-[v _join_network `Cuc ~T0 @X0 -> 0 `x e ]
-[i _join_network
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 106 `c
--> 111 `c
--> 105 `c
--> 110 `c
--> 32 `c
--> 111 `c
--> 116 `c
--> 97 `c
--> 97 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 41: const unsigned char join_network[]= "mac join otaa\r\n";
-[; ;lora.h: 42: void initLoRa(void);
-[; ;delay.h: 36: void delay_ms(int ms);
-"13 main.c
-[p x XINST=OFF ]
-"14
-[p x WDTEN=OFF ]
-"15
-[p x CFGPLLEN=ON ]
-"16
-[p x OSC=INTOSCPLL ]
-"17
-[p x CPUDIV=OSC1 ]
-"25
-[v _DELAY `Cl ~T0 @X0 1 e ]
-[i _DELAY
--> 120000 `l
-]
-[; ;main.c: 25: const long DELAY = 120000;
-"27
-[v _getVerCommand `Cuc ~T0 @X0 -> 14 `i e ]
-[i _getVerCommand
-:U ..
--> 115 `c
--> 121 `c
--> 115 `c
--> 32 `c
--> 103 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 118 `c
--> 101 `c
--> 114 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;main.c: 27: const unsigned char getVerCommand[14] = "sys get ver\r\n";
-"31
-[v _initInterrupts `(v ~T0 @X0 1 ef ]
+[; ;temperature.c: 22: unsigned char asciiTemp[] = {' ',' ',' ',' ',' ',};
+"24
+[v _initADC `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 31: void initInterrupts(void){
-[e :U _initInterrupts ]
+[; ;temperature.c: 24: void initADC(void){
+[e :U _initADC ]
 [f ]
-[; ;main.c: 32: INTCON = 0b11000000;
+[; ;temperature.c: 25: TRISAbits.TRISA0 = 1;
+"25
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;temperature.c: 26: TRISAbits.TRISA1 = 1;
+"26
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;temperature.c: 27: PORTAbits.RA0 = 0;
+"27
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[; ;temperature.c: 28: PORTAbits.RA1 = 0;
+"28
+[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+[; ;temperature.c: 30: PORTBbits.RB0 = 0;
+"30
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;temperature.c: 31: TRISBbits.TRISB0 = 1;
+"31
+[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
+[; ;temperature.c: 32: PORTBbits.RB1 = 0;
 "32
-[e = _INTCON -> -> 192 `i `uc ]
-[; ;main.c: 33: RCONbits.IPEN = 0;
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;temperature.c: 33: TRISBbits.TRISB1 = 1;
 "33
-[e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
-[; ;main.c: 34: }
-"34
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;temperature.c: 36: ANCON0 = 0xFC;
+"36
+[e = _ANCON0 -> -> 252 `i `uc ]
+[; ;temperature.c: 37: ANCON1 = 0x1C;
+"37
+[e = _ANCON1 -> -> 28 `i `uc ]
+[; ;temperature.c: 38: ADCON0 = 0x00;
+"38
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;temperature.c: 39: ADCON1 = 0b10111110;
+"39
+[e = _ADCON1 -> -> 190 `i `uc ]
+[; ;temperature.c: 40: ADCON0bits.ADON = 0x01;
+"40
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;temperature.c: 42: PIR1bits.ADIF = 0;
+"42
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;temperature.c: 43: PIE1bits.ADIE = 1;
+"43
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;temperature.c: 46: ADCON0bits.GO_DONE = 1;
+"46
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+[; ;temperature.c: 48: }
+"48
 [e :UE 1209 ]
 }
-"36
-[v _main `(v ~T0 @X0 1 ef ]
+"50
+[v _fillInTemp `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 36: void main(void) {
-[e :U _main ]
+[; ;temperature.c: 50: void fillInTemp(char pipe_or_ambience){
+[e :U _fillInTemp ]
+[v _pipe_or_ambience `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 38: OSCCONbits.IRCF0 = 1;
-"38
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-[; ;main.c: 39: OSCCONbits.SCS0 = 1;
-"39
-[e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 40: OSCCONbits.SCS1 = 1;
-"40
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 42: isCommandSent = 1;
-"42
-[e = _isCommandSent -> -> 1 `i `uc ]
-[; ;main.c: 43: initUART1();
-"43
-[e ( _initUART1 ..  ]
-[; ;main.c: 44: initADC();
-"44
-[e ( _initADC ..  ]
-[; ;main.c: 45: initInterrupts();
-"45
-[e ( _initInterrupts ..  ]
-[; ;main.c: 46: clearUARTReceiveBuffer();
-"46
-[e ( _clearUARTReceiveBuffer ..  ]
-[; ;main.c: 47: while(1){
-"47
+"51
+[v _temp `i ~T0 @X0 1 a ]
+[; ;temperature.c: 51: signed int temp;
+[; ;temperature.c: 52: if(pipe_or_ambience == 0){
+"52
+[e $ ! == -> _pipe_or_ambience `i -> 0 `i 1211  ]
+{
+[; ;temperature.c: 53: for(int i = 0; i<4; i++){
+"53
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 1212  ]
+[e $U 1213  ]
 [e :U 1212 ]
 {
-[; ;main.c: 48: UARTReceive(1);
-"48
-[e ( _UARTReceive (1 -> -> 1 `i `uc ]
-[; ;main.c: 49: initLoRa();
-"49
-[e ( _initLoRa ..  ]
-[; ;main.c: 50: UARTReceive(0);
-"50
-[e ( _UARTReceive (1 -> -> 0 `i `uc ]
-[; ;main.c: 52: delay_ms(800);
-"52
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 53: clearUARTReceiveBuffer();
-"53
-[e ( _clearUARTReceiveBuffer ..  ]
-[; ;main.c: 54: delay_ms(800);
+[; ;temperature.c: 54: temp_display_message[i] = pipe_ascii[i];
 "54
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 56: makeTempMessage(0);
+[e = *U + &U _temp_display_message * -> -> _i `ui `ux -> -> # *U &U _temp_display_message `ui `ux *U + &U _pipe_ascii * -> -> _i `ui `ux -> -> # *U &U _pipe_ascii `ui `ux ]
+"55
+}
+"53
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 1212  ]
+[e :U 1213 ]
+"55
+}
+[; ;temperature.c: 55: }
+[; ;temperature.c: 56: temp = temp_pipe;
 "56
-[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
-[; ;main.c: 57: sendUARTMessage(temp_display_message);
+[e = _temp _temp_pipe ]
 "57
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 58: delay_ms(800);
+}
+[; ;temperature.c: 57: }
+[e $U 1215  ]
 "58
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 60: makeTempMessage(1);
+[e :U 1211 ]
+[; ;temperature.c: 58: else{
+{
+[; ;temperature.c: 59: for(int i = 0; i<4; i++){
+"59
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 1216  ]
+[e $U 1217  ]
+[e :U 1216 ]
+{
+[; ;temperature.c: 60: temp_display_message[i] = ambient_ascii[i];
 "60
-[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
-[; ;main.c: 61: sendUARTMessage(temp_display_message);
+[e = *U + &U _temp_display_message * -> -> _i `ui `ux -> -> # *U &U _temp_display_message `ui `ux *U + &U _ambient_ascii * -> -> _i `ui `ux -> -> # *U &U _ambient_ascii `ui `ux ]
 "61
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 62: delay_ms(800);
+}
+"59
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 1216  ]
+[e :U 1217 ]
+"61
+}
+[; ;temperature.c: 61: }
+[; ;temperature.c: 62: temp = temp_ambient;
 "62
-[e ( _delay_ms (1 -> 800 `i ]
+[e = _temp _temp_ambient ]
 "63
 }
-[e :U 1211 ]
-"47
-[e $U 1212  ]
-[e :U 1213 ]
-[; ;main.c: 63: }
-[; ;main.c: 64: }
-"64
+[e :U 1215 ]
+[; ;temperature.c: 63: }
+[; ;temperature.c: 66: if(temp < 0){
+"66
+[e $ ! < _temp -> 0 `i 1219  ]
+{
+[; ;temperature.c: 67: asciiTemp[0] = '-';
+"67
+[e = *U + &U _asciiTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _asciiTemp `ui `ux -> -> 45 `ui `uc ]
+[; ;temperature.c: 68: temp = - temp;
+"68
+[e = _temp -U _temp ]
+"69
+}
+[; ;temperature.c: 69: }
+[e $U 1220  ]
+"70
+[e :U 1219 ]
+[; ;temperature.c: 70: else{
+{
+[; ;temperature.c: 71: asciiTemp[0] = ' ';
+"71
+[e = *U + &U _asciiTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _asciiTemp `ui `ux -> -> 32 `ui `uc ]
+"72
+}
+[e :U 1220 ]
+[; ;temperature.c: 72: }
+[; ;temperature.c: 73: asciiTemp[1] =(char) (temp/100 + 48);
+"73
+[e = *U + &U _asciiTemp * -> -> -> 1 `i `ui `ux -> -> # *U &U _asciiTemp `ui `ux -> + / _temp -> 100 `i -> 48 `i `uc ]
+[; ;temperature.c: 74: asciiTemp[2] =(char) (temp % 100 / 10 + 48);
+"74
+[e = *U + &U _asciiTemp * -> -> -> 2 `i `ui `ux -> -> # *U &U _asciiTemp `ui `ux -> + / % _temp -> 100 `i -> 10 `i -> 48 `i `uc ]
+[; ;temperature.c: 75: asciiTemp[3] = (char) (temp % 10 + 48);
+"75
+[e = *U + &U _asciiTemp * -> -> -> 3 `i `ui `ux -> -> # *U &U _asciiTemp `ui `ux -> + % _temp -> 10 `i -> 48 `i `uc ]
+[; ;temperature.c: 79: for(char i = 12; i<17; i++){
+"79
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 12 `i `uc ]
+[e $ < -> _i `i -> 17 `i 1221  ]
+[e $U 1222  ]
+[e :U 1221 ]
+{
+[; ;temperature.c: 80: temp_display_message[i] = asciiTemp[i-12];
+"80
+[e = *U + &U _temp_display_message * -> _i `ux -> -> # *U &U _temp_display_message `ui `ux *U + &U _asciiTemp * -> -> - -> _i `i -> 12 `i `ui `ux -> -> # *U &U _asciiTemp `ui `ux ]
+"81
+}
+"79
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 17 `i 1221  ]
+[e :U 1222 ]
+"81
+}
+[; ;temperature.c: 81: }
+[; ;temperature.c: 83: }
+"83
 [e :UE 1210 ]
 }
-[v F8493 `(v ~T0 @X0 1 tf ]
-"66
-[v _high_ISR `IF8493 ~T0 @X0 1 e ]
+"84
+[v _calculateTemp `(i ~T0 @X0 1 ef2`i`i ]
 {
-[; ;main.c: 66: void interrupt high_ISR(void){
-[e :U _high_ISR ]
+[; ;temperature.c: 84: signed int calculateTemp(int plus, int minus){
+[e :U _calculateTemp ]
+[v _plus `i ~T0 @X0 1 r1 ]
+[v _minus `i ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 67: uart_interrupt();
-"67
-[e ( _uart_interrupt ..  ]
-[; ;main.c: 68: temperature_interrupt();
-"68
-[e ( _temperature_interrupt ..  ]
-[; ;main.c: 69: }
-"69
-[e :UE 1214 ]
+"85
+[v _temp `i ~T0 @X0 1 a ]
+[; ;temperature.c: 85: signed int temp;
+[; ;temperature.c: 86: temp = plus - minus;
+"86
+[e = _temp - _plus _minus ]
+[; ;temperature.c: 87: temp = (int)((double)(temp) / 1024 * 2750 / 10);
+"87
+[e = _temp -> / * / -> _temp `d -> -> 1024 `i `d -> -> 2750 `i `d -> -> 10 `i `d `i ]
+[; ;temperature.c: 89: return temp;
+"89
+[e ) _temp ]
+[e $UE 1224  ]
+[; ;temperature.c: 90: }
+"90
+[e :UE 1224 ]
+}
+"92
+[v _makeTempMessage `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;temperature.c: 92: void makeTempMessage(char pipe_or_ambient){
+[e :U _makeTempMessage ]
+[v _pipe_or_ambient `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;temperature.c: 93: if(pipe_or_ambient == 0){
+"93
+[e $ ! == -> _pipe_or_ambient `i -> 0 `i 1226  ]
+{
+[; ;temperature.c: 94: temp_pipe = calculateTemp(plus_pipe, minus_pipe);
+"94
+[e = _temp_pipe ( _calculateTemp (2 , _plus_pipe _minus_pipe ]
+[; ;temperature.c: 95: fillInTemp(0);
+"95
+[e ( _fillInTemp (1 -> -> 0 `i `uc ]
+"96
+}
+[; ;temperature.c: 96: }
+[e $U 1227  ]
+"97
+[e :U 1226 ]
+[; ;temperature.c: 97: else{
+{
+[; ;temperature.c: 98: temp_ambient = calculateTemp(plus_ambient, minus_ambient);
+"98
+[e = _temp_ambient ( _calculateTemp (2 , _plus_ambient _minus_ambient ]
+[; ;temperature.c: 99: fillInTemp(1);
+"99
+[e ( _fillInTemp (1 -> -> 1 `i `uc ]
+"100
+}
+[e :U 1227 ]
+[; ;temperature.c: 100: }
+[; ;temperature.c: 102: }
+"102
+[e :UE 1225 ]
+}
+"103
+[v _temperature_interrupt `(v ~T0 @X0 1 ef ]
+{
+[; ;temperature.c: 103: void temperature_interrupt(void){
+[e :U _temperature_interrupt ]
+[f ]
+[; ;temperature.c: 105: if(PIR1bits.ADIF == 1)
+"105
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 1229  ]
+[; ;temperature.c: 106: {
+"106
+{
+[; ;temperature.c: 107: PIR1bits.ADIF = 0;
+"107
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;temperature.c: 108: switch(currentChannel){
+"108
+[e $U 1231  ]
+{
+[; ;temperature.c: 109: case 0:
+"109
+[e :U 1232 ]
+[; ;temperature.c: 110: plus_pipe = ADRES;
+"110
+[e = _plus_pipe -> _ADRES `i ]
+[; ;temperature.c: 111: ADCON0bits.CHS = 0b1000;
+"111
+[e = . . _ADCON0bits 1 2 -> -> 8 `i `uc ]
+[; ;temperature.c: 112: currentChannel = 1;
+"112
+[e = _currentChannel -> -> 1 `i `ui ]
+[; ;temperature.c: 113: break;
+"113
+[e $U 1230  ]
+[; ;temperature.c: 114: case 1:
+"114
+[e :U 1233 ]
+[; ;temperature.c: 115: minus_pipe = ADRES;
+"115
+[e = _minus_pipe -> _ADRES `i ]
+[; ;temperature.c: 116: ADCON0bits.CHS = 0b0001;
+"116
+[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+[; ;temperature.c: 117: currentChannel = 2;
+"117
+[e = _currentChannel -> -> 2 `i `ui ]
+[; ;temperature.c: 118: break;
+"118
+[e $U 1230  ]
+[; ;temperature.c: 119: case 2:
+"119
+[e :U 1234 ]
+[; ;temperature.c: 120: plus_ambient = ADRES;
+"120
+[e = _plus_ambient -> _ADRES `i ]
+[; ;temperature.c: 121: ADCON0bits.CHS = 0b0000;
+"121
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;temperature.c: 122: currentChannel = 3;
+"122
+[e = _currentChannel -> -> 3 `i `ui ]
+[; ;temperature.c: 123: break;
+"123
+[e $U 1230  ]
+[; ;temperature.c: 124: case 3:
+"124
+[e :U 1235 ]
+[; ;temperature.c: 125: minus_ambient = ADRES;
+"125
+[e = _minus_ambient -> _ADRES `i ]
+[; ;temperature.c: 126: ADCON0bits.CHS = 0b1001;
+"126
+[e = . . _ADCON0bits 1 2 -> -> 9 `i `uc ]
+[; ;temperature.c: 127: currentChannel = 0;
+"127
+[e = _currentChannel -> -> 0 `i `ui ]
+[; ;temperature.c: 128: break;
+"128
+[e $U 1230  ]
+"129
+}
+[; ;temperature.c: 129: }
+[e $U 1230  ]
+"108
+[e :U 1231 ]
+[e [\ _currentChannel , $ -> -> 0 `i `ui 1232
+ , $ -> -> 1 `i `ui 1233
+ , $ -> -> 2 `i `ui 1234
+ , $ -> -> 3 `i `ui 1235
+ 1230 ]
+"129
+[e :U 1230 ]
+[; ;temperature.c: 130: ADCON0bits.GO_DONE = 1;
+"130
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"132
+}
+[e :U 1229 ]
+[; ;temperature.c: 132: }
+[; ;temperature.c: 133: }
+"133
+[e :UE 1228 ]
 }

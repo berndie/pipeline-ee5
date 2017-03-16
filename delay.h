@@ -28,29 +28,17 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef UART_HEADER
-#define	UART_HEADER
-
+#ifndef DELAY_HEADER
+#define	DELAY_HEADER
 #include <xc.h> // include processor files - each processor file is guarded.  
+#define _XTAL_FREQ 8000000
+#define ONE_SECOND _XTAL_FREQ/4
+void delay_ms(int ms);
+// TODO Insert appropriate #include <>
 
-#define ON 1
-#define OFF 0
-#define BUFFER_SIZE 100
-#define TRUE 1
-#define FALSE 0
+// TODO Insert C++ class definitions if appropriate
 
-extern unsigned char uart_receive_buffer[BUFFER_SIZE];
-unsigned int uart_receive_buffer_index;
-char isCommandSent;
-unsigned char *currentMessagePointer;
-
-
-
-void initUART1(void);
-void UARTReceive(char on_or_off);
-void clearUARTReceiveBuffer(void);
-void sendUARTMessage(unsigned char *newMessagePointer);
-void uart_interrupt(void);
+// TODO Insert declarations
 
 // Comment a function and leverage automatic documentation with slash star star
 /**

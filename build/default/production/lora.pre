@@ -1,5 +1,5 @@
 
-# 1 "uart.c"
+# 1 "lora.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10293,95 +10293,26 @@ void clearUARTReceiveBuffer(void);
 void sendUARTMessage(unsigned char *newMessagePointer);
 void uart_interrupt(void);
 
-# 14 "uart.c"
-char isCommandSent = 1;
-unsigned char *currentMessagePointer;
-unsigned char uart_receive_buffer[100];
-unsigned int uart_receive_buffer_index = 0;
+# 36 "delay.h"
+void delay_ms(int ms);
 
-void initUART1(void){
-
-
-TRISCbits.TRISC7 = 1;
-TRISCbits.TRISC6 = 0;
-
-TXSTA1bits.BRGH = 1;
-BAUDCON1bits.BRG16 = 1;
-
-# 33
-SPBRGH1 = 0;
-SPBRG1 = 34;
+# 12 "lora.c"
+const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
+const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
+const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
 
 
+const unsigned char set_data_rate[] = "mac set dr x\r\n";
 
-TXSTA1bits.SYNC = 0;
-RCSTA1bits.SPEN = 1;
+const unsigned char join_network[]= "mac join otaa\r\n";
 
-
-
-PIE1bits.TXIE = 1;
-PIE1bits.RC1IE = 1;
-
-
-
-
-RCSTA1bits.CREN = 1;
-}
-void UARTReceive(char on_or_off){
-if(on_or_off == 1){
-RCSTA1bits.CREN = 1;
-}
-else{
-RCSTA1bits.CREN = 0;
-}
-}
-void sendUARTMessage(unsigned char *newMessagePointer){
-
-if(isCommandSent == 1){
-
-currentMessagePointer = newMessagePointer;
-
-isCommandSent == 0;
-
-
-PIE1bits.TXIE = 1;
-TXSTA1bits.TXEN = 1;
-
-}
-}
-void clearUARTReceiveBuffer(void){
-for(int i = 0; i<100; i++){
-uart_receive_buffer[i] = '\0';
-}
-uart_receive_buffer_index= 0 ;
-}
-
-void uart_interrupt(void){
-
-if(PIR1bits.RC1IF == 1){
-PIR1bits.RC1IF = 0;
-uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
-uart_receive_buffer_index += 1;
-if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
-RCSTA1bits.CREN = 0;
-}
-if(uart_receive_buffer_index > 100){
-clearUARTReceiveBuffer();
-}
-}
-
-
-if(PIR1bits.TX1IF == 1){
-
-if(*currentMessagePointer == '\0'){
-PIE1bits.TXIE = 0;
-isCommandSent = 1;
-}
-else{
-
-TXREG1 = *currentMessagePointer;
-
-currentMessagePointer += 1;
-}
-}
+void initLoRa(void){
+sendUARTMessage(set_dev_eui);
+delay_ms(800);
+sendUARTMessage(set_app_eui);
+delay_ms(800);
+sendUARTMessage(set_app_key);
+delay_ms(800);
+sendUARTMessage(join_network);
+delay_ms(800);
 }
