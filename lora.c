@@ -28,8 +28,8 @@ void initLoRa(void){
     delay_ms(800);
     // Set the appKey
     sendUARTMessage(set_app_key);
-    delay_ms(800);
+    delay_ms(3000);
     // Try to join the network with OTAA
     sendUARTMessage(join_network);
-    delay_ms(800);
+    delay_ms(3000);
 }
