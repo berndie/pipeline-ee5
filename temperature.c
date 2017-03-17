@@ -49,27 +49,33 @@ void initADC(void){
 
 void fillInTemp(char pipe_or_ambience){
     signed int temp;
+    // Check if pipe or ambience needs to be transmitted
     if(pipe_or_ambience == PIPE){
+        // For loop to change the 4 first letters to "Pipe"
         for(int i = 0; i<4; i++){
             temp_display_message[i] = pipe_ascii[i];   
         }
         temp = temp_pipe;
     }
     else{
+        // For loop to change the 4 first letters to "Amb."
         for(int i = 0; i<4; i++){
             temp_display_message[i] = ambient_ascii[i];   
         }
         temp = temp_ambient;
     }
-    //int temp_0 = 25;
-    //char temp = minus;
+    
+    // Check if temperature is below 0
     if(temp < 0){
+        // Add minus in front of the temperature
         asciiTemp[0] = '-';
+        // Make temperature postive --> makes working with % operator easier
         temp = - temp;
     }
     else{
         asciiTemp[0] = ' ';
     }
+    // Fill in the numbers of the temperature
     asciiTemp[1] =(char) (temp/100 + 48); 
     asciiTemp[2] =(char) (temp % 100 / 10 + 48);
     asciiTemp[3] = (char) (temp % 10 + 48);
@@ -83,17 +89,21 @@ void fillInTemp(char pipe_or_ambience){
 }
 signed int calculateTemp(int plus, int minus){
     signed int temp; 
+    // Get the difference between the channels
     temp = plus - minus;
+    // Convert millivolts to temperature
     temp = (int)((double)(temp) / 1024 * 2750 / 10);
     
     return temp;
 }
 
 void makeTempMessage(char pipe_or_ambient){
+    // Make the temp message for the pipe temperature
     if(pipe_or_ambient == PIPE){
         temp_pipe = calculateTemp(plus_pipe, minus_pipe);
         fillInTemp(PIPE);
     }
+    // Make the temp message for the ambience temperature
     else{
         temp_ambient = calculateTemp(plus_ambient, minus_ambient);
         fillInTemp(AMBIENT);

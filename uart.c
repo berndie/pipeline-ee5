@@ -18,7 +18,7 @@ unsigned int uart_receive_buffer_index = 0;
 
 void initUART1(void){
     //Init the UART1
-    //TXSTA1bits.TX9 = 0;
+    
     TRISCbits.TRISC7 = 1;
     TRISCbits.TRISC6 = 0;
     //5 steps: see datasheet page 355
@@ -26,9 +26,10 @@ void initUART1(void){
     BAUDCON1bits.BRG16 = 1;
     /////1/////
     //Baud rate calculations:
-    //SPBRGHx:SPBRGx =  ((Fosc/Desired Baud Rate)/64) - 1
-    //Fosc = 48MHz
-    //SPBRGHx:SPBRGx = 12
+    //SPBRGHx:SPBRGx =  ((Fosc/Desired Baud Rate)/4) - 1
+    //Fosc = 8MHz
+    //Desired Baud Rate = 57600
+    //SPBRGHx:SPBRGx = 34
     //Datasheet page: 349-350
     SPBRGH1 = 0;
     SPBRG1 = 34;
@@ -81,11 +82,12 @@ void uart_interrupt(void){
     //Interrupt for the receiving part
     if(PIR1bits.RC1IF == 1){
         PIR1bits.RC1IF = 0;
+        // Save the received byte in the receive buffer
         uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
         uart_receive_buffer_index += 1;
-        if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
-            RCSTA1bits.CREN = 0;
-        }
+        // If there is overflow, clear the buffer
+        // this is only for emergencies, buffer needs to be cleared with
+        // clearUARTReceiveBuffer
         if(uart_receive_buffer_index > BUFFER_SIZE){
             clearUARTReceiveBuffer();
         }

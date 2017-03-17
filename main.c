@@ -16,18 +16,6 @@
 #pragma config OSC = INTOSCPLL
 #pragma config CPUDIV = OSC1    // CPU System Clock Postscaler (No CPU system clock divide)
 
-
-
-
-
-
-//24Mhz/4 = 6Mhz --> 166ns per number 
-const long DELAY = 120000;
-
-const unsigned char getVerCommand[14] = "sys get ver\r\n";
-//TODO fill in deveui, appeui, deveui
-//void interrupt high_ISR(void);
-
 void initInterrupts(void){
     INTCON = 0b11000000;    //enable global and peripheral interrupt
     RCONbits.IPEN = 0;  //disable priority interrupts
