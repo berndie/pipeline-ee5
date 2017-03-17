@@ -46,11 +46,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initUART1 `(v ~T0 @X0 0 ef ]
 "57 temperature.h
 [v _initADC `(v ~T0 @X0 0 ef ]
-"51 uart.h
-[v _clearUARTReceiveBuffer `(v ~T0 @X0 0 ef ]
-"50
+"50 uart.h
 [v _UARTReceive `(v ~T0 @X0 0 ef1`uc ]
-"42 lora.h
+"43 lora.h
 [v _initLoRa `(v ~T0 @X0 0 ef ]
 "36 delay.h
 [v _delay_ms `(v ~T0 @X0 0 ef1`i ]
@@ -60,10 +58,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
 "54 temperature.h
 [v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
+"60
+[v _temperature_interrupt `(v ~T0 @X0 0 ef ]
 "53 uart.h
 [v _uart_interrupt `(v ~T0 @X0 0 ef ]
-"60 temperature.h
-[v _temperature_interrupt `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8153,6 +8151,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;temperature.h: 59: void makeTempMessage(char pipe_or_ambient);
 [; ;temperature.h: 60: void temperature_interrupt(void);
 "36 lora.h
+[v _getVerCommand `Cuc ~T0 @X0 -> 14 `i e ]
+[i _getVerCommand
+:U ..
+-> 115 `c
+-> 121 `c
+-> 115 `c
+-> 32 `c
+-> 103 `c
+-> 101 `c
+-> 116 `c
+-> 32 `c
+-> 118 `c
+-> 101 `c
+-> 114 `c
+-> 13 `c
+-> 10 `c
+-> 0 `c
+..
+]
+[; ;lora.h: 36: extern const unsigned char getVerCommand[14] = "sys get ver\r\n";
+"37
 [v _set_dev_eui `Cuc ~T0 @X0 -> 0 `x e ]
 [i _set_dev_eui
 :U ..
@@ -8192,8 +8211,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;lora.h: 36: const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
-"37
+[; ;lora.h: 37: const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
+"38
 [v _set_app_eui `Cuc ~T0 @X0 -> 0 `x e ]
 [i _set_app_eui
 :U ..
@@ -8233,8 +8252,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;lora.h: 37: const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
-"38
+[; ;lora.h: 38: const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
+"39
 [v _set_app_key `Cuc ~T0 @X0 -> 0 `x e ]
 [i _set_app_key
 :U ..
@@ -8290,8 +8309,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;lora.h: 38: const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
-"40
+[; ;lora.h: 39: const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
+"41
 [v _set_data_rate `Cuc ~T0 @X0 -> 0 `x e ]
 [i _set_data_rate
 :U ..
@@ -8312,8 +8331,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;lora.h: 40: const unsigned char set_data_rate[] = "mac set dr x\r\n";
-"41
+[; ;lora.h: 41: const unsigned char set_data_rate[] = "mac set dr x\r\n";
+"42
 [v _join_network `Cuc ~T0 @X0 -> 0 `x e ]
 [i _join_network
 :U ..
@@ -8335,8 +8354,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;lora.h: 41: const unsigned char join_network[]= "mac join otaa\r\n";
-[; ;lora.h: 42: void initLoRa(void);
+[; ;lora.h: 42: const unsigned char join_network[]= "mac join otaa\r\n";
+[; ;lora.h: 43: void initLoRa(void);
+[; ;lora.h: 44: void sendLoraMessage(void);
 [; ;delay.h: 36: void delay_ms(int ms);
 "13 main.c
 [p x XINST=OFF ]
@@ -8348,144 +8368,108 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x OSC=INTOSCPLL ]
 "17
 [p x CPUDIV=OSC1 ]
-"25
-[v _DELAY `Cl ~T0 @X0 1 e ]
-[i _DELAY
--> 120000 `l
-]
-[; ;main.c: 25: const long DELAY = 120000;
-"27
-[v _getVerCommand `Cuc ~T0 @X0 -> 14 `i e ]
-[i _getVerCommand
-:U ..
--> 115 `c
--> 121 `c
--> 115 `c
--> 32 `c
--> 103 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 118 `c
--> 101 `c
--> 114 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;main.c: 27: const unsigned char getVerCommand[14] = "sys get ver\r\n";
-"31
+"19
 [v _initInterrupts `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 31: void initInterrupts(void){
+[; ;main.c: 19: void initInterrupts(void){
 [e :U _initInterrupts ]
 [f ]
-[; ;main.c: 32: INTCON = 0b11000000;
-"32
+[; ;main.c: 20: INTCON = 0b11000000;
+"20
 [e = _INTCON -> -> 192 `i `uc ]
-[; ;main.c: 33: RCONbits.IPEN = 0;
-"33
+[; ;main.c: 21: RCONbits.IPEN = 0;
+"21
 [e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
-[; ;main.c: 34: }
-"34
+[; ;main.c: 22: }
+"22
 [e :UE 1209 ]
 }
-"36
+"24
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 36: void main(void) {
+[; ;main.c: 24: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 38: OSCCONbits.IRCF0 = 1;
-"38
+[; ;main.c: 26: OSCCONbits.IRCF0 = 1;
+"26
 [e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-[; ;main.c: 39: OSCCONbits.SCS0 = 1;
-"39
+[; ;main.c: 27: OSCCONbits.SCS0 = 1;
+"27
 [e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 40: OSCCONbits.SCS1 = 1;
-"40
+[; ;main.c: 28: OSCCONbits.SCS1 = 1;
+"28
 [e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 42: isCommandSent = 1;
-"42
+[; ;main.c: 30: isCommandSent = 1;
+"30
 [e = _isCommandSent -> -> 1 `i `uc ]
-[; ;main.c: 43: initUART1();
-"43
+[; ;main.c: 31: initUART1();
+"31
 [e ( _initUART1 ..  ]
-[; ;main.c: 44: initADC();
-"44
+[; ;main.c: 32: initADC();
+"32
 [e ( _initADC ..  ]
-[; ;main.c: 45: initInterrupts();
-"45
+[; ;main.c: 33: initInterrupts();
+"33
 [e ( _initInterrupts ..  ]
-[; ;main.c: 46: clearUARTReceiveBuffer();
-"46
-[e ( _clearUARTReceiveBuffer ..  ]
-[; ;main.c: 47: while(1){
-"47
+[; ;main.c: 34: while(1){
+"34
 [e :U 1212 ]
 {
-[; ;main.c: 48: UARTReceive(1);
-"48
+[; ;main.c: 35: UARTReceive(1);
+"35
 [e ( _UARTReceive (1 -> -> 1 `i `uc ]
-[; ;main.c: 49: initLoRa();
-"49
+[; ;main.c: 36: initLoRa();
+"36
 [e ( _initLoRa ..  ]
-[; ;main.c: 50: UARTReceive(0);
-"50
+[; ;main.c: 37: UARTReceive(0);
+"37
 [e ( _UARTReceive (1 -> -> 0 `i `uc ]
-[; ;main.c: 52: delay_ms(800);
-"52
+[; ;main.c: 39: delay_ms(800);
+"39
 [e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 53: clearUARTReceiveBuffer();
-"53
-[e ( _clearUARTReceiveBuffer ..  ]
-[; ;main.c: 54: delay_ms(800);
-"54
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 56: makeTempMessage(0);
-"56
+[; ;main.c: 41: makeTempMessage(0);
+"41
 [e ( _makeTempMessage (1 -> -> 0 `i `uc ]
-[; ;main.c: 57: sendUARTMessage(temp_display_message);
-"57
+[; ;main.c: 42: sendUARTMessage(temp_display_message);
+"42
 [e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 58: delay_ms(800);
-"58
+[; ;main.c: 43: delay_ms(800);
+"43
 [e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 60: makeTempMessage(1);
-"60
+[; ;main.c: 45: makeTempMessage(1);
+"45
 [e ( _makeTempMessage (1 -> -> 1 `i `uc ]
-[; ;main.c: 61: sendUARTMessage(temp_display_message);
-"61
+[; ;main.c: 46: sendUARTMessage(temp_display_message);
+"46
 [e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 62: delay_ms(800);
-"62
+[; ;main.c: 47: delay_ms(800);
+"47
 [e ( _delay_ms (1 -> 800 `i ]
-"63
+"48
 }
 [e :U 1211 ]
-"47
+"34
 [e $U 1212  ]
 [e :U 1213 ]
-[; ;main.c: 63: }
-[; ;main.c: 64: }
-"64
+[; ;main.c: 48: }
+[; ;main.c: 49: }
+"49
 [e :UE 1210 ]
 }
-[v F8493 `(v ~T0 @X0 1 tf ]
-"66
-[v _high_ISR `IF8493 ~T0 @X0 1 e ]
+[v F8494 `(v ~T0 @X0 1 tf ]
+"51
+[v _high_ISR `IF8494 ~T0 @X0 1 e ]
 {
-[; ;main.c: 66: void interrupt high_ISR(void){
+[; ;main.c: 51: void interrupt high_ISR(void){
 [e :U _high_ISR ]
 [f ]
-[; ;main.c: 67: uart_interrupt();
-"67
-[e ( _uart_interrupt ..  ]
-[; ;main.c: 68: temperature_interrupt();
-"68
+[; ;main.c: 52: temperature_interrupt();
+"52
 [e ( _temperature_interrupt ..  ]
-[; ;main.c: 69: }
-"69
+[; ;main.c: 53: uart_interrupt();
+"53
+[e ( _uart_interrupt ..  ]
+[; ;main.c: 54: }
+"54
 [e :UE 1214 ]
 }

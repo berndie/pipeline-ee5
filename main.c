@@ -31,14 +31,11 @@ void main(void) {
     initUART1();
     initADC();
     initInterrupts();
-    clearUARTReceiveBuffer();
     while(1){
         UARTReceive(ON);
         initLoRa();
         UARTReceive(OFF);     
         //sendUARTMessage(uart_receive_buffer);
-        delay_ms(800);
-        clearUARTReceiveBuffer();
         delay_ms(800);
         
         makeTempMessage(PIPE);
@@ -52,6 +49,6 @@ void main(void) {
 }
 
 void interrupt high_ISR(void){
-    uart_interrupt();
     temperature_interrupt();
+    uart_interrupt();
 }

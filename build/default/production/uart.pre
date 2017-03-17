@@ -10293,11 +10293,15 @@ void clearUARTReceiveBuffer(void);
 void sendUARTMessage(unsigned char *newMessagePointer);
 void uart_interrupt(void);
 
+# 36 "delay.h"
+void delay_ms(int ms);
+
 # 14 "uart.c"
 char isCommandSent = 1;
 unsigned char *currentMessagePointer;
 unsigned char uart_receive_buffer[100];
 unsigned int uart_receive_buffer_index = 0;
+unsigned int last_received_message_index = 0;
 
 void initUART1(void){
 
@@ -10308,7 +10312,7 @@ TRISCbits.TRISC6 = 0;
 TXSTA1bits.BRGH = 1;
 BAUDCON1bits.BRG16 = 1;
 
-# 33
+# 35
 SPBRGH1 = 0;
 SPBRG1 = 34;
 
@@ -10319,7 +10323,7 @@ RCSTA1bits.SPEN = 1;
 
 
 
-PIE1bits.TXIE = 1;
+PIE1bits.TXIE = 0;
 PIE1bits.RC1IE = 1;
 
 
@@ -10337,16 +10341,23 @@ RCSTA1bits.CREN = 0;
 }
 void sendUARTMessage(unsigned char *newMessagePointer){
 
-if(isCommandSent == 1){
 
 currentMessagePointer = newMessagePointer;
 
-isCommandSent == 0;
 
 
-PIE1bits.TXIE = 1;
+
+last_received_message_index = uart_receive_buffer_index;
 TXSTA1bits.TXEN = 1;
 
+while(*currentMessagePointer != '\0'){
+if(PIR1bits.TXIF == 1){
+
+TXREG1 = *currentMessagePointer;
+
+currentMessagePointer += 1;
+delay_ms(1);
+}
 }
 }
 void clearUARTReceiveBuffer(void){
@@ -10360,28 +10371,16 @@ void uart_interrupt(void){
 
 if(PIR1bits.RC1IF == 1){
 PIR1bits.RC1IF = 0;
+
 uart_receive_buffer[uart_receive_buffer_index] = RCREG1;
 uart_receive_buffer_index += 1;
-if(uart_receive_buffer[uart_receive_buffer_index] == '\n'){
-RCSTA1bits.CREN = 0;
-}
+
+
+
 if(uart_receive_buffer_index > 100){
-clearUARTReceiveBuffer();
+uart_receive_buffer_index = 0;
 }
 }
 
 
-if(PIR1bits.TX1IF == 1){
-
-if(*currentMessagePointer == '\0'){
-PIE1bits.TXIE = 0;
-isCommandSent = 1;
-}
-else{
-
-TXREG1 = *currentMessagePointer;
-
-currentMessagePointer += 1;
-}
-}
 }

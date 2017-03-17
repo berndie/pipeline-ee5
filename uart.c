@@ -8,13 +8,14 @@
 
 #include <xc.h>
 #include "uart.h"
-
+#include "delay.h"
 
 
 char isCommandSent = TRUE;
 unsigned char *currentMessagePointer;
 unsigned char uart_receive_buffer[BUFFER_SIZE];
 unsigned int uart_receive_buffer_index = 0;
+unsigned int last_received_message_index = 0;
 
 void initUART1(void){
     //Init the UART1
@@ -41,7 +42,7 @@ void initUART1(void){
     //Datasheet page 347
     
     /////3/////
-    PIE1bits.TXIE = 1;
+    PIE1bits.TXIE = 0;
     PIE1bits.RC1IE = 1;
     //Datasheet page 113
     
@@ -58,17 +59,24 @@ void UARTReceive(char on_or_off){
     }
 }
 void sendUARTMessage(unsigned char *newMessagePointer){
-    // Check if previous message is sent
-    if(isCommandSent == TRUE){     
-        //Change the current message
-        currentMessagePointer = newMessagePointer;
-        //The new message isn't sent yet
-        isCommandSent == FALSE;
-        //If TXEN is set to 1 --> TX1IF is set implicitly
-        //!!!!! THIS MEANS AN INTERRUPT IS TRIGGERED IF GIE AND PIE = 1
-        PIE1bits.TXIE = 1;
-        TXSTA1bits.TXEN = 1;
-        //Datasheet page 246
+    // Check if previous message is sent  
+    //Change the current message
+    currentMessagePointer = newMessagePointer;
+    //The new message isn't sent yet
+
+    //If TXEN is set to 1 --> TX1IF is set implicitly
+    //PIE1bits.TXIE = 1;
+    last_received_message_index = uart_receive_buffer_index;
+    TXSTA1bits.TXEN = 1;
+//    delay_ms(100);
+    while(*currentMessagePointer != '\0'){
+        if(PIR1bits.TXIF == 1){
+            //Prepare next byte for sending
+            TXREG1 = *currentMessagePointer;
+            //Go to the next byte
+            currentMessagePointer += 1;
+            delay_ms(1);
+        }
     }
 }
 void clearUARTReceiveBuffer(void){
@@ -89,22 +97,9 @@ void uart_interrupt(void){
         // this is only for emergencies, buffer needs to be cleared with
         // clearUARTReceiveBuffer
         if(uart_receive_buffer_index > BUFFER_SIZE){
-            clearUARTReceiveBuffer();
+            uart_receive_buffer_index = 0;
         }
     }
     
-    //Interrupt for the sending part
-    if(PIR1bits.TX1IF == 1){
-        //If end of string is reached --> stop transmitting
-        if(*currentMessagePointer == '\0'){
-            PIE1bits.TXIE = 0;
-            isCommandSent = TRUE;
-        }
-        else{
-            //Prepare next byte for sending
-            TXREG1 = *currentMessagePointer;
-            //Go to the next byte
-            currentMessagePointer += 1;
-        }
-    }
+    
 }

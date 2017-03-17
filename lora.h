@@ -41,6 +41,7 @@ const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C3
 const unsigned char set_data_rate[] = "mac set dr x\r\n";
 const unsigned char join_network[]= "mac join otaa\r\n";
 void initLoRa(void);
+void sendLoraMessage(void);
 //TODO choose datarate, is dependent of packet size
 
 
