@@ -36,13 +36,16 @@
 #define ON 1
 #define OFF 0
 #define BUFFER_SIZE 100
+#define MAX_MESSAGE_SIZE 30
 #define TRUE 1
 #define FALSE 0
 
 extern unsigned char uart_receive_buffer[BUFFER_SIZE];
+extern unsigned char last_uart_message[MAX_MESSAGE_SIZE];
 unsigned int uart_receive_buffer_index;
 char isCommandSent;
 unsigned char *currentMessagePointer;
+
 
 
 

@@ -16,6 +16,7 @@ unsigned char *currentMessagePointer;
 unsigned char uart_receive_buffer[BUFFER_SIZE];
 unsigned int uart_receive_buffer_index = 0;
 unsigned int last_received_message_index = 0;
+unsigned char last_uart_message[MAX_MESSAGE_SIZE];
 
 void initUART1(void){
     //Init the UART1
@@ -76,6 +77,16 @@ void sendUARTMessage(unsigned char *newMessagePointer){
             //Go to the next byte
             currentMessagePointer += 1;
             delay_ms(1);
+        }
+    }
+}
+void getLastReceivedMessage(){
+    unsigned char index = 0;
+    while(uart_receive_buffer_index != last_received_message_index){
+        last_uart_message[index] = uart_receive_buffer[last_received_message_index];
+        last_received_message_index++;
+        if(last_received_message_index > BUFFER_SIZE){
+            last_received_message_index = 0;
         }
     }
 }

@@ -50,7 +50,7 @@ smallconst SMALLCONST 0 F00 F00 B0 1
 idataBANK0 CODE 0 1BA4 1BA4 34 1
 dataBANK0 BANK0 1 60 60 34 1
 bssCOMRAM COMRAM 1 3E 3E 10 1
-$C:\Users\Bernd\AppData\Local\Temp\saug.obj
+$C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 reset_vec CODE 0 0 0 4 1
 end_init CODE 0 8A 8A 4 1
 config CONFIG 0 1FFF8 1FFF8 8 1
@@ -476,46 +476,46 @@ FF4 text5 CODE >55:C:\Users\Bernd\MPLABXProjects\EE5.X\temperature.c
 14F4 text0 CODE >52:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
 1500 text0 CODE >53:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
 150C text0 CODE >36:C:\Users\Bernd\MPLABXProjects\EE5.X\main.c
-1AA2 cinit CODE >4364:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AA2 cinit CODE >4366:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AA2 cinit CODE >4369:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AA2 cinit CODE >4468:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AA6 cinit CODE >4469:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AA8 cinit CODE >4470:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AA8 cinit CODE >4471:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AAA cinit CODE >4472:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AAC cinit CODE >4473:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AAE cinit CODE >4476:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AB2 cinit CODE >4477:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AB4 cinit CODE >4478:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AB4 cinit CODE >4479:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AB6 cinit CODE >4480:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AB8 cinit CODE >4481:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ABA cinit CODE >4484:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ABE cinit CODE >4485:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AC0 cinit CODE >4486:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AC0 cinit CODE >4487:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AC2 cinit CODE >4488:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AC4 cinit CODE >4489:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AC6 cinit CODE >4494:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AC8 cinit CODE >4495:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ACA cinit CODE >4496:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ACC cinit CODE >4497:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ACE cinit CODE >4498:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AD0 cinit CODE >4499:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AD2 cinit CODE >4500:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AD6 cinit CODE >4501:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ADA cinit CODE >4502:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ADA cinit CODE >4503:C:\Users\Bernd\AppData\Local\Temp\saug.
-1ADC cinit CODE >4504:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AE0 cinit CODE >4505:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AE2 cinit CODE >4506:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AE4 cinit CODE >4507:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AE6 cinit CODE >4513:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AE6 cinit CODE >4515:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AE8 cinit CODE >4516:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AEA cinit CODE >4517:C:\Users\Bernd\AppData\Local\Temp\saug.
-1AEC cinit CODE >4518:C:\Users\Bernd\AppData\Local\Temp\saug.
+1AA2 cinit CODE >4364:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AA2 cinit CODE >4366:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AA2 cinit CODE >4369:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AA2 cinit CODE >4468:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AA6 cinit CODE >4469:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AA8 cinit CODE >4470:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AA8 cinit CODE >4471:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AAA cinit CODE >4472:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AAC cinit CODE >4473:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AAE cinit CODE >4476:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AB2 cinit CODE >4477:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AB4 cinit CODE >4478:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AB4 cinit CODE >4479:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AB6 cinit CODE >4480:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AB8 cinit CODE >4481:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ABA cinit CODE >4484:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ABE cinit CODE >4485:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AC0 cinit CODE >4486:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AC0 cinit CODE >4487:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AC2 cinit CODE >4488:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AC4 cinit CODE >4489:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AC6 cinit CODE >4494:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AC8 cinit CODE >4495:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ACA cinit CODE >4496:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ACC cinit CODE >4497:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ACE cinit CODE >4498:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AD0 cinit CODE >4499:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AD2 cinit CODE >4500:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AD6 cinit CODE >4501:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ADA cinit CODE >4502:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ADA cinit CODE >4503:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1ADC cinit CODE >4504:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AE0 cinit CODE >4505:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AE2 cinit CODE >4506:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AE4 cinit CODE >4507:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AE6 cinit CODE >4513:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AE6 cinit CODE >4515:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AE8 cinit CODE >4516:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AEA cinit CODE >4517:C:\Users\Bernd\AppData\Local\Temp\s7g0.
+1AEC cinit CODE >4518:C:\Users\Bernd\AppData\Local\Temp\s7g0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -541,15 +541,15 @@ __size_of_initLoRa 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __end_of_set_data_rate F10 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 ___ftdiv@exp 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\EE5.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Bernd\AppData\Local\Temp\saug.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 ___awtoft@sign 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __end_of_makeTempMessage 1A50 0 CODE 0 text4 dist/default/production\EE5.X.production.obj
 _T1CONbits FCD 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __Lsmallconst F00 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\saug.obj
+___sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 _main 1444 0 CODE 0 text0 dist/default/production\EE5.X.production.obj
 btemp 4E 0 COMRAM 1 temp dist/default/production\EE5.X.production.obj
-start 8A 0 CODE 0 init C:\Users\Bernd\AppData\Local\Temp\saug.obj
+start 8A 0 CODE 0 init C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __size_of___awmod 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __size_of___ftdiv 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
@@ -575,11 +575,11 @@ fillInTemp@temp 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.product
 __Hpowerup 8A 0 CODE 0 powerup dist/default/production\EE5.X.production.obj
 ___awmod@sign 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __end_of_frequency_interrupt 182E 0 CODE 0 text26 dist/default/production\EE5.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\saug.obj
-intlevel0 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\saug.obj
-intlevel1 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\saug.obj
-intlevel2 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\saug.obj
-intlevel3 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\saug.obj
+__accesstop 60 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
+intlevel0 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
+intlevel1 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
+intlevel2 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
+intlevel3 0 0 CODE 0 text C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\EE5.X.production.obj
 calculateTemp@minus A5 0 BANK0 1 cstackBANK0 dist/default/production\EE5.X.production.obj
 _initLoRa 1998 0 CODE 0 text16 dist/default/production\EE5.X.production.obj
@@ -603,8 +603,8 @@ _ANCON1 F49 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _currentMessagePointer 3E 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
 _uart_interrupt 1C0A 0 CODE 0 text24 dist/default/production\EE5.X.production.obj
 ___awdiv@dividend 18 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\saug.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\saug.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 __size_of___awtoft 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 __size_of_init_frequency 0 0 ABS 0 - dist/default/production\EE5.X.production.obj
 _CCPR8H F08 0 ABS 0 - dist/default/production\EE5.X.production.obj
@@ -710,7 +710,7 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\EE5.X.production.obj
 __Hbank14 0 0 ABS 0 bank14 dist/default/production\EE5.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\EE5.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\EE5.X.production.obj
-__smallconst F00 0 SMALLCONST 0 smallconst C:\Users\Bernd\AppData\Local\Temp\saug.obj
+__smallconst F00 0 SMALLCONST 0 smallconst C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 _getVerCommand F10 0 SMALLCONST 0 smallconst dist/default/production\EE5.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\EE5.X.production.obj
 __Hconfig 20000 0 CONFIG 0 config dist/default/production\EE5.X.production.obj
@@ -867,8 +867,8 @@ _init_frequency 1B32 0 CODE 0 text14 dist/default/production\EE5.X.production.ob
 _initUART1 1C8E 0 CODE 0 text15 dist/default/production\EE5.X.production.obj
 ___lwdiv@divisor 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\EE5.X.production.obj
-stackhi EAF 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\saug.obj
-stacklo 164 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\saug.obj
+stackhi EAF 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
+stacklo 164 0 ABS 0 - C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 _minus_pipe 46 0 COMRAM 1 bssCOMRAM dist/default/production\EE5.X.production.obj
 _valueH BC 0 BANK0 1 bssBANK0 dist/default/production\EE5.X.production.obj
 _valueL BE 0 BANK0 1 bssBANK0 dist/default/production\EE5.X.production.obj
@@ -951,7 +951,7 @@ __Ltext24 0 0 ABS 0 text24 dist/default/production\EE5.X.production.obj
 __Ltext25 0 0 ABS 0 text25 dist/default/production\EE5.X.production.obj
 __Ltext26 0 0 ABS 0 text26 dist/default/production\EE5.X.production.obj
 _percent AF 0 BANK0 1 bssBANK0 dist/default/production\EE5.X.production.obj
-__ramtop F00 0 RAM 0 ramtop C:\Users\Bernd\AppData\Local\Temp\saug.obj
+__ramtop F00 0 RAM 0 ramtop C:\Users\Bernd\AppData\Local\Temp\s7g0.obj
 fillInTemp@pipe_or_ambience 24 0 COMRAM 1 cstackCOMRAM dist/default/production\EE5.X.production.obj
 __Lpowerup 8A 0 CODE 0 powerup dist/default/production\EE5.X.production.obj
 _initInterrupts 1CBA 0 CODE 0 text19 dist/default/production\EE5.X.production.obj
