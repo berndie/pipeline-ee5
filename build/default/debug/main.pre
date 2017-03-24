@@ -10325,8 +10325,19 @@ void sendLoraMessage(void);
 # 36 "delay.h"
 void delay_ms(int ms);
 
+# 37 "frequency.h"
+void frequency_interrupt(void);
 
-# 13 "main.c"
+void init_frequency(void);
+unsigned int valueH;
+unsigned int valueL;
+unsigned int timer;
+unsigned int inductive;
+double percent;
+unsigned int value;
+
+
+# 14 "main.c"
 #pragma config XINST = 0
 #pragma config WDTEN = 0
 #pragma config CFGPLLEN = 0
@@ -10345,10 +10356,12 @@ OSCCONbits.SCS0 = 1;
 OSCCONbits.SCS1 = 1;
 
 isCommandSent = 1;
+init_frequency();
 initUART1();
 initADC();
 initInterrupts();
 while(1){
+inductive= 40*value*value;
 UARTReceive(1);
 initLoRa();
 UARTReceive(0);
@@ -10368,4 +10381,5 @@ delay_ms(800);
 void interrupt high_ISR(void){
 temperature_interrupt();
 uart_interrupt();
+frequency_interrupt();
 }

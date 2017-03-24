@@ -8345,9 +8345,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;temperature.c: 42: PIR1bits.ADIF = 0;
 "42
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;temperature.c: 43: PIE1bits.ADIE = 1;
+[; ;temperature.c: 43: PIE1bits.ADIE = 0;
 "43
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
 [; ;temperature.c: 46: ADCON0bits.GO_DONE = 1;
 "46
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]

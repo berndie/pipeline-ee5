@@ -40,7 +40,7 @@ void initADC(void){
   	ADCON0bits.ADON = 0x01;//Enable A/D module
     
     PIR1bits.ADIF = 0;  //clear ADC interrupt flag
-    PIE1bits.ADIE = 1;  //enable ADC interrupt
+    PIE1bits.ADIE = 0;  //enable ADC interrupt
     
     //IPR1bits.ADIP = 0;  //ADC is low priority
     ADCON0bits.GO_DONE = 1;

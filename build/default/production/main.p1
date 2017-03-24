@@ -42,6 +42,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1123 . . . ]
 "17380
 [v _OSCCONbits `VS1123 ~T0 @X0 0 e@4051 ]
+"39 frequency.h
+[v _init_frequency `(v ~T0 @X0 0 ef ]
 "49 uart.h
 [v _initUART1 `(v ~T0 @X0 0 ef ]
 "57 temperature.h
@@ -52,16 +54,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initLoRa `(v ~T0 @X0 0 ef ]
 "36 delay.h
 [v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"59 temperature.h
-[v _makeTempMessage `(v ~T0 @X0 0 ef1`uc ]
+"40 frequency.h
+[v _make_frequency_message `(v ~T0 @X0 0 ef ]
 "52 uart.h
 [v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
-"54 temperature.h
+"41 frequency.h
+[v _frequency_message `uc ~T0 @X0 -> 0 `x e ]
+"59 temperature.h
+[v _makeTempMessage `(v ~T0 @X0 0 ef1`uc ]
+"54
 [v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
 "60
 [v _temperature_interrupt `(v ~T0 @X0 0 ef ]
 "53 uart.h
 [v _uart_interrupt `(v ~T0 @X0 0 ef ]
+"37 frequency.h
+[v _frequency_interrupt `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8358,118 +8366,165 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lora.h: 43: void initLoRa(void);
 [; ;lora.h: 44: void sendLoraMessage(void);
 [; ;delay.h: 36: void delay_ms(int ms);
-"13 main.c
+[; ;frequency.h: 37: void frequency_interrupt(void);
+[; ;frequency.h: 39: void init_frequency(void);
+[; ;frequency.h: 40: void make_frequency_message(void);
+[; ;frequency.h: 41: extern char frequency_message[];
+"42 frequency.h
+[v _value `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 42: unsigned int value;
+"43
+[v _measurement1 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 43: unsigned int measurement1;
+"44
+[v _measurement2 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 44: unsigned int measurement2;
+"45
+[v _valueH `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 45: unsigned int valueH;
+"46
+[v _valueL `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 46: unsigned int valueL;
+"47
+[v _timer `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 47: unsigned int timer;
+"48
+[v _inductive `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 48: unsigned int inductive;
+"49
+[v _percent `d ~T0 @X0 1 e ]
+[; ;frequency.h: 49: double percent;
+[; ;frequency.h: 50: unsigned int value;
+"14 main.c
 [p x XINST=OFF ]
-"14
-[p x WDTEN=OFF ]
 "15
-[p x CFGPLLEN=ON ]
+[p x WDTEN=OFF ]
 "16
-[p x OSC=INTOSCPLL ]
+[p x CFGPLLEN=ON ]
 "17
+[p x OSC=INTOSCPLL ]
+"18
 [p x CPUDIV=OSC1 ]
-"19
+"20
 [v _initInterrupts `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 19: void initInterrupts(void){
+[; ;main.c: 20: void initInterrupts(void){
 [e :U _initInterrupts ]
 [f ]
-[; ;main.c: 20: INTCON = 0b11000000;
-"20
-[e = _INTCON -> -> 192 `i `uc ]
-[; ;main.c: 21: RCONbits.IPEN = 0;
+[; ;main.c: 21: INTCON = 0b11000000;
 "21
-[e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
-[; ;main.c: 22: }
+[e = _INTCON -> -> 192 `i `uc ]
+[; ;main.c: 22: RCONbits.IPEN = 0;
 "22
+[e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
+[; ;main.c: 23: }
+"23
 [e :UE 1209 ]
 }
-"24
+"25
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 24: void main(void) {
+[; ;main.c: 25: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 26: OSCCONbits.IRCF0 = 1;
-"26
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-[; ;main.c: 27: OSCCONbits.SCS0 = 1;
+[; ;main.c: 27: OSCCONbits.IRCF0 = 1;
 "27
-[e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 28: OSCCONbits.SCS1 = 1;
+[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
+[; ;main.c: 28: OSCCONbits.SCS0 = 1;
 "28
+[e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
+[; ;main.c: 29: OSCCONbits.SCS1 = 1;
+"29
 [e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 30: isCommandSent = 1;
-"30
-[e = _isCommandSent -> -> 1 `i `uc ]
-[; ;main.c: 31: initUART1();
+[; ;main.c: 31: isCommandSent = 1;
 "31
-[e ( _initUART1 ..  ]
-[; ;main.c: 32: initADC();
+[e = _isCommandSent -> -> 1 `i `uc ]
+[; ;main.c: 32: init_frequency();
 "32
-[e ( _initADC ..  ]
-[; ;main.c: 33: initInterrupts();
+[e ( _init_frequency ..  ]
+[; ;main.c: 33: initUART1();
 "33
-[e ( _initInterrupts ..  ]
-[; ;main.c: 34: while(1){
+[e ( _initUART1 ..  ]
+[; ;main.c: 34: initADC();
 "34
+[e ( _initADC ..  ]
+[; ;main.c: 35: initInterrupts();
+"35
+[e ( _initInterrupts ..  ]
+[; ;main.c: 36: while(1){
+"36
 [e :U 1212 ]
 {
-[; ;main.c: 35: UARTReceive(1);
-"35
-[e ( _UARTReceive (1 -> -> 1 `i `uc ]
-[; ;main.c: 36: initLoRa();
-"36
-[e ( _initLoRa ..  ]
-[; ;main.c: 37: UARTReceive(0);
+[; ;main.c: 37: inductive= 40*value*value;
 "37
-[e ( _UARTReceive (1 -> -> 0 `i `uc ]
-[; ;main.c: 39: delay_ms(800);
+[e = _inductive * * -> -> 40 `i `ui _value _value ]
+[; ;main.c: 38: UARTReceive(1);
+"38
+[e ( _UARTReceive (1 -> -> 1 `i `uc ]
+[; ;main.c: 39: initLoRa();
 "39
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 41: makeTempMessage(0);
-"41
-[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
-[; ;main.c: 42: sendUARTMessage(temp_display_message);
+[e ( _initLoRa ..  ]
+[; ;main.c: 40: UARTReceive(0);
+"40
+[e ( _UARTReceive (1 -> -> 0 `i `uc ]
+[; ;main.c: 42: delay_ms(800);
 "42
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 43: delay_ms(800);
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 43: make_frequency_message();
 "43
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 45: makeTempMessage(1);
+[e ( _make_frequency_message ..  ]
+[; ;main.c: 44: sendUARTMessage(frequency_message);
+"44
+[e ( _sendUARTMessage (1 &U _frequency_message ]
+[; ;main.c: 45: delay_ms(800);
 "45
-[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
-[; ;main.c: 46: sendUARTMessage(temp_display_message);
-"46
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 47: delay_ms(800);
-"47
 [e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 47: makeTempMessage(0);
+"47
+[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
+[; ;main.c: 48: sendUARTMessage(temp_display_message);
 "48
+[e ( _sendUARTMessage (1 &U _temp_display_message ]
+[; ;main.c: 49: delay_ms(800);
+"49
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 51: makeTempMessage(1);
+"51
+[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
+[; ;main.c: 52: sendUARTMessage(temp_display_message);
+"52
+[e ( _sendUARTMessage (1 &U _temp_display_message ]
+[; ;main.c: 53: delay_ms(800);
+"53
+[e ( _delay_ms (1 -> 800 `i ]
+"54
 }
 [e :U 1211 ]
-"34
+"36
 [e $U 1212  ]
 [e :U 1213 ]
-[; ;main.c: 48: }
-[; ;main.c: 49: }
-"49
+[; ;main.c: 54: }
+[; ;main.c: 55: }
+"55
 [e :UE 1210 ]
 }
-[v F8494 `(v ~T0 @X0 1 tf ]
-"51
-[v _high_ISR `IF8494 ~T0 @X0 1 e ]
+[v F8509 `(v ~T0 @X0 1 tf ]
+"57
+[v _high_ISR `IF8509 ~T0 @X0 1 e ]
 {
-[; ;main.c: 51: void interrupt high_ISR(void){
+[; ;main.c: 57: void interrupt high_ISR(void){
 [e :U _high_ISR ]
 [f ]
-[; ;main.c: 52: temperature_interrupt();
-"52
+[; ;main.c: 58: temperature_interrupt();
+"58
 [e ( _temperature_interrupt ..  ]
-[; ;main.c: 53: uart_interrupt();
-"53
+[; ;main.c: 59: uart_interrupt();
+"59
 [e ( _uart_interrupt ..  ]
-[; ;main.c: 54: }
-"54
+[; ;main.c: 60: frequency_interrupt();
+"60
+[e ( _frequency_interrupt ..  ]
+[; ;main.c: 61: }
+"61
 [e :UE 1214 ]
 }

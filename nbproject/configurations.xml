@@ -8,6 +8,7 @@
       <itemPath>temperature.h</itemPath>
       <itemPath>lora.h</itemPath>
       <itemPath>delay.h</itemPath>
+      <itemPath>frequency.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +22,7 @@
       <itemPath>temperature.c</itemPath>
       <itemPath>lora.c</itemPath>
       <itemPath>delay.c</itemPath>
+      <itemPath>frequency.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -9,6 +9,7 @@
 #include "temperature.h"
 #include "lora.h"
 #include "delay.h"
+#include "frequency.h"
 
 #pragma config XINST = OFF
 #pragma config WDTEN = OFF
@@ -28,14 +29,19 @@ void main(void) {
     OSCCONbits.SCS1 = 1;
     //When started, a new command can be sent
     isCommandSent = TRUE;
+    init_frequency();
     initUART1();
     initADC();
     initInterrupts();
     while(1){
+        inductive= 40*value*value;
         UARTReceive(ON);
         initLoRa();
         UARTReceive(OFF);     
         //sendUARTMessage(uart_receive_buffer);
+        delay_ms(800);
+        make_frequency_message();
+        sendUARTMessage(frequency_message);
         delay_ms(800);
         
         makeTempMessage(PIPE);
@@ -51,4 +57,5 @@ void main(void) {
 void interrupt high_ISR(void){
     temperature_interrupt();
     uart_interrupt();
+    frequency_interrupt();
 }

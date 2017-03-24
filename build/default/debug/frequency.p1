@@ -1,71 +1,83 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"18231 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
-[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
-"16597
-[s S1067 :1 `uc 1 ]
-[n S1067 . NOT_BOR ]
-"16600
-[s S1068 :1 `uc 1 :1 `uc 1 ]
-[n S1068 . . NOT_POR ]
-"16604
-[s S1069 :2 `uc 1 :1 `uc 1 ]
-[n S1069 . . NOT_PD ]
-"16608
-[s S1070 :3 `uc 1 :1 `uc 1 ]
-[n S1070 . . NOT_TO ]
-"16612
-[s S1071 :4 `uc 1 :1 `uc 1 ]
-[n S1071 . . NOT_RI ]
-"16616
-[s S1072 :5 `uc 1 :1 `uc 1 ]
-[n S1072 . . NOT_CM ]
-"16620
-[s S1073 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1073 . nBOR nPOR nPD nTO nRI nCM . IPEN ]
-"16630
-[s S1074 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1074 . BOR POR PD TO RI CM ]
-"16596
-[u S1066 `S1067 1 `S1068 1 `S1069 1 `S1070 1 `S1071 1 `S1072 1 `S1073 1 `S1074 1 ]
-[n S1066 . . . . . . . . . ]
-"16639
-[v _RCONbits `VS1066 ~T0 @X0 0 e@4048 ]
-[p mainexit ]
-"17364
-[s S1124 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S1124 . SCS FLTS OSTS IRCF IDLEN ]
-"17371
-[s S1125 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1125 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"17363
-[u S1123 `S1124 1 `S1125 1 ]
-[n S1123 . . . ]
-"17380
-[v _OSCCONbits `VS1123 ~T0 @X0 0 e@4051 ]
-"39 frequency.h
-[v _init_frequency `(v ~T0 @X0 0 ef ]
-"49 uart.h
-[v _initUART1 `(v ~T0 @X0 0 ef ]
-"57 temperature.h
-[v _initADC `(v ~T0 @X0 0 ef ]
-"50 uart.h
-[v _UARTReceive `(v ~T0 @X0 0 ef1`uc ]
-"43 lora.h
-[v _initLoRa `(v ~T0 @X0 0 ef ]
-"36 delay.h
-[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"59 temperature.h
-[v _makeTempMessage `(v ~T0 @X0 0 ef1`uc ]
-"52 uart.h
-[v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
-"54 temperature.h
-[v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
-"60
-[v _temperature_interrupt `(v ~T0 @X0 0 ef ]
-"53 uart.h
-[v _uart_interrupt `(v ~T0 @X0 0 ef ]
-"37 frequency.h
-[v _frequency_interrupt `(v ~T0 @X0 0 ef ]
+"10042 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
+[s S657 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S657 . CCP3IF CCP4IF CCP5IF CCP6IF CCP7IF CCP8IF CCP9IF CCP10IF ]
+"10041
+[u S656 `S657 1 ]
+[n S656 . . ]
+"10053
+[v _PIR4bits `VS656 ~T0 @X0 0 e@3983 ]
+"1556
+[v _CCPR8L `Vuc ~T0 @X0 0 e@3847 ]
+"1575
+[v _CCPR8H `Vuc ~T0 @X0 0 e@3848 ]
+"10338
+[s S668 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S668 . TRISC0 TRISC1 TRISC2 . TRISC6 TRISC7 ]
+"10337
+[u S667 `S668 1 ]
+[n S667 . . ]
+"10347
+[v _TRISCbits `VS667 ~T0 @X0 0 e@3988 ]
+"5903
+[s S381 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S381 . C8TSEL C9TSEL0 . C10TSEL0 ]
+"5909
+[s S382 :1 `uc 1 :1 `uc 1 ]
+[n S382 . C8TSEL0 C8TSEL1 ]
+"5902
+[u S380 `S381 1 `S382 1 ]
+[n S380 . . . ]
+"5914
+[v _CCPTMRS2bits `VS380 ~T0 @X0 0 e@3920 ]
+"9981
+[s S655 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S655 . CCP3IE CCP4IE CCP5IE CCP6IE CCP7IE CCP8IE CCP9IE CCP10IE ]
+"9980
+[u S654 `S655 1 ]
+[n S654 . . ]
+"9992
+[v _PIE4bits `VS654 ~T0 @X0 0 e@3982 ]
+"1493
+[v _CCP8CON `Vuc ~T0 @X0 0 e@3846 ]
+"18237
+[s S1185 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1185 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"18247
+[s S1186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1186 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"18257
+[s S1187 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1187 . . GIEL GIEH ]
+"18236
+[u S1184 `S1185 1 `S1186 1 `S1187 1 ]
+[n S1184 . . . . ]
+"18263
+[v _INTCONbits `VS1184 ~T0 @X0 0 e@4082 ]
+"16450
+[s S1057 :2 `uc 1 :1 `uc 1 ]
+[n S1057 . . NOT_T1SYNC ]
+"16454
+[s S1058 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S1058 . TMR1ON RD16 nT1SYNC T1OSCEN T1CKPS TMR1CS ]
+"16462
+[s S1059 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1059 . . T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
+"16469
+[s S1060 :3 `uc 1 :1 `uc 1 ]
+[n S1060 . . SOSCEN ]
+"16473
+[s S1061 :7 `uc 1 :1 `uc 1 ]
+[n S1061 . . T1RD16 ]
+"16449
+[u S1056 `S1057 1 `S1058 1 `S1059 1 `S1060 1 `S1061 1 ]
+[n S1056 . . . . . . ]
+"16478
+[v _T1CONbits `VS1056 ~T0 @X0 0 e@4045 ]
+"16553
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
+"16572
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8108,401 +8120,221 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 42: extern unsigned char uart_receive_buffer[100];
-"43 uart.h
-[v _uart_receive_buffer_index `ui ~T0 @X0 1 e ]
-[; ;uart.h: 43: unsigned int uart_receive_buffer_index;
-"44
-[v _isCommandSent `uc ~T0 @X0 1 e ]
-[; ;uart.h: 44: char isCommandSent;
-"45
-[v _currentMessagePointer `*uc ~T0 @X0 1 e ]
-[; ;uart.h: 45: unsigned char *currentMessagePointer;
-[; ;uart.h: 49: void initUART1(void);
-[; ;uart.h: 50: void UARTReceive(char on_or_off);
-[; ;uart.h: 51: void clearUARTReceiveBuffer(void);
-[; ;uart.h: 52: void sendUARTMessage(unsigned char *newMessagePointer);
-[; ;uart.h: 53: void uart_interrupt(void);
-[; ;temperature.h: 45: extern const unsigned char pipe_ascii[];
-[; ;temperature.h: 46: extern const unsigned char ambient_ascii[];
-"47 temperature.h
-[v _plus_pipe `i ~T0 @X0 1 e ]
-[; ;temperature.h: 47: signed int plus_pipe;
-"48
-[v _minus_pipe `i ~T0 @X0 1 e ]
-[; ;temperature.h: 48: signed int minus_pipe;
-"49
-[v _plus_ambient `i ~T0 @X0 1 e ]
-[; ;temperature.h: 49: signed int plus_ambient;
-"50
-[v _minus_ambient `i ~T0 @X0 1 e ]
-[; ;temperature.h: 50: signed int minus_ambient;
-"51
-[v _temp_pipe `i ~T0 @X0 1 e ]
-[; ;temperature.h: 51: signed int temp_pipe;
-"52
-[v _temp_ambient `i ~T0 @X0 1 e ]
-[; ;temperature.h: 52: signed int temp_ambient;
-"53
-[v _currentChannel `ui ~T0 @X0 1 e ]
-[; ;temperature.h: 53: unsigned int currentChannel;
-[; ;temperature.h: 54: extern unsigned char temp_display_message[];
-"55
-[v _asciiTemp `uc ~T0 @X0 -> 0 `x e ]
-[; ;temperature.h: 55: unsigned char asciiTemp[];
-[; ;temperature.h: 57: void initADC(void);
-[; ;temperature.h: 58: signed int calculateTemp(int plus, int minus);
-[; ;temperature.h: 59: void makeTempMessage(char pipe_or_ambient);
-[; ;temperature.h: 60: void temperature_interrupt(void);
-"36 lora.h
-[v _getVerCommand `Cuc ~T0 @X0 -> 14 `i e ]
-[i _getVerCommand
-:U ..
--> 115 `c
--> 121 `c
--> 115 `c
--> 32 `c
--> 103 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 118 `c
--> 101 `c
--> 114 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 36: extern const unsigned char getVerCommand[14] = "sys get ver\r\n";
-"37
-[v _set_dev_eui `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_dev_eui
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 100 `c
--> 101 `c
--> 118 `c
--> 101 `c
--> 117 `c
--> 105 `c
--> 32 `c
--> 48 `c
--> 48 `c
--> 48 `c
--> 52 `c
--> 65 `c
--> 51 `c
--> 48 `c
--> 66 `c
--> 48 `c
--> 48 `c
--> 49 `c
--> 65 `c
--> 67 `c
--> 70 `c
--> 55 `c
--> 68 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 37: const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
-"38
-[v _set_app_eui `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_app_eui
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 97 `c
--> 112 `c
--> 112 `c
--> 101 `c
--> 117 `c
--> 105 `c
--> 32 `c
--> 55 `c
--> 52 `c
--> 67 `c
--> 53 `c
--> 52 `c
--> 50 `c
--> 52 `c
--> 53 `c
--> 51 `c
--> 56 `c
--> 53 `c
--> 55 `c
--> 57 `c
--> 55 `c
--> 52 `c
--> 65 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 38: const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
-"39
-[v _set_app_key `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_app_key
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 97 `c
--> 112 `c
--> 112 `c
--> 107 `c
--> 101 `c
--> 121 `c
--> 32 `c
--> 50 `c
--> 69 `c
--> 49 `c
--> 53 `c
--> 65 `c
--> 70 `c
--> 67 `c
--> 57 `c
--> 52 `c
--> 65 `c
--> 55 `c
--> 69 `c
--> 70 `c
--> 54 `c
--> 57 `c
--> 65 `c
--> 69 `c
--> 54 `c
--> 49 `c
--> 65 `c
--> 56 `c
--> 49 `c
--> 52 `c
--> 55 `c
--> 51 `c
--> 55 `c
--> 67 `c
--> 51 `c
--> 56 `c
--> 54 `c
--> 57 `c
--> 57 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 39: const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
-"41
-[v _set_data_rate `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_data_rate
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 100 `c
--> 114 `c
--> 32 `c
--> 120 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 41: const unsigned char set_data_rate[] = "mac set dr x\r\n";
-"42
-[v _join_network `Cuc ~T0 @X0 -> 0 `x e ]
-[i _join_network
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 106 `c
--> 111 `c
--> 105 `c
--> 110 `c
--> 32 `c
--> 111 `c
--> 116 `c
--> 97 `c
--> 97 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.h: 42: const unsigned char join_network[]= "mac join otaa\r\n";
-[; ;lora.h: 43: void initLoRa(void);
-[; ;lora.h: 44: void sendLoraMessage(void);
-[; ;delay.h: 36: void delay_ms(int ms);
-[; ;frequency.h: 37: void frequency_interrupt(void);
-[; ;frequency.h: 39: void init_frequency(void);
-"40 frequency.h
-[v _valueH `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 40: unsigned int valueH;
-"41
-[v _valueL `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 41: unsigned int valueL;
-"42
-[v _timer `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 42: unsigned int timer;
-"43
-[v _inductive `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 43: unsigned int inductive;
-"44
-[v _percent `d ~T0 @X0 1 e ]
-[; ;frequency.h: 44: double percent;
-"45
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;frequency.c: 15: void frequency_interrupt(void);
+[; ;frequency.c: 17: void init_frequency(void);
+"24 frequency.c
 [v _value `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 45: unsigned int value;
-"14 main.c
-[p x XINST=OFF ]
-"15
-[p x WDTEN=OFF ]
-"16
-[p x CFGPLLEN=ON ]
-"17
-[p x OSC=INTOSCPLL ]
-"18
-[p x CPUDIV=OSC1 ]
-"20
-[v _initInterrupts `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 20: void initInterrupts(void){
-[e :U _initInterrupts ]
-[f ]
-[; ;main.c: 21: INTCON = 0b11000000;
-"21
-[e = _INTCON -> -> 192 `i `uc ]
-[; ;main.c: 22: RCONbits.IPEN = 0;
-"22
-[e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
-[; ;main.c: 23: }
-"23
-[e :UE 1209 ]
-}
+[i _value
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 24: unsigned int value = 0 ;
 "25
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 25: void main(void) {
-[e :U _main ]
-[f ]
-[; ;main.c: 27: OSCCONbits.IRCF0 = 1;
+[v _valueH `ui ~T0 @X0 1 e ]
+[i _valueH
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 25: unsigned int valueH = 0;
+"26
+[v _valueL `ui ~T0 @X0 1 e ]
+[i _valueL
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 26: unsigned int valueL = 0;
 "27
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-[; ;main.c: 28: OSCCONbits.SCS0 = 1;
+[v _timer `ui ~T0 @X0 1 e ]
+[i _timer
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 27: unsigned int timer = 0;
 "28
-[e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 29: OSCCONbits.SCS1 = 1;
+[v _inductive `ui ~T0 @X0 1 e ]
+[i _inductive
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 28: unsigned int inductive = 0;
 "29
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 31: isCommandSent = 1;
-"31
-[e = _isCommandSent -> -> 1 `i `uc ]
-[; ;main.c: 32: init_frequency();
-"32
-[e ( _init_frequency ..  ]
-[; ;main.c: 33: initUART1();
-"33
-[e ( _initUART1 ..  ]
-[; ;main.c: 34: initADC();
-"34
-[e ( _initADC ..  ]
-[; ;main.c: 35: initInterrupts();
-"35
-[e ( _initInterrupts ..  ]
-[; ;main.c: 36: while(1){
+[v _percent `d ~T0 @X0 1 e ]
+[i _percent
+.0.0
+]
+[; ;frequency.c: 29: double percent = 0.0;
 "36
-[e :U 1212 ]
-{
-[; ;main.c: 37: inductive= 40*value*value;
+[v _frequency_interrupt `(v ~T0 @X0 1 ef ]
 "37
-[e = _inductive * * -> -> 40 `i `ui _value _value ]
-[; ;main.c: 38: UARTReceive(1);
-"38
-[e ( _UARTReceive (1 -> -> 1 `i `uc ]
-[; ;main.c: 39: initLoRa();
-"39
-[e ( _initLoRa ..  ]
-[; ;main.c: 40: UARTReceive(0);
-"40
-[e ( _UARTReceive (1 -> -> 0 `i `uc ]
-[; ;main.c: 42: delay_ms(800);
-"42
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 44: makeTempMessage(0);
-"44
-[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
-[; ;main.c: 45: sendUARTMessage(temp_display_message);
-"45
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 46: delay_ms(800);
-"46
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 48: makeTempMessage(1);
-"48
-[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
-[; ;main.c: 49: sendUARTMessage(temp_display_message);
-"49
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 50: delay_ms(800);
-"50
-[e ( _delay_ms (1 -> 800 `i ]
-"51
-}
-[e :U 1211 ]
-"36
-[e $U 1212  ]
-[e :U 1213 ]
-[; ;main.c: 51: }
-[; ;main.c: 52: }
-"52
-[e :UE 1210 ]
-}
-[v F8504 `(v ~T0 @X0 1 tf ]
-"54
-[v _high_ISR `IF8504 ~T0 @X0 1 e ]
 {
-[; ;main.c: 54: void interrupt high_ISR(void){
-[e :U _high_ISR ]
+[; ;frequency.c: 36: void frequency_interrupt(void)
+[; ;frequency.c: 37: {
+[e :U _frequency_interrupt ]
 [f ]
-[; ;main.c: 55: temperature_interrupt();
-"55
-[e ( _temperature_interrupt ..  ]
-[; ;main.c: 56: uart_interrupt();
-"56
-[e ( _uart_interrupt ..  ]
-[; ;main.c: 57: frequency_interrupt();
-"57
-[e ( _frequency_interrupt ..  ]
-[; ;main.c: 58: }
-"58
+[; ;frequency.c: 38: if(PIR4bits.CCP8IF == 1)
+"38
+[e $ ! == -> . . _PIR4bits 0 5 `i -> 1 `i 1215  ]
+[; ;frequency.c: 39: {
+"39
+{
+[; ;frequency.c: 40: valueH = value;
+"40
+[e = _valueH _value ]
+[; ;frequency.c: 41: value = CCPR8L + 256*CCPR8H;
+"41
+[e = _value -> + -> _CCPR8L `i * -> 256 `i -> _CCPR8H `i `ui ]
+[; ;frequency.c: 42: valueL = (value - valueH)/16;
+"42
+[e = _valueL / - _value _valueH -> -> 16 `i `ui ]
+[; ;frequency.c: 47: PIR4bits.CCP8IF=0;
+"47
+[e = . . _PIR4bits 0 5 -> -> 0 `i `uc ]
+"48
+}
+[e :U 1215 ]
+[; ;frequency.c: 48: }
+[; ;frequency.c: 50: }
+"50
 [e :UE 1214 ]
+}
+"78
+[v _init_frequency `(v ~T0 @X0 1 ef ]
+"79
+{
+[; ;frequency.c: 78: void init_frequency(void)
+[; ;frequency.c: 79: {
+[e :U _init_frequency ]
+[f ]
+[; ;frequency.c: 80: TRISCbits.TRISC1 = 1;
+"80
+[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
+[; ;frequency.c: 82: CCPTMRS2bits.C8TSEL1=0;
+"82
+[e = . . _CCPTMRS2bits 1 1 -> -> 0 `i `uc ]
+[; ;frequency.c: 83: CCPTMRS2bits.C8TSEL0=0;
+"83
+[e = . . _CCPTMRS2bits 1 0 -> -> 0 `i `uc ]
+[; ;frequency.c: 85: PIE4bits.CCP8IE =1;
+"85
+[e = . . _PIE4bits 0 5 -> -> 1 `i `uc ]
+[; ;frequency.c: 86: PIR4bits.CCP8IF=0;
+"86
+[e = . . _PIR4bits 0 5 -> -> 0 `i `uc ]
+[; ;frequency.c: 92: CCP8CON=0x07;
+"92
+[e = _CCP8CON -> -> 7 `i `uc ]
+[; ;frequency.c: 95: INTCONbits.GIE = 1;
+"95
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;frequency.c: 97: T1CONbits.RD16=1;
+"97
+[e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
+[; ;frequency.c: 98: T1CONbits.TMR1ON=1;
+"98
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;frequency.c: 99: T1CONbits.TMR1CS0=1;
+"99
+[e = . . _T1CONbits 2 3 -> -> 1 `i `uc ]
+[; ;frequency.c: 100: T1CONbits.TMR1CS1=0;
+"100
+[e = . . _T1CONbits 2 4 -> -> 0 `i `uc ]
+[; ;frequency.c: 101: T1CONbits.T1CKPS1=0;
+"101
+[e = . . _T1CONbits 2 2 -> -> 0 `i `uc ]
+[; ;frequency.c: 102: T1CONbits.T1CKPS0=0;
+"102
+[e = . . _T1CONbits 2 1 -> -> 0 `i `uc ]
+[; ;frequency.c: 103: T1CONbits.T1OSCEN=0;
+"103
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+[; ;frequency.c: 104: TMR1L=0X00;
+"104
+[e = _TMR1L -> -> 0 `i `uc ]
+[; ;frequency.c: 105: TMR1H=0X00;
+"105
+[e = _TMR1H -> -> 0 `i `uc ]
+[; ;frequency.c: 106: CCPR8H=0x00;
+"106
+[e = _CCPR8H -> -> 0 `i `uc ]
+[; ;frequency.c: 107: CCPR8L=0x00;
+"107
+[e = _CCPR8L -> -> 0 `i `uc ]
+[; ;frequency.c: 110: }
+"110
+[e :UE 1216 ]
 }
