@@ -85,10 +85,13 @@ void getLastReceivedMessage(){
     while(uart_receive_buffer_index != last_received_message_index){
         last_uart_message[index] = uart_receive_buffer[last_received_message_index];
         last_received_message_index++;
+        index++;
         if(last_received_message_index > BUFFER_SIZE){
             last_received_message_index = 0;
         }
     }
+    last_uart_message[index] = uart_receive_buffer[last_received_message_index];
+    last_uart_message[index + 1] = '\0';
 }
 void clearUARTReceiveBuffer(void){
     for(int i = 0; i<BUFFER_SIZE; i++){
