@@ -7,6 +7,7 @@
 #pragma config XINST = OFF
 #include <math.h>
 #include <xc.h>
+#include "frequency.h"
 #include "digipot_spi.h"
 
 char step;
@@ -15,7 +16,11 @@ char state=0x00;
 float frequency;
 char bigorsmall;
 
-
+void initSPI();
+void remappings();
+void adjustDigipot();
+void adjustDigipot();
+void unselect();
 
 void initSPI(){
     SSP2STAT = 0b00000000;                                  //configure the pic for spi communication
@@ -40,6 +45,7 @@ void remappings(){
 }
 void checkFrequency(){
     //check the current frequency witha ccp module and store it in the varible frequency
+    frequency = (float) cap_value;
 }
 
 void digipot(){

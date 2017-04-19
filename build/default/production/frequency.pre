@@ -10417,26 +10417,30 @@ void frequency_interrupt(void);
 void init_frequency(void);
 
 # 24
-unsigned int value = 0 ;
-unsigned int measurement1 = 0;
-unsigned int measurement2 = 0;
+unsigned int ind_value = 0 ;
+unsigned int cap_value = 0 ;
+unsigned int ind_measurement1 = 0;
+unsigned int ind_measurement2 = 0;
+unsigned int cap_measurement1 = 0;
+unsigned int cap_measurement2 = 0;
 unsigned int valueH = 0;
 unsigned int valueL = 0;
 unsigned int timer = 0;
 unsigned int inductive = 0;
 double percent = 0.0;
-char frequency_message[] = "The frequency is:      \r\n";
+char ind_frequency_message[] = "The inductive frequency is:      \r\n";
+char cap_frequency_message[] = "The capacitive frequency is:      \r\n";
 
-# 39
+# 43
 void frequency_interrupt(void)
 {
 if(PIR4bits.CCP8IF == 1)
 {
 
-measurement1 = measurement2;
-measurement2 = CCPR8L + 256*CCPR8H;
-if((measurement2 - measurement1)/16 < 1600){
-value = (measurement2 - measurement1)/16;
+ind_measurement1 = ind_measurement2;
+ind_measurement2 = CCPR8L + 256*CCPR8H;
+if((ind_measurement2 - ind_measurement1)/16 < 1600){
+ind_value = (ind_measurement2 - ind_measurement1)/16;
 }
 
 
@@ -10444,31 +10448,48 @@ value = (measurement2 - measurement1)/16;
 
 PIR4bits.CCP8IF=0;
 }
+if(PIR4bits.CCP7IF == 1)
+{
+
+cap_measurement1 = cap_measurement2;
+cap_measurement2 = CCPR7L + 256*CCPR7H;
+if((cap_measurement2 - cap_measurement1)/16 < 1600){
+cap_value = (cap_measurement2 - cap_measurement1)/16;
+}
+
+
+
+
+PIR4bits.CCP7IF=0;
+}
 
 }
 
-# 81
+# 99
 void make_frequency_message(){
-frequency_message[19] = (value / 1000 + 48);
-frequency_message[20] = (value % 1000 / 100 + 48);
-frequency_message[21] = (value % 100 / 10 + 48);
-frequency_message[22] = (value % 10 + 48);
+ind_frequency_message[29] = (ind_value / 1000 + 48);
+ind_frequency_message[30] = (ind_value % 1000 / 100 + 48);
+ind_frequency_message[31] = (ind_value % 100 / 10 + 48);
+ind_frequency_message[32] = (ind_value % 10 + 48);
+cap_frequency_message[30] = (cap_value / 1000 + 48);
+cap_frequency_message[31] = (cap_value % 1000 / 100 + 48);
+cap_frequency_message[32] = (cap_value % 100 / 10 + 48);
+cap_frequency_message[33] = (cap_value % 10 + 48);
 }
 
-# 91
+# 113
 void init_frequency(void)
 {
+
+
 TRISCbits.TRISC1 = 1;
 
 CCPTMRS2bits.C8TSEL1=0;
 CCPTMRS2bits.C8TSEL0=0;
 
-PIE4bits.CCP8IE =1;
+PIE4bits.CCP8IE=1;
 PIR4bits.CCP8IF=0;
-
-# 105
 CCP8CON=0x07;
-
 
 INTCONbits.GIE = 1;
 
@@ -10484,5 +10505,28 @@ TMR1H=0X00;
 CCPR8H=0x00;
 CCPR8L=0x00;
 
+
+
+
+TRISBbits.TRISB7 = 1;
+
+CCPTMRS1bits.C7TSEL0=0;
+CCPTMRS1bits.C7TSEL1=1;
+PIE4bits.CCP7IE=1;
+PIR4bits.CCP7IF=0;
+CCP7CON=0x07;
+
+T5CONbits.RD16=1;
+T5CONbits.TMR5ON=1;
+T5CONbits.TMR5CS0=1;
+T5CONbits.TMR5CS1=0;
+T5CONbits.T5CKPS1=0;
+T5CONbits.T5CKPS0=0;
+T5CONbits.T5OSCEN=0;
+
+TMR5L=0X00;
+TMR5H=0X00;
+CCPR7H=0x00;
+CCPR7L=0x00;
 
 }

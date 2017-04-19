@@ -60,13 +60,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _make_frequency_message `(v ~T0 @X0 0 ef ]
 "55 uart.h
 [v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
-"41 frequency.h
-[v _frequency_message `uc ~T0 @X0 -> 0 `x e ]
+"42 frequency.h
+[v _ind_frequency_message `uc ~T0 @X0 -> 0 `x e ]
+"41
+[v _cap_frequency_message `uc ~T0 @X0 -> 0 `x e ]
 "59 temperature.h
 [v _makeTempMessage `(v ~T0 @X0 0 ef1`uc ]
 "54
 [v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
-"58 main.c
+"60 main.c
 [v _digipot `(i ~T0 @X0 0 ef ]
 "60 temperature.h
 [v _temperature_interrupt `(v ~T0 @X0 0 ef ]
@@ -8374,32 +8376,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;frequency.h: 37: void frequency_interrupt(void);
 [; ;frequency.h: 39: void init_frequency(void);
 [; ;frequency.h: 40: void make_frequency_message(void);
-[; ;frequency.h: 41: extern char frequency_message[];
-"42 frequency.h
+[; ;frequency.h: 41: extern char cap_frequency_message[];
+[; ;frequency.h: 42: extern char ind_frequency_message[];
+[; ;frequency.h: 43: extern unsigned int cap_value;
+"44 frequency.h
 [v _value `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 42: unsigned int value;
-"43
-[v _measurement1 `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 43: unsigned int measurement1;
-"44
-[v _measurement2 `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 44: unsigned int measurement2;
+[; ;frequency.h: 44: unsigned int value;
 "45
-[v _valueH `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 45: unsigned int valueH;
+[v _ind_measurement1 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 45: unsigned int ind_measurement1;
 "46
-[v _valueL `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 46: unsigned int valueL;
+[v _ind_measurement2 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 46: unsigned int ind_measurement2;
 "47
-[v _timer `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 47: unsigned int timer;
+[v _cap_measurement1 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 47: unsigned int cap_measurement1;
 "48
-[v _inductive `ui ~T0 @X0 1 e ]
-[; ;frequency.h: 48: unsigned int inductive;
+[v _cap_measurement2 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 48: unsigned int cap_measurement2;
 "49
+[v _valueH `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 49: unsigned int valueH;
+"50
+[v _valueL `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 50: unsigned int valueL;
+"51
+[v _timer `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 51: unsigned int timer;
+"52
+[v _inductive `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 52: unsigned int inductive;
+"53
 [v _percent `d ~T0 @X0 1 e ]
-[; ;frequency.h: 49: double percent;
-[; ;frequency.h: 50: unsigned int value;
+[; ;frequency.h: 53: double percent;
+[; ;frequency.h: 54: unsigned int value;
 "15 main.c
 [p x XINST=OFF ]
 "16
@@ -8481,61 +8491,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 45: make_frequency_message();
 "45
 [e ( _make_frequency_message ..  ]
-[; ;main.c: 46: sendUARTMessage(frequency_message);
+[; ;main.c: 46: sendUARTMessage(ind_frequency_message);
 "46
-[e ( _sendUARTMessage (1 &U _frequency_message ]
+[e ( _sendUARTMessage (1 &U _ind_frequency_message ]
 [; ;main.c: 47: delay_ms(800);
 "47
 [e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 49: makeTempMessage(0);
+[; ;main.c: 48: sendUARTMessage(cap_frequency_message);
+"48
+[e ( _sendUARTMessage (1 &U _cap_frequency_message ]
+[; ;main.c: 49: delay_ms(800);
 "49
-[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
-[; ;main.c: 50: sendUARTMessage(temp_display_message);
-"50
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 51: delay_ms(800);
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 51: makeTempMessage(0);
 "51
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 53: makeTempMessage(1);
-"53
-[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
-[; ;main.c: 54: sendUARTMessage(temp_display_message);
-"54
+[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
+[; ;main.c: 52: sendUARTMessage(temp_display_message);
+"52
 [e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 55: delay_ms(800);
-"55
+[; ;main.c: 53: delay_ms(800);
+"53
 [e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 58: digipot();
-"58
+[; ;main.c: 55: makeTempMessage(1);
+"55
+[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
+[; ;main.c: 56: sendUARTMessage(temp_display_message);
+"56
+[e ( _sendUARTMessage (1 &U _temp_display_message ]
+[; ;main.c: 57: delay_ms(800);
+"57
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 60: digipot();
+"60
 [e ( _digipot ..  ]
-"59
+"61
 }
 [e :U 1211 ]
 "38
 [e $U 1212  ]
 [e :U 1213 ]
-[; ;main.c: 59: }
-[; ;main.c: 60: }
-"60
+[; ;main.c: 61: }
+[; ;main.c: 62: }
+"62
 [e :UE 1210 ]
 }
-[v F8512 `(v ~T0 @X0 1 tf ]
-"62
-[v _high_ISR `IF8512 ~T0 @X0 1 e ]
+[v F8516 `(v ~T0 @X0 1 tf ]
+"64
+[v _high_ISR `IF8516 ~T0 @X0 1 e ]
 {
-[; ;main.c: 62: void interrupt high_ISR(void){
+[; ;main.c: 64: void interrupt high_ISR(void){
 [e :U _high_ISR ]
 [f ]
-[; ;main.c: 63: temperature_interrupt();
-"63
-[e ( _temperature_interrupt ..  ]
-[; ;main.c: 64: uart_interrupt();
-"64
-[e ( _uart_interrupt ..  ]
-[; ;main.c: 65: frequency_interrupt();
+[; ;main.c: 65: temperature_interrupt();
 "65
-[e ( _frequency_interrupt ..  ]
-[; ;main.c: 66: }
+[e ( _temperature_interrupt ..  ]
+[; ;main.c: 66: uart_interrupt();
 "66
+[e ( _uart_interrupt ..  ]
+[; ;main.c: 67: frequency_interrupt();
+"67
+[e ( _frequency_interrupt ..  ]
+[; ;main.c: 68: }
+"68
 [e :UE 1214 ]
 }

@@ -11,6 +11,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCPR8L `Vuc ~T0 @X0 0 e@3847 ]
 "1575
 [v _CCPR8H `Vuc ~T0 @X0 0 e@3848 ]
+"1657
+[v _CCPR7L `Vuc ~T0 @X0 0 e@3850 ]
+"1676
+[v _CCPR7H `Vuc ~T0 @X0 0 e@3851 ]
 "10338
 [s S668 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S668 . TRISC0 TRISC1 TRISC2 . TRISC6 TRISC7 ]
@@ -78,6 +82,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
 "16572
 [v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"10277
+[s S666 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S666 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"10276
+[u S665 `S666 1 ]
+[n S665 . . ]
+"10288
+[v _TRISBbits `VS665 ~T0 @X0 0 e@3987 ]
+"5949
+[s S384 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
+[n S384 . C4TSEL C5TSEL0 . C6TSEL0 . C7TSEL ]
+"5957
+[s S385 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S385 . C4TSEL0 C4TSEL1 . C7TSEL0 C7TSEL1 ]
+"5948
+[u S383 `S384 1 `S385 1 ]
+[n S383 . . . ]
+"5965
+[v _CCPTMRS1bits `VS383 ~T0 @X0 0 e@3921 ]
+"1594
+[v _CCP7CON `Vuc ~T0 @X0 0 e@3849 ]
+"2728
+[s S142 :2 `uc 1 :1 `uc 1 ]
+[n S142 . . NOT_T5SYNC ]
+"2732
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S143 . TMR5ON RD16 nT5SYNC T5OSCEN T5CKPS TMR5CS ]
+"2740
+[s S144 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S144 . . T5CKPS0 T5CKPS1 TMR5CS0 TMR5CS1 ]
+"2747
+[s S145 :1 `uc 1 :1 `uc 1 ]
+[n S145 . . RD165 ]
+"2751
+[s S146 :3 `uc 1 :1 `uc 1 ]
+[n S146 . . SOSCEN5 ]
+"2727
+[u S141 `S142 1 `S143 1 `S144 1 `S145 1 `S146 1 ]
+[n S141 . . . . . . ]
+"2756
+[v _T5CONbits `VS141 ~T0 @X0 0 e@3874 ]
+"2825
+[v _TMR5L `Vuc ~T0 @X0 0 e@3875 ]
+"2844
+[v _TMR5H `Vuc ~T0 @X0 0 e@3876 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8203,59 +8252,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;frequency.c: 15: void frequency_interrupt(void);
 [; ;frequency.c: 17: void init_frequency(void);
 "24 frequency.c
-[v _value `ui ~T0 @X0 1 e ]
-[i _value
+[v _ind_value `ui ~T0 @X0 1 e ]
+[i _ind_value
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 24: unsigned int value = 0 ;
+[; ;frequency.c: 24: unsigned int ind_value = 0 ;
 "25
-[v _measurement1 `ui ~T0 @X0 1 e ]
-[i _measurement1
+[v _cap_value `ui ~T0 @X0 1 e ]
+[i _cap_value
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 25: unsigned int measurement1 = 0;
+[; ;frequency.c: 25: unsigned int cap_value = 0 ;
 "26
-[v _measurement2 `ui ~T0 @X0 1 e ]
-[i _measurement2
+[v _ind_measurement1 `ui ~T0 @X0 1 e ]
+[i _ind_measurement1
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 26: unsigned int measurement2 = 0;
+[; ;frequency.c: 26: unsigned int ind_measurement1 = 0;
 "27
+[v _ind_measurement2 `ui ~T0 @X0 1 e ]
+[i _ind_measurement2
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 27: unsigned int ind_measurement2 = 0;
+"28
+[v _cap_measurement1 `ui ~T0 @X0 1 e ]
+[i _cap_measurement1
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 28: unsigned int cap_measurement1 = 0;
+"29
+[v _cap_measurement2 `ui ~T0 @X0 1 e ]
+[i _cap_measurement2
+-> -> 0 `i `ui
+]
+[; ;frequency.c: 29: unsigned int cap_measurement2 = 0;
+"30
 [v _valueH `ui ~T0 @X0 1 e ]
 [i _valueH
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 27: unsigned int valueH = 0;
-"28
+[; ;frequency.c: 30: unsigned int valueH = 0;
+"31
 [v _valueL `ui ~T0 @X0 1 e ]
 [i _valueL
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 28: unsigned int valueL = 0;
-"29
+[; ;frequency.c: 31: unsigned int valueL = 0;
+"32
 [v _timer `ui ~T0 @X0 1 e ]
 [i _timer
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 29: unsigned int timer = 0;
-"30
+[; ;frequency.c: 32: unsigned int timer = 0;
+"33
 [v _inductive `ui ~T0 @X0 1 e ]
 [i _inductive
 -> -> 0 `i `ui
 ]
-[; ;frequency.c: 30: unsigned int inductive = 0;
-"31
+[; ;frequency.c: 33: unsigned int inductive = 0;
+"34
 [v _percent `d ~T0 @X0 1 e ]
 [i _percent
 .0.0
 ]
-[; ;frequency.c: 31: double percent = 0.0;
-"32
-[v _frequency_message `uc ~T0 @X0 -> 0 `x e ]
-[i _frequency_message
+[; ;frequency.c: 34: double percent = 0.0;
+"35
+[v _ind_frequency_message `uc ~T0 @X0 -> 0 `x e ]
+[i _ind_frequency_message
 :U ..
 -> 84 `c
 -> 104 `c
+-> 101 `c
+-> 32 `c
+-> 105 `c
+-> 110 `c
+-> 100 `c
+-> 117 `c
+-> 99 `c
+-> 116 `c
+-> 105 `c
+-> 118 `c
 -> 101 `c
 -> 32 `c
 -> 102 `c
@@ -8282,134 +8359,271 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;frequency.c: 32: char frequency_message[] = "The frequency is:      \r\n";
-"39
+[; ;frequency.c: 35: char ind_frequency_message[] = "The inductive frequency is:      \r\n";
+"36
+[v _cap_frequency_message `uc ~T0 @X0 -> 0 `x e ]
+[i _cap_frequency_message
+:U ..
+-> 84 `c
+-> 104 `c
+-> 101 `c
+-> 32 `c
+-> 99 `c
+-> 97 `c
+-> 112 `c
+-> 97 `c
+-> 99 `c
+-> 105 `c
+-> 116 `c
+-> 105 `c
+-> 118 `c
+-> 101 `c
+-> 32 `c
+-> 102 `c
+-> 114 `c
+-> 101 `c
+-> 113 `c
+-> 117 `c
+-> 101 `c
+-> 110 `c
+-> 99 `c
+-> 121 `c
+-> 32 `c
+-> 105 `c
+-> 115 `c
+-> 58 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 32 `c
+-> 13 `c
+-> 10 `c
+-> 0 `c
+..
+]
+[; ;frequency.c: 36: char cap_frequency_message[] = "The capacitive frequency is:      \r\n";
+"43
 [v _frequency_interrupt `(v ~T0 @X0 1 ef ]
-"40
+"44
 {
-[; ;frequency.c: 39: void frequency_interrupt(void)
-[; ;frequency.c: 40: {
+[; ;frequency.c: 43: void frequency_interrupt(void)
+[; ;frequency.c: 44: {
 [e :U _frequency_interrupt ]
 [f ]
-[; ;frequency.c: 41: if(PIR4bits.CCP8IF == 1)
-"41
-[e $ ! == -> . . _PIR4bits 0 5 `i -> 1 `i 1215  ]
-[; ;frequency.c: 42: {
-"42
-{
-[; ;frequency.c: 44: measurement1 = measurement2;
-"44
-[e = _measurement1 _measurement2 ]
-[; ;frequency.c: 45: measurement2 = CCPR8L + 256*CCPR8H;
+[; ;frequency.c: 45: if(PIR4bits.CCP8IF == 1)
 "45
-[e = _measurement2 -> + -> _CCPR8L `i * -> 256 `i -> _CCPR8H `i `ui ]
-[; ;frequency.c: 46: if((measurement2 - measurement1)/16 < 1600){
+[e $ ! == -> . . _PIR4bits 0 5 `i -> 1 `i 1215  ]
+[; ;frequency.c: 46: {
 "46
-[e $ ! < / - _measurement2 _measurement1 -> -> 16 `i `ui -> -> 1600 `i `ui 1216  ]
 {
-[; ;frequency.c: 47: value = (measurement2 - measurement1)/16;
-"47
-[e = _value / - _measurement2 _measurement1 -> -> 16 `i `ui ]
+[; ;frequency.c: 48: ind_measurement1 = ind_measurement2;
 "48
+[e = _ind_measurement1 _ind_measurement2 ]
+[; ;frequency.c: 49: ind_measurement2 = CCPR8L + 256*CCPR8H;
+"49
+[e = _ind_measurement2 -> + -> _CCPR8L `i * -> 256 `i -> _CCPR8H `i `ui ]
+[; ;frequency.c: 50: if((ind_measurement2 - ind_measurement1)/16 < 1600){
+"50
+[e $ ! < / - _ind_measurement2 _ind_measurement1 -> -> 16 `i `ui -> -> 1600 `i `ui 1216  ]
+{
+[; ;frequency.c: 51: ind_value = (ind_measurement2 - ind_measurement1)/16;
+"51
+[e = _ind_value / - _ind_measurement2 _ind_measurement1 -> -> 16 `i `ui ]
+"52
 }
 [e :U 1216 ]
-[; ;frequency.c: 48: }
-[; ;frequency.c: 53: PIR4bits.CCP8IF=0;
-"53
+[; ;frequency.c: 52: }
+[; ;frequency.c: 57: PIR4bits.CCP8IF=0;
+"57
 [e = . . _PIR4bits 0 5 -> -> 0 `i `uc ]
-"54
+"58
 }
 [e :U 1215 ]
-[; ;frequency.c: 54: }
-[; ;frequency.c: 56: }
-"56
+[; ;frequency.c: 58: }
+[; ;frequency.c: 59: if(PIR4bits.CCP7IF == 1)
+"59
+[e $ ! == -> . . _PIR4bits 0 4 `i -> 1 `i 1217  ]
+[; ;frequency.c: 60: {
+"60
+{
+[; ;frequency.c: 62: cap_measurement1 = cap_measurement2;
+"62
+[e = _cap_measurement1 _cap_measurement2 ]
+[; ;frequency.c: 63: cap_measurement2 = CCPR7L + 256*CCPR7H;
+"63
+[e = _cap_measurement2 -> + -> _CCPR7L `i * -> 256 `i -> _CCPR7H `i `ui ]
+[; ;frequency.c: 64: if((cap_measurement2 - cap_measurement1)/16 < 1600){
+"64
+[e $ ! < / - _cap_measurement2 _cap_measurement1 -> -> 16 `i `ui -> -> 1600 `i `ui 1218  ]
+{
+[; ;frequency.c: 65: cap_value = (cap_measurement2 - cap_measurement1)/16;
+"65
+[e = _cap_value / - _cap_measurement2 _cap_measurement1 -> -> 16 `i `ui ]
+"66
+}
+[e :U 1218 ]
+[; ;frequency.c: 66: }
+[; ;frequency.c: 71: PIR4bits.CCP7IF=0;
+"71
+[e = . . _PIR4bits 0 4 -> -> 0 `i `uc ]
+"72
+}
+[e :U 1217 ]
+[; ;frequency.c: 72: }
+[; ;frequency.c: 74: }
+"74
 [e :UE 1214 ]
 }
-"81
+"99
 [v _make_frequency_message `(v ~T0 @X0 1 ef ]
 {
-[; ;frequency.c: 81: void make_frequency_message(){
+[; ;frequency.c: 99: void make_frequency_message(){
 [e :U _make_frequency_message ]
 [f ]
-[; ;frequency.c: 82: frequency_message[19] = (value / 1000 + 48);
-"82
-[e = *U + &U _frequency_message * -> -> -> 19 `i `ui `ux -> -> # *U &U _frequency_message `ui `ux -> + / _value -> -> 1000 `i `ui -> -> 48 `i `ui `uc ]
-[; ;frequency.c: 83: frequency_message[20] = (value % 1000 / 100 + 48);
-"83
-[e = *U + &U _frequency_message * -> -> -> 20 `i `ui `ux -> -> # *U &U _frequency_message `ui `ux -> + / % _value -> -> 1000 `i `ui -> -> 100 `i `ui -> -> 48 `i `ui `uc ]
-[; ;frequency.c: 84: frequency_message[21] = (value % 100 / 10 + 48);
-"84
-[e = *U + &U _frequency_message * -> -> -> 21 `i `ui `ux -> -> # *U &U _frequency_message `ui `ux -> + / % _value -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;frequency.c: 85: frequency_message[22] = (value % 10 + 48);
-"85
-[e = *U + &U _frequency_message * -> -> -> 22 `i `ui `ux -> -> # *U &U _frequency_message `ui `ux -> + % _value -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;frequency.c: 86: }
-"86
-[e :UE 1217 ]
+[; ;frequency.c: 100: ind_frequency_message[29] = (ind_value / 1000 + 48);
+"100
+[e = *U + &U _ind_frequency_message * -> -> -> 29 `i `ui `ux -> -> # *U &U _ind_frequency_message `ui `ux -> + / _ind_value -> -> 1000 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 101: ind_frequency_message[30] = (ind_value % 1000 / 100 + 48);
+"101
+[e = *U + &U _ind_frequency_message * -> -> -> 30 `i `ui `ux -> -> # *U &U _ind_frequency_message `ui `ux -> + / % _ind_value -> -> 1000 `i `ui -> -> 100 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 102: ind_frequency_message[31] = (ind_value % 100 / 10 + 48);
+"102
+[e = *U + &U _ind_frequency_message * -> -> -> 31 `i `ui `ux -> -> # *U &U _ind_frequency_message `ui `ux -> + / % _ind_value -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 103: ind_frequency_message[32] = (ind_value % 10 + 48);
+"103
+[e = *U + &U _ind_frequency_message * -> -> -> 32 `i `ui `ux -> -> # *U &U _ind_frequency_message `ui `ux -> + % _ind_value -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 104: cap_frequency_message[30] = (cap_value / 1000 + 48);
+"104
+[e = *U + &U _cap_frequency_message * -> -> -> 30 `i `ui `ux -> -> # *U &U _cap_frequency_message `ui `ux -> + / _cap_value -> -> 1000 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 105: cap_frequency_message[31] = (cap_value % 1000 / 100 + 48);
+"105
+[e = *U + &U _cap_frequency_message * -> -> -> 31 `i `ui `ux -> -> # *U &U _cap_frequency_message `ui `ux -> + / % _cap_value -> -> 1000 `i `ui -> -> 100 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 106: cap_frequency_message[32] = (cap_value % 100 / 10 + 48);
+"106
+[e = *U + &U _cap_frequency_message * -> -> -> 32 `i `ui `ux -> -> # *U &U _cap_frequency_message `ui `ux -> + / % _cap_value -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 107: cap_frequency_message[33] = (cap_value % 10 + 48);
+"107
+[e = *U + &U _cap_frequency_message * -> -> -> 33 `i `ui `ux -> -> # *U &U _cap_frequency_message `ui `ux -> + % _cap_value -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;frequency.c: 108: }
+"108
+[e :UE 1219 ]
 }
-"91
+"113
 [v _init_frequency `(v ~T0 @X0 1 ef ]
-"92
+"114
 {
-[; ;frequency.c: 91: void init_frequency(void)
-[; ;frequency.c: 92: {
+[; ;frequency.c: 113: void init_frequency(void)
+[; ;frequency.c: 114: {
 [e :U _init_frequency ]
 [f ]
-[; ;frequency.c: 93: TRISCbits.TRISC1 = 1;
-"93
-[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
-[; ;frequency.c: 95: CCPTMRS2bits.C8TSEL1=0;
-"95
-[e = . . _CCPTMRS2bits 1 1 -> -> 0 `i `uc ]
-[; ;frequency.c: 96: CCPTMRS2bits.C8TSEL0=0;
-"96
-[e = . . _CCPTMRS2bits 1 0 -> -> 0 `i `uc ]
-[; ;frequency.c: 98: PIE4bits.CCP8IE =1;
-"98
-[e = . . _PIE4bits 0 5 -> -> 1 `i `uc ]
-[; ;frequency.c: 99: PIR4bits.CCP8IF=0;
-"99
-[e = . . _PIR4bits 0 5 -> -> 0 `i `uc ]
-[; ;frequency.c: 105: CCP8CON=0x07;
-"105
-[e = _CCP8CON -> -> 7 `i `uc ]
-[; ;frequency.c: 108: INTCONbits.GIE = 1;
-"108
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;frequency.c: 110: T1CONbits.RD16=1;
-"110
-[e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
-[; ;frequency.c: 111: T1CONbits.TMR1ON=1;
-"111
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;frequency.c: 112: T1CONbits.TMR1CS0=1;
-"112
-[e = . . _T1CONbits 2 3 -> -> 1 `i `uc ]
-[; ;frequency.c: 113: T1CONbits.TMR1CS1=0;
-"113
-[e = . . _T1CONbits 2 4 -> -> 0 `i `uc ]
-[; ;frequency.c: 114: T1CONbits.T1CKPS1=0;
-"114
-[e = . . _T1CONbits 2 2 -> -> 0 `i `uc ]
-[; ;frequency.c: 115: T1CONbits.T1CKPS0=0;
-"115
-[e = . . _T1CONbits 2 1 -> -> 0 `i `uc ]
-[; ;frequency.c: 116: T1CONbits.T1OSCEN=0;
-"116
-[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
-[; ;frequency.c: 117: TMR1L=0X00;
+[; ;frequency.c: 117: TRISCbits.TRISC1 = 1;
 "117
-[e = _TMR1L -> -> 0 `i `uc ]
-[; ;frequency.c: 118: TMR1H=0X00;
-"118
-[e = _TMR1H -> -> 0 `i `uc ]
-[; ;frequency.c: 119: CCPR8H=0x00;
+[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
+[; ;frequency.c: 119: CCPTMRS2bits.C8TSEL1=0;
 "119
-[e = _CCPR8H -> -> 0 `i `uc ]
-[; ;frequency.c: 120: CCPR8L=0x00;
+[e = . . _CCPTMRS2bits 1 1 -> -> 0 `i `uc ]
+[; ;frequency.c: 120: CCPTMRS2bits.C8TSEL0=0;
 "120
-[e = _CCPR8L -> -> 0 `i `uc ]
-[; ;frequency.c: 123: }
+[e = . . _CCPTMRS2bits 1 0 -> -> 0 `i `uc ]
+[; ;frequency.c: 122: PIE4bits.CCP8IE=1;
+"122
+[e = . . _PIE4bits 0 5 -> -> 1 `i `uc ]
+[; ;frequency.c: 123: PIR4bits.CCP8IF=0;
 "123
-[e :UE 1218 ]
+[e = . . _PIR4bits 0 5 -> -> 0 `i `uc ]
+[; ;frequency.c: 124: CCP8CON=0x07;
+"124
+[e = _CCP8CON -> -> 7 `i `uc ]
+[; ;frequency.c: 126: INTCONbits.GIE = 1;
+"126
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;frequency.c: 128: T1CONbits.RD16=1;
+"128
+[e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
+[; ;frequency.c: 129: T1CONbits.TMR1ON=1;
+"129
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;frequency.c: 130: T1CONbits.TMR1CS0=1;
+"130
+[e = . . _T1CONbits 2 3 -> -> 1 `i `uc ]
+[; ;frequency.c: 131: T1CONbits.TMR1CS1=0;
+"131
+[e = . . _T1CONbits 2 4 -> -> 0 `i `uc ]
+[; ;frequency.c: 132: T1CONbits.T1CKPS1=0;
+"132
+[e = . . _T1CONbits 2 2 -> -> 0 `i `uc ]
+[; ;frequency.c: 133: T1CONbits.T1CKPS0=0;
+"133
+[e = . . _T1CONbits 2 1 -> -> 0 `i `uc ]
+[; ;frequency.c: 134: T1CONbits.T1OSCEN=0;
+"134
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+[; ;frequency.c: 135: TMR1L=0X00;
+"135
+[e = _TMR1L -> -> 0 `i `uc ]
+[; ;frequency.c: 136: TMR1H=0X00;
+"136
+[e = _TMR1H -> -> 0 `i `uc ]
+[; ;frequency.c: 137: CCPR8H=0x00;
+"137
+[e = _CCPR8H -> -> 0 `i `uc ]
+[; ;frequency.c: 138: CCPR8L=0x00;
+"138
+[e = _CCPR8L -> -> 0 `i `uc ]
+[; ;frequency.c: 143: TRISBbits.TRISB7 = 1;
+"143
+[e = . . _TRISBbits 0 7 -> -> 1 `i `uc ]
+[; ;frequency.c: 145: CCPTMRS1bits.C7TSEL0=0;
+"145
+[e = . . _CCPTMRS1bits 1 3 -> -> 0 `i `uc ]
+[; ;frequency.c: 146: CCPTMRS1bits.C7TSEL1=1;
+"146
+[e = . . _CCPTMRS1bits 1 4 -> -> 1 `i `uc ]
+[; ;frequency.c: 147: PIE4bits.CCP7IE=1;
+"147
+[e = . . _PIE4bits 0 4 -> -> 1 `i `uc ]
+[; ;frequency.c: 148: PIR4bits.CCP7IF=0;
+"148
+[e = . . _PIR4bits 0 4 -> -> 0 `i `uc ]
+[; ;frequency.c: 149: CCP7CON=0x07;
+"149
+[e = _CCP7CON -> -> 7 `i `uc ]
+[; ;frequency.c: 151: T5CONbits.RD16=1;
+"151
+[e = . . _T5CONbits 1 1 -> -> 1 `i `uc ]
+[; ;frequency.c: 152: T5CONbits.TMR5ON=1;
+"152
+[e = . . _T5CONbits 1 0 -> -> 1 `i `uc ]
+[; ;frequency.c: 153: T5CONbits.TMR5CS0=1;
+"153
+[e = . . _T5CONbits 2 3 -> -> 1 `i `uc ]
+[; ;frequency.c: 154: T5CONbits.TMR5CS1=0;
+"154
+[e = . . _T5CONbits 2 4 -> -> 0 `i `uc ]
+[; ;frequency.c: 155: T5CONbits.T5CKPS1=0;
+"155
+[e = . . _T5CONbits 2 2 -> -> 0 `i `uc ]
+[; ;frequency.c: 156: T5CONbits.T5CKPS0=0;
+"156
+[e = . . _T5CONbits 2 1 -> -> 0 `i `uc ]
+[; ;frequency.c: 157: T5CONbits.T5OSCEN=0;
+"157
+[e = . . _T5CONbits 1 3 -> -> 0 `i `uc ]
+[; ;frequency.c: 159: TMR5L=0X00;
+"159
+[e = _TMR5L -> -> 0 `i `uc ]
+[; ;frequency.c: 160: TMR5H=0X00;
+"160
+[e = _TMR5H -> -> 0 `i `uc ]
+[; ;frequency.c: 161: CCPR7H=0x00;
+"161
+[e = _CCPR7H -> -> 0 `i `uc ]
+[; ;frequency.c: 162: CCPR7L=0x00;
+"162
+[e = _CCPR7L -> -> 0 `i `uc ]
+[; ;frequency.c: 164: }
+"164
+[e :UE 1220 ]
 }

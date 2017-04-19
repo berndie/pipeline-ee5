@@ -43,7 +43,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTBbits `VS596 ~T0 @X0 0 e@3969 ]
 "14165
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"38 digipot_spi.h
+"20 digipot_spi.c
 [v _remappings `(v ~T0 @X0 0 ef ]
 "45 C:\Program Files (x86)\Microchip\xc8\v1.36\include\math.h
 [v _pow `(d ~T0 @X0 0 ef2`d`d ]
@@ -57,9 +57,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RPOR7 `Vuc ~T0 @X0 0 e@3783 ]
 "1141
 [v _RPOR9 `Vuc ~T0 @X0 0 e@3785 ]
-"37 digipot_spi.h
+"43 frequency.h
+[v _cap_value `ui ~T0 @X0 0 e ]
+"21 digipot_spi.c
 [v _adjustDigipot `(v ~T0 @X0 0 ef ]
-"39
+"23
 [v _unselect `(v ~T0 @X0 0 ef ]
 "16198 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
 [v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
@@ -8219,243 +8221,280 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;digipot_spi.h: 35: void initSPI();
-[; ;digipot_spi.h: 36: void checkFrequency();
-[; ;digipot_spi.h: 37: void adjustDigipot();
-[; ;digipot_spi.h: 38: void remappings();
-[; ;digipot_spi.h: 39: void unselect();
-[; ;digipot_spi.h: 40: extern float frequency;
-[; ;digipot_spi.h: 41: extern char bigorsmall;
-[; ;digipot_spi.h: 42: extern char step;
-"12 digipot_spi.c
+[; ;frequency.h: 37: void frequency_interrupt(void);
+[; ;frequency.h: 39: void init_frequency(void);
+[; ;frequency.h: 40: void make_frequency_message(void);
+[; ;frequency.h: 41: extern char cap_frequency_message[];
+[; ;frequency.h: 42: extern char ind_frequency_message[];
+[; ;frequency.h: 43: extern unsigned int cap_value;
+"44 frequency.h
+[v _value `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 44: unsigned int value;
+"45
+[v _ind_measurement1 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 45: unsigned int ind_measurement1;
+"46
+[v _ind_measurement2 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 46: unsigned int ind_measurement2;
+"47
+[v _cap_measurement1 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 47: unsigned int cap_measurement1;
+"48
+[v _cap_measurement2 `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 48: unsigned int cap_measurement2;
+"49
+[v _valueH `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 49: unsigned int valueH;
+"50
+[v _valueL `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 50: unsigned int valueL;
+"51
+[v _timer `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 51: unsigned int timer;
+"52
+[v _inductive `ui ~T0 @X0 1 e ]
+[; ;frequency.h: 52: unsigned int inductive;
+"53
+[v _percent `d ~T0 @X0 1 e ]
+[; ;frequency.h: 53: double percent;
+[; ;frequency.h: 54: unsigned int value;
+"13 digipot_spi.c
 [v _step `uc ~T0 @X0 1 e ]
-[; ;digipot_spi.c: 12: char step;
-"13
-[v _nominalfrequency `f ~T0 @X0 1 e ]
-[; ;digipot_spi.c: 13: float nominalfrequency;
+[; ;digipot_spi.c: 13: char step;
 "14
+[v _nominalfrequency `f ~T0 @X0 1 e ]
+[; ;digipot_spi.c: 14: float nominalfrequency;
+"15
 [v _state `uc ~T0 @X0 1 e ]
 [i _state
 -> -> 0 `i `uc
 ]
-[; ;digipot_spi.c: 14: char state=0x00;
-"15
-[v _frequency `f ~T0 @X0 1 e ]
-[; ;digipot_spi.c: 15: float frequency;
+[; ;digipot_spi.c: 15: char state=0x00;
 "16
+[v _frequency `f ~T0 @X0 1 e ]
+[; ;digipot_spi.c: 16: float frequency;
+"17
 [v _bigorsmall `uc ~T0 @X0 1 e ]
-[; ;digipot_spi.c: 16: char bigorsmall;
-"20
+[; ;digipot_spi.c: 17: char bigorsmall;
+[; ;digipot_spi.c: 19: void initSPI();
+[; ;digipot_spi.c: 20: void remappings();
+[; ;digipot_spi.c: 21: void adjustDigipot();
+[; ;digipot_spi.c: 22: void adjustDigipot();
+[; ;digipot_spi.c: 23: void unselect();
+"25
 [v _initSPI `(v ~T0 @X0 1 ef ]
 {
-[; ;digipot_spi.c: 20: void initSPI(){
+[; ;digipot_spi.c: 25: void initSPI(){
 [e :U _initSPI ]
 [f ]
-[; ;digipot_spi.c: 21: SSP2STAT = 0b00000000;
-"21
-[e = _SSP2STAT -> -> 0 `i `uc ]
-[; ;digipot_spi.c: 22: SSP2CON1 = 0b00110010;
-"22
-[e = _SSP2CON1 -> -> 50 `i `uc ]
-[; ;digipot_spi.c: 23: TRISB = 0x01;
-"23
-[e = _TRISB -> -> 1 `i `uc ]
-[; ;digipot_spi.c: 24: TRISC = 0x00;
-"24
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;digipot_spi.c: 25: TRISA = 0x01;
-"25
-[e = _TRISA -> -> 1 `i `uc ]
-[; ;digipot_spi.c: 26: PORTBbits.RB2=1;
+[; ;digipot_spi.c: 26: SSP2STAT = 0b00000000;
 "26
-[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-[; ;digipot_spi.c: 27: ADCON1 = 0x0F;
+[e = _SSP2STAT -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 27: SSP2CON1 = 0b00110010;
 "27
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;digipot_spi.c: 28: remappings();
+[e = _SSP2CON1 -> -> 50 `i `uc ]
+[; ;digipot_spi.c: 28: TRISB = 0x01;
 "28
-[e ( _remappings ..  ]
-[; ;digipot_spi.c: 29: nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
+[e = _TRISB -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 29: TRISC = 0x00;
 "29
-[e = _nominalfrequency -> / .1.44 * * + -> -> 1000 `i `d * -> * -> 2 `i -> _step `i `d .390.63 .0.000288 ( _pow (2 , .0.9384 -> _step `d `f ]
-[; ;digipot_spi.c: 30: }
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 30: TRISA = 0x01;
 "30
+[e = _TRISA -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 31: PORTBbits.RB2=1;
+"31
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 32: ADCON1 = 0x0F;
+"32
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;digipot_spi.c: 33: remappings();
+"33
+[e ( _remappings ..  ]
+[; ;digipot_spi.c: 34: nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
+"34
+[e = _nominalfrequency -> / .1.44 * * + -> -> 1000 `i `d * -> * -> 2 `i -> _step `i `d .390.63 .0.000288 ( _pow (2 , .0.9384 -> _step `d `f ]
+[; ;digipot_spi.c: 35: }
+"35
 [e :UE 1209 ]
 }
-"32
+"37
 [v _remappings `(v ~T0 @X0 1 ef ]
 {
-[; ;digipot_spi.c: 32: void remappings(){
+[; ;digipot_spi.c: 37: void remappings(){
 [e :U _remappings ]
 [f ]
-[; ;digipot_spi.c: 33: EECON2 = 0x55;
-"33
-[e = _EECON2 -> -> 85 `i `uc ]
-[; ;digipot_spi.c: 34: EECON2 = 0xaa;
-"34
-[e = _EECON2 -> -> 170 `i `uc ]
-[; ;digipot_spi.c: 35: IOLOCK = 0;
-"35
-[e = _IOLOCK -> -> 0 `i `b ]
-[; ;digipot_spi.c: 36: RPINR21 = 0x08;
-"36
-[e = _RPINR21 -> -> 8 `i `uc ]
-[; ;digipot_spi.c: 37: RPOR7 = 0x0b;
-"37
-[e = _RPOR7 -> -> 11 `i `uc ]
-[; ;digipot_spi.c: 38: RPOR9 = 0x0a;
+[; ;digipot_spi.c: 38: EECON2 = 0x55;
 "38
-[e = _RPOR9 -> -> 10 `i `uc ]
-[; ;digipot_spi.c: 40: }
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;digipot_spi.c: 39: EECON2 = 0xaa;
+"39
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;digipot_spi.c: 40: IOLOCK = 0;
 "40
+[e = _IOLOCK -> -> 0 `i `b ]
+[; ;digipot_spi.c: 41: RPINR21 = 0x08;
+"41
+[e = _RPINR21 -> -> 8 `i `uc ]
+[; ;digipot_spi.c: 42: RPOR7 = 0x0b;
+"42
+[e = _RPOR7 -> -> 11 `i `uc ]
+[; ;digipot_spi.c: 43: RPOR9 = 0x0a;
+"43
+[e = _RPOR9 -> -> 10 `i `uc ]
+[; ;digipot_spi.c: 45: }
+"45
 [e :UE 1210 ]
 }
-"41
+"46
 [v _checkFrequency `(v ~T0 @X0 1 ef ]
 {
-[; ;digipot_spi.c: 41: void checkFrequency(){
+[; ;digipot_spi.c: 46: void checkFrequency(){
 [e :U _checkFrequency ]
 [f ]
-[; ;digipot_spi.c: 43: }
-"43
+[; ;digipot_spi.c: 48: frequency = (float) cap_value;
+"48
+[e = _frequency -> _cap_value `f ]
+[; ;digipot_spi.c: 49: }
+"49
 [e :UE 1211 ]
 }
-"45
+"51
 [v _digipot `(v ~T0 @X0 1 ef ]
 {
-[; ;digipot_spi.c: 45: void digipot(){
+[; ;digipot_spi.c: 51: void digipot(){
 [e :U _digipot ]
 [f ]
-[; ;digipot_spi.c: 46: checkFrequency();
-"46
+[; ;digipot_spi.c: 52: checkFrequency();
+"52
 [e ( _checkFrequency ..  ]
-[; ;digipot_spi.c: 47: if (frequency > 1.033*nominalfrequency ){
-"47
+[; ;digipot_spi.c: 53: if (frequency > 1.033*nominalfrequency ){
+"53
 [e $ ! > -> _frequency `d * .1.033 -> _nominalfrequency `d 1213  ]
 {
-[; ;digipot_spi.c: 48: bigorsmall = 0x01;
-"48
+[; ;digipot_spi.c: 54: bigorsmall = 0x01;
+"54
 [e = _bigorsmall -> -> 1 `i `uc ]
-[; ;digipot_spi.c: 49: adjustDigipot();
-"49
+[; ;digipot_spi.c: 55: adjustDigipot();
+"55
 [e ( _adjustDigipot ..  ]
-"50
+"56
 }
 [e :U 1213 ]
-[; ;digipot_spi.c: 50: }
-[; ;digipot_spi.c: 51: if (frequency< 0.9692*nominalfrequency&&step>0){
-"51
+[; ;digipot_spi.c: 56: }
+[; ;digipot_spi.c: 57: if (frequency< 0.9692*nominalfrequency&&step>0){
+"57
 [e $ ! && < -> _frequency `d * .0.9692 -> _nominalfrequency `d > -> _step `i -> 0 `i 1214  ]
 {
-[; ;digipot_spi.c: 52: bigorsmall =0x02;
-"52
+[; ;digipot_spi.c: 58: bigorsmall =0x02;
+"58
 [e = _bigorsmall -> -> 2 `i `uc ]
-[; ;digipot_spi.c: 53: adjustDigipot();
-"53
+[; ;digipot_spi.c: 59: adjustDigipot();
+"59
 [e ( _adjustDigipot ..  ]
-"54
+"60
 }
-[; ;digipot_spi.c: 54: }
+[; ;digipot_spi.c: 60: }
 [e $U 1215  ]
-"55
+"61
 [e :U 1214 ]
-[; ;digipot_spi.c: 55: else{
+[; ;digipot_spi.c: 61: else{
 {
-[; ;digipot_spi.c: 56: if(PORTBbits.RB3==0){
-"56
+[; ;digipot_spi.c: 62: if(PORTBbits.RB3==0){
+"62
 [e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 1216  ]
 {
-[; ;digipot_spi.c: 57: unselect();
-"57
+[; ;digipot_spi.c: 63: unselect();
+"63
 [e ( _unselect ..  ]
-"58
+"64
 }
 [e :U 1216 ]
-"59
+"65
 }
 [e :U 1215 ]
-[; ;digipot_spi.c: 58: }
-[; ;digipot_spi.c: 59: }
-[; ;digipot_spi.c: 60: }
-"60
+[; ;digipot_spi.c: 64: }
+[; ;digipot_spi.c: 65: }
+[; ;digipot_spi.c: 66: }
+"66
 [e :UE 1212 ]
 }
-"62
+"68
 [v _adjustDigipot `(v ~T0 @X0 1 ef ]
 {
-[; ;digipot_spi.c: 62: void adjustDigipot(){
+[; ;digipot_spi.c: 68: void adjustDigipot(){
 [e :U _adjustDigipot ]
 [f ]
-[; ;digipot_spi.c: 64: PORTBbits.RB3=0;
-"64
+[; ;digipot_spi.c: 70: PORTBbits.RB3=0;
+"70
 [e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
-[; ;digipot_spi.c: 65: if(state==0x00){
-"65
+[; ;digipot_spi.c: 71: if(state==0x00){
+"71
 [e $ ! == -> _state `i -> 0 `i 1218  ]
 {
-[; ;digipot_spi.c: 66: SSPBUF = 0x00;
-"66
+[; ;digipot_spi.c: 72: SSPBUF = 0x00;
+"72
 [e = _SSPBUF -> -> 0 `i `uc ]
-[; ;digipot_spi.c: 67: state++;
-"67
+[; ;digipot_spi.c: 73: state++;
+"73
 [e ++ _state -> -> 1 `i `uc ]
-"68
+"74
 }
 [e :U 1218 ]
-[; ;digipot_spi.c: 68: }
-[; ;digipot_spi.c: 69: if(SSP2STATbits.BF==1){
-"69
+[; ;digipot_spi.c: 74: }
+[; ;digipot_spi.c: 75: if(SSP2STATbits.BF==1){
+"75
 [e $ ! == -> . . _SSP2STATbits 2 0 `i -> 1 `i 1219  ]
 {
-[; ;digipot_spi.c: 70: if(bigorsmall==0x01){
-"70
+[; ;digipot_spi.c: 76: if(bigorsmall==0x01){
+"76
 [e $ ! == -> _bigorsmall `i -> 1 `i 1220  ]
 {
-[; ;digipot_spi.c: 71: step++;
-"71
+[; ;digipot_spi.c: 77: step++;
+"77
 [e ++ _step -> -> 1 `i `uc ]
-"72
+"78
 }
 [e :U 1220 ]
-[; ;digipot_spi.c: 72: }
-[; ;digipot_spi.c: 73: if(bigorsmall==0x02){
-"73
+[; ;digipot_spi.c: 78: }
+[; ;digipot_spi.c: 79: if(bigorsmall==0x02){
+"79
 [e $ ! == -> _bigorsmall `i -> 2 `i 1221  ]
 {
-[; ;digipot_spi.c: 74: step--;
-"74
+[; ;digipot_spi.c: 80: step--;
+"80
 [e -- _step -> -> 1 `i `uc ]
-"75
+"81
 }
 [e :U 1221 ]
-[; ;digipot_spi.c: 75: }
-[; ;digipot_spi.c: 76: SSPBUF = step;
-"76
+[; ;digipot_spi.c: 81: }
+[; ;digipot_spi.c: 82: SSPBUF = step;
+"82
 [e = _SSPBUF _step ]
-[; ;digipot_spi.c: 77: state=0x00;
-"77
+[; ;digipot_spi.c: 83: state=0x00;
+"83
 [e = _state -> -> 0 `i `uc ]
-[; ;digipot_spi.c: 78: nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
-"78
+[; ;digipot_spi.c: 84: nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
+"84
 [e = _nominalfrequency -> / .1.44 * * + -> -> 1000 `i `d * -> * -> 2 `i -> _step `i `d .390.63 .0.000288 ( _pow (2 , .0.9384 -> _step `d `f ]
-"79
+"85
 }
 [e :U 1219 ]
-[; ;digipot_spi.c: 79: }
-[; ;digipot_spi.c: 80: }
-"80
+[; ;digipot_spi.c: 85: }
+[; ;digipot_spi.c: 86: }
+"86
 [e :UE 1217 ]
 }
-"82
+"88
 [v _unselect `(v ~T0 @X0 1 ef ]
 {
-[; ;digipot_spi.c: 82: void unselect(){
+[; ;digipot_spi.c: 88: void unselect(){
 [e :U _unselect ]
 [f ]
-[; ;digipot_spi.c: 83: PORTBbits.RB3=1;
-"83
+[; ;digipot_spi.c: 89: PORTBbits.RB3=1;
+"89
 [e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
-[; ;digipot_spi.c: 84: }
-"84
+[; ;digipot_spi.c: 90: }
+"90
 [e :UE 1222 ]
 }

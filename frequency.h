@@ -38,10 +38,14 @@ void frequency_interrupt(void);   //high priority interrupt routine
 //low priority interrupt routine, not used in this example
 void init_frequency(void);
 void make_frequency_message(void);
-extern char frequency_message[];
+extern char cap_frequency_message[];
+extern char ind_frequency_message[];
+extern unsigned int cap_value;
 unsigned int value;
-unsigned int measurement1;
-unsigned int measurement2;
+unsigned int ind_measurement1;
+unsigned int ind_measurement2;
+unsigned int cap_measurement1;
+unsigned int cap_measurement2;
 unsigned int  valueH;
 unsigned int  valueL;
 unsigned int  timer;

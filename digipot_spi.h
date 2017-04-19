@@ -31,11 +31,11 @@
 #ifndef XC_HEADER_TEMPLATE_H
 #define	XC_HEADER_TEMPLATE_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
+#include <xc.h> // include processor files - each processor file is guarded.
 void initSPI();
 void checkFrequency();
 void adjustDigipot();
-void remappings();
+void remappings(void);
 void unselect();
 extern float frequency;
 extern char bigorsmall;

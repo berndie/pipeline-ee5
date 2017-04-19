@@ -10311,24 +10311,38 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 35 "digipot_spi.h"
-void initSPI();
-void checkFrequency();
-void adjustDigipot();
-void remappings();
-void unselect();
-extern float frequency;
-extern char bigorsmall;
-extern char step;
+# 37 "frequency.h"
+void frequency_interrupt(void);
 
-# 12 "digipot_spi.c"
+void init_frequency(void);
+void make_frequency_message(void);
+extern char cap_frequency_message[];
+extern char ind_frequency_message[];
+extern unsigned int cap_value;
+unsigned int value;
+unsigned int ind_measurement1;
+unsigned int ind_measurement2;
+unsigned int cap_measurement1;
+unsigned int cap_measurement2;
+unsigned int valueH;
+unsigned int valueL;
+unsigned int timer;
+unsigned int inductive;
+double percent;
+unsigned int value;
+
+# 13 "digipot_spi.c"
 char step;
 float nominalfrequency;
 char state=0x00;
 float frequency;
 char bigorsmall;
 
-
+void initSPI();
+void remappings();
+void adjustDigipot();
+void adjustDigipot();
+void unselect();
 
 void initSPI(){
 SSP2STAT = 0b00000000;
@@ -10353,6 +10367,7 @@ RPOR9 = 0x0a;
 }
 void checkFrequency(){
 
+frequency = (float) cap_value;
 }
 
 void digipot(){

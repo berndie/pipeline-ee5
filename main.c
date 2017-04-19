@@ -43,7 +43,9 @@ void main(void) {
         //sendUARTMessage(uart_receive_buffer);
         delay_ms(800);
         make_frequency_message();
-        sendUARTMessage(frequency_message);
+        sendUARTMessage(ind_frequency_message);
+        delay_ms(800);
+        sendUARTMessage(cap_frequency_message);
         delay_ms(800);
         
         makeTempMessage(PIPE);
