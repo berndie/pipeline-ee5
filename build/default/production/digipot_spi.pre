@@ -1,5 +1,37 @@
 
-# 1 "lora.c"
+# 1 "digipot_spi.c"
+
+
+# 7
+#pragma config XINST = OFF
+
+# 30 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10279,121 +10311,87 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 43 "uart.h"
-extern unsigned char uart_receive_buffer[100];
-extern unsigned char last_uart_message[30];
-unsigned int uart_receive_buffer_index;
-char isCommandSent;
-unsigned char *currentMessagePointer;
+# 35 "digipot_spi.h"
+void initSPI();
+void checkFrequency();
+void adjustDigipot();
+void remappings();
+void unselect();
+extern float frequency;
+extern char bigorsmall;
+extern char step;
+
+# 12 "digipot_spi.c"
+char step;
+float nominalfrequency;
+char state=0x00;
+float frequency;
+char bigorsmall;
 
 
 
-
-void initUART1(void);
-void UARTReceive(char on_or_off);
-void clearUARTReceiveBuffer(void);
-void sendUARTMessage(unsigned char *newMessagePointer);
-void uart_interrupt(void);
-
-# 36 "delay.h"
-void delay_ms(int ms);
-
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 14 "lora.c"
-const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
-const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
-const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
-const unsigned char getVerCommand[14] = "sys get ver\r\n";
-
-
-const unsigned char send_data_part_1 = "mac tx cnf 1 ";
-const unsigned char send_data_EOL = " \r\n";
-const unsigned char delimiter = "_";
-
-const unsigned char set_data_rate[] = "mac set dr x\r\n";
-
-const unsigned char join_network[]= "mac join otaa\r\n";
-
-void initLoRa(void){
-
-sendUARTMessage(set_dev_eui);
-delay_ms(800);
-
-sendUARTMessage(set_app_eui);
-delay_ms(800);
-
-sendUARTMessage(set_app_key);
-delay_ms(3000);
-
-sendUARTMessage(join_network);
-delay_ms(3000);
+void initSPI(){
+SSP2STAT = 0b00000000;
+SSP2CON1 = 0b00110010;
+TRISB = 0x01;
+TRISC = 0x00;
+TRISA = 0x01;
+PORTBbits.RB2=1;
+ADCON1 = 0x0F;
+remappings();
+nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
 }
-void sendData(double capacitance, double ambient_temp, double pipe_temp, double inductance){
-unsigned char message[200];
-sprintf(message,"mac tx cnf 1 %x%s%x%s%x%s%x \r\n",
-capacitance, delimiter, ambient_temp, pipe_temp, inductance);
-sendUARTMessage(message);
-delay_ms(3000);
+
+void remappings(){
+EECON2 = 0x55;
+EECON2 = 0xaa;
+IOLOCK = 0;
+RPINR21 = 0x08;
+RPOR7 = 0x0b;
+RPOR9 = 0x0a;
+
+}
+void checkFrequency(){
+
+}
+
+void digipot(){
+checkFrequency();
+if (frequency > 1.033*nominalfrequency ){
+bigorsmall = 0x01;
+adjustDigipot();
+}
+if (frequency< 0.9692*nominalfrequency&&step>0){
+bigorsmall =0x02;
+adjustDigipot();
+}
+else{
+if(PORTBbits.RB3==0){
+unselect();
+}
+}
+}
+
+void adjustDigipot(){
+
+PORTBbits.RB3=0;
+if(state==0x00){
+SSPBUF = 0x00;
+state++;
+}
+if(SSP2STATbits.BF==1){
+if(bigorsmall==0x01){
+step++;
+}
+if(bigorsmall==0x02){
+step--;
+}
+SSPBUF = step;
+state=0x00;
+nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
+}
+}
+
+void unselect(){
+PORTBbits.RB3=1;
 }

@@ -34,6 +34,7 @@ void main(void) {
     initUART1();
     initADC();
     initInterrupts();
+    initSPI();
     while(1){
         inductive= 40*value*value;
         UARTReceive(ON);
@@ -53,21 +54,8 @@ void main(void) {
         sendUARTMessage(temp_display_message);
         delay_ms(800);
         
-        // SPI for the digipor
-        checkFrequency();
-        if (frequency > 1.033*nominalfrequency ){               //if the measured frequency is too high
-            bigorsmall = 0x01;                                  //too big
-            adjustDigipot();
-        }
-        if (frequency< 0.9692*nominalfrequency&&step>0){        //if the measured frequency is too low
-            bigorsmall =0x02;                                   //too small
-            adjustDigipot();
-        }
-        else{
-            if(PORTBbits.RB3==0){                               //if there's nothing to send and the /cs is still low
-                unselect();                                         // /cs=1
-            }
-        }
+        // SPI for the digipot
+        digipot();
     }
 }
 

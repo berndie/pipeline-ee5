@@ -12,15 +12,10 @@
 char step;
 float nominalfrequency;
 char state=0x00;
+float frequency;
+char bigorsmall;
 
 
- 
-
-void main(void) {
-    initSPI();
-    while(1){
-    }
-}
 
 void initSPI(){
     SSP2STAT = 0b00000000;                                  //configure the pic for spi communication
@@ -45,6 +40,23 @@ void remappings(){
 }
 void checkFrequency(){
     //check the current frequency witha ccp module and store it in the varible frequency
+}
+
+void digipot(){
+    checkFrequency();
+    if (frequency > 1.033*nominalfrequency ){               //if the measured frequency is too high
+        bigorsmall = 0x01;                                  //too big
+        adjustDigipot();
+    }
+    if (frequency< 0.9692*nominalfrequency&&step>0){        //if the measured frequency is too low
+        bigorsmall =0x02;                                   //too small
+        adjustDigipot();
+    }
+    else{
+        if(PORTBbits.RB3==0){                               //if there's nothing to send and the /cs is still low
+            unselect();                                         // /cs=1
+        }
+    }
 }
 
 void adjustDigipot(){

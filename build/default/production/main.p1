@@ -44,11 +44,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OSCCONbits `VS1123 ~T0 @X0 0 e@4051 ]
 "39 frequency.h
 [v _init_frequency `(v ~T0 @X0 0 ef ]
-"49 uart.h
+"52 uart.h
 [v _initUART1 `(v ~T0 @X0 0 ef ]
 "57 temperature.h
 [v _initADC `(v ~T0 @X0 0 ef ]
-"50 uart.h
+"37 main.c
+[v _initSPI `(i ~T0 @X0 0 ef ]
+"53 uart.h
 [v _UARTReceive `(v ~T0 @X0 0 ef1`uc ]
 "43 lora.h
 [v _initLoRa `(v ~T0 @X0 0 ef ]
@@ -56,7 +58,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _delay_ms `(v ~T0 @X0 0 ef1`i ]
 "40 frequency.h
 [v _make_frequency_message `(v ~T0 @X0 0 ef ]
-"52 uart.h
+"55 uart.h
 [v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
 "41 frequency.h
 [v _frequency_message `uc ~T0 @X0 -> 0 `x e ]
@@ -64,9 +66,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _makeTempMessage `(v ~T0 @X0 0 ef1`uc ]
 "54
 [v _temp_display_message `uc ~T0 @X0 -> 0 `x e ]
-"60
+"58 main.c
+[v _digipot `(i ~T0 @X0 0 ef ]
+"60 temperature.h
 [v _temperature_interrupt `(v ~T0 @X0 0 ef ]
-"53 uart.h
+"56 uart.h
 [v _uart_interrupt `(v ~T0 @X0 0 ef ]
 "37 frequency.h
 [v _frequency_interrupt `(v ~T0 @X0 0 ef ]
@@ -8112,21 +8116,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 42: extern unsigned char uart_receive_buffer[100];
-"43 uart.h
+[; ;uart.h: 43: extern unsigned char uart_receive_buffer[100];
+[; ;uart.h: 44: extern unsigned char last_uart_message[30];
+"45 uart.h
 [v _uart_receive_buffer_index `ui ~T0 @X0 1 e ]
-[; ;uart.h: 43: unsigned int uart_receive_buffer_index;
-"44
+[; ;uart.h: 45: unsigned int uart_receive_buffer_index;
+"46
 [v _isCommandSent `uc ~T0 @X0 1 e ]
-[; ;uart.h: 44: char isCommandSent;
-"45
+[; ;uart.h: 46: char isCommandSent;
+"47
 [v _currentMessagePointer `*uc ~T0 @X0 1 e ]
-[; ;uart.h: 45: unsigned char *currentMessagePointer;
-[; ;uart.h: 49: void initUART1(void);
-[; ;uart.h: 50: void UARTReceive(char on_or_off);
-[; ;uart.h: 51: void clearUARTReceiveBuffer(void);
-[; ;uart.h: 52: void sendUARTMessage(unsigned char *newMessagePointer);
-[; ;uart.h: 53: void uart_interrupt(void);
+[; ;uart.h: 47: unsigned char *currentMessagePointer;
+[; ;uart.h: 52: void initUART1(void);
+[; ;uart.h: 53: void UARTReceive(char on_or_off);
+[; ;uart.h: 54: void clearUARTReceiveBuffer(void);
+[; ;uart.h: 55: void sendUARTMessage(unsigned char *newMessagePointer);
+[; ;uart.h: 56: void uart_interrupt(void);
 [; ;temperature.h: 45: extern const unsigned char pipe_ascii[];
 [; ;temperature.h: 46: extern const unsigned char ambient_ascii[];
 "47 temperature.h
@@ -8395,136 +8400,142 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _percent `d ~T0 @X0 1 e ]
 [; ;frequency.h: 49: double percent;
 [; ;frequency.h: 50: unsigned int value;
-"14 main.c
+"15 main.c
 [p x XINST=OFF ]
-"15
-[p x WDTEN=OFF ]
 "16
-[p x CFGPLLEN=ON ]
+[p x WDTEN=OFF ]
 "17
-[p x OSC=INTOSCPLL ]
+[p x CFGPLLEN=ON ]
 "18
+[p x OSC=INTOSCPLL ]
+"19
 [p x CPUDIV=OSC1 ]
-"20
+"21
 [v _initInterrupts `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 20: void initInterrupts(void){
+[; ;main.c: 21: void initInterrupts(void){
 [e :U _initInterrupts ]
 [f ]
-[; ;main.c: 21: INTCON = 0b11000000;
-"21
-[e = _INTCON -> -> 192 `i `uc ]
-[; ;main.c: 22: RCONbits.IPEN = 0;
+[; ;main.c: 22: INTCON = 0b11000000;
 "22
-[e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
-[; ;main.c: 23: }
+[e = _INTCON -> -> 192 `i `uc ]
+[; ;main.c: 23: RCONbits.IPEN = 0;
 "23
+[e = . . _RCONbits 6 7 -> -> 0 `i `uc ]
+[; ;main.c: 24: }
+"24
 [e :UE 1209 ]
 }
-"25
+"26
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 25: void main(void) {
+[; ;main.c: 26: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 27: OSCCONbits.IRCF0 = 1;
-"27
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-[; ;main.c: 28: OSCCONbits.SCS0 = 1;
+[; ;main.c: 28: OSCCONbits.IRCF0 = 1;
 "28
-[e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 29: OSCCONbits.SCS1 = 1;
+[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
+[; ;main.c: 29: OSCCONbits.SCS0 = 1;
 "29
+[e = . . _OSCCONbits 1 0 -> -> 1 `i `uc ]
+[; ;main.c: 30: OSCCONbits.SCS1 = 1;
+"30
 [e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 31: isCommandSent = 1;
-"31
-[e = _isCommandSent -> -> 1 `i `uc ]
-[; ;main.c: 32: init_frequency();
+[; ;main.c: 32: isCommandSent = 1;
 "32
-[e ( _init_frequency ..  ]
-[; ;main.c: 33: initUART1();
+[e = _isCommandSent -> -> 1 `i `uc ]
+[; ;main.c: 33: init_frequency();
 "33
-[e ( _initUART1 ..  ]
-[; ;main.c: 34: initADC();
+[e ( _init_frequency ..  ]
+[; ;main.c: 34: initUART1();
 "34
-[e ( _initADC ..  ]
-[; ;main.c: 35: initInterrupts();
+[e ( _initUART1 ..  ]
+[; ;main.c: 35: initADC();
 "35
-[e ( _initInterrupts ..  ]
-[; ;main.c: 36: while(1){
+[e ( _initADC ..  ]
+[; ;main.c: 36: initInterrupts();
 "36
+[e ( _initInterrupts ..  ]
+[; ;main.c: 37: initSPI();
+"37
+[e ( _initSPI ..  ]
+[; ;main.c: 38: while(1){
+"38
 [e :U 1212 ]
 {
-[; ;main.c: 37: inductive= 40*value*value;
-"37
-[e = _inductive * * -> -> 40 `i `ui _value _value ]
-[; ;main.c: 38: UARTReceive(1);
-"38
-[e ( _UARTReceive (1 -> -> 1 `i `uc ]
-[; ;main.c: 39: initLoRa();
+[; ;main.c: 39: inductive= 40*value*value;
 "39
-[e ( _initLoRa ..  ]
-[; ;main.c: 40: UARTReceive(0);
+[e = _inductive * * -> -> 40 `i `ui _value _value ]
+[; ;main.c: 40: UARTReceive(1);
 "40
-[e ( _UARTReceive (1 -> -> 0 `i `uc ]
-[; ;main.c: 42: delay_ms(800);
+[e ( _UARTReceive (1 -> -> 1 `i `uc ]
+[; ;main.c: 41: initLoRa();
+"41
+[e ( _initLoRa ..  ]
+[; ;main.c: 42: UARTReceive(0);
 "42
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 43: make_frequency_message();
-"43
-[e ( _make_frequency_message ..  ]
-[; ;main.c: 44: sendUARTMessage(frequency_message);
+[e ( _UARTReceive (1 -> -> 0 `i `uc ]
+[; ;main.c: 44: delay_ms(800);
 "44
-[e ( _sendUARTMessage (1 &U _frequency_message ]
-[; ;main.c: 45: delay_ms(800);
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 45: make_frequency_message();
 "45
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 47: makeTempMessage(0);
+[e ( _make_frequency_message ..  ]
+[; ;main.c: 46: sendUARTMessage(frequency_message);
+"46
+[e ( _sendUARTMessage (1 &U _frequency_message ]
+[; ;main.c: 47: delay_ms(800);
 "47
-[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
-[; ;main.c: 48: sendUARTMessage(temp_display_message);
-"48
-[e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 49: delay_ms(800);
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 49: makeTempMessage(0);
 "49
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;main.c: 51: makeTempMessage(1);
-"51
-[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
-[; ;main.c: 52: sendUARTMessage(temp_display_message);
-"52
+[e ( _makeTempMessage (1 -> -> 0 `i `uc ]
+[; ;main.c: 50: sendUARTMessage(temp_display_message);
+"50
 [e ( _sendUARTMessage (1 &U _temp_display_message ]
-[; ;main.c: 53: delay_ms(800);
-"53
+[; ;main.c: 51: delay_ms(800);
+"51
 [e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 53: makeTempMessage(1);
+"53
+[e ( _makeTempMessage (1 -> -> 1 `i `uc ]
+[; ;main.c: 54: sendUARTMessage(temp_display_message);
 "54
+[e ( _sendUARTMessage (1 &U _temp_display_message ]
+[; ;main.c: 55: delay_ms(800);
+"55
+[e ( _delay_ms (1 -> 800 `i ]
+[; ;main.c: 58: digipot();
+"58
+[e ( _digipot ..  ]
+"59
 }
 [e :U 1211 ]
-"36
+"38
 [e $U 1212  ]
 [e :U 1213 ]
-[; ;main.c: 54: }
-[; ;main.c: 55: }
-"55
+[; ;main.c: 59: }
+[; ;main.c: 60: }
+"60
 [e :UE 1210 ]
 }
-[v F8509 `(v ~T0 @X0 1 tf ]
-"57
-[v _high_ISR `IF8509 ~T0 @X0 1 e ]
+[v F8512 `(v ~T0 @X0 1 tf ]
+"62
+[v _high_ISR `IF8512 ~T0 @X0 1 e ]
 {
-[; ;main.c: 57: void interrupt high_ISR(void){
+[; ;main.c: 62: void interrupt high_ISR(void){
 [e :U _high_ISR ]
 [f ]
-[; ;main.c: 58: temperature_interrupt();
-"58
+[; ;main.c: 63: temperature_interrupt();
+"63
 [e ( _temperature_interrupt ..  ]
-[; ;main.c: 59: uart_interrupt();
-"59
+[; ;main.c: 64: uart_interrupt();
+"64
 [e ( _uart_interrupt ..  ]
-[; ;main.c: 60: frequency_interrupt();
-"60
+[; ;main.c: 65: frequency_interrupt();
+"65
 [e ( _frequency_interrupt ..  ]
-[; ;main.c: 61: }
-"61
+[; ;main.c: 66: }
+"66
 [e :UE 1214 ]
 }

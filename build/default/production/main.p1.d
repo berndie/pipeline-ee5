@@ -5,4 +5,5 @@ frequency.h  \
 uart.h  \
 temperature.h  \
 delay.h  \
+digipot_spi.h  \
 lora.h 

@@ -10279,11 +10279,13 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 42 "uart.h"
+# 43 "uart.h"
 extern unsigned char uart_receive_buffer[100];
+extern unsigned char last_uart_message[30];
 unsigned int uart_receive_buffer_index;
 char isCommandSent;
 unsigned char *currentMessagePointer;
+
 
 
 
@@ -10302,6 +10304,7 @@ unsigned char *currentMessagePointer;
 unsigned char uart_receive_buffer[100];
 unsigned int uart_receive_buffer_index = 0;
 unsigned int last_received_message_index = 0;
+unsigned char last_uart_message[30];
 
 void initUART1(void){
 
@@ -10312,7 +10315,7 @@ TRISCbits.TRISC6 = 0;
 TXSTA1bits.BRGH = 1;
 BAUDCON1bits.BRG16 = 1;
 
-# 35
+# 36
 SPBRGH1 = 0;
 SPBRG1 = 34;
 
@@ -10359,6 +10362,19 @@ currentMessagePointer += 1;
 delay_ms(1);
 }
 }
+}
+void getLastReceivedMessage(){
+unsigned char index = 0;
+while(uart_receive_buffer_index != last_received_message_index){
+last_uart_message[index] = uart_receive_buffer[last_received_message_index];
+last_received_message_index++;
+index++;
+if(last_received_message_index > 100){
+last_received_message_index = 0;
+}
+}
+last_uart_message[index] = uart_receive_buffer[last_received_message_index];
+last_uart_message[index + 1] = '\0';
 }
 void clearUARTReceiveBuffer(void){
 for(int i = 0; i<100; i++){

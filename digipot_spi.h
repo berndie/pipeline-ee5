@@ -39,6 +39,7 @@ void remappings();
 void unselect();
 extern float frequency;
 extern char bigorsmall;
+extern char step;
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate

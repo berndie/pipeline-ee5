@@ -1,10 +1,182 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"55 uart.h
-[v _sendUARTMessage `(v ~T0 @X0 0 ef1`*uc ]
-"36 delay.h
-[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"194 C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"7029 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
+[v _SSP2STAT `Vuc ~T0 @X0 0 e@3955 ]
+"6889
+[v _SSP2CON1 `Vuc ~T0 @X0 0 e@3954 ]
+"10271
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"10332
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"10215
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"8830
+[s S597 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S597 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"8840
+[s S598 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S598 . AN12 AN10 AN8 AN9 . KBI2 KBI3 ]
+"8849
+[s S599 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S599 . INT0 . CTED1 CTED2 KBI0 KBI1 PGC PGD ]
+"8859
+[s S600 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S600 . RP3 RTCC . SCK1 SDI1 RP9 RP10 ]
+"8868
+[s S601 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S601 . . RP4 VMO VPO SCL1 SDA1 ]
+"8876
+[s S602 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S602 . . REFO RP6 RP7 RP8 ]
+"8883
+[s S603 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S603 . . C3INC RP5 C3INA CCP4 CCP5 CCP6 CCP7 ]
+"8893
+[s S604 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S604 . C3IND . C2INC ]
+"8898
+[s S605 :3 `uc 1 :1 `uc 1 ]
+[n S605 . . CCP2_PA2 ]
+"8829
+[u S596 `S597 1 `S598 1 `S599 1 `S600 1 `S601 1 `S602 1 `S603 1 `S604 1 `S605 1 ]
+[n S596 . . . . . . . . . . ]
+"8903
+[v _PORTBbits `VS596 ~T0 @X0 0 e@3969 ]
+"14165
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"38 digipot_spi.h
+[v _remappings `(v ~T0 @X0 0 ef ]
+"45 C:\Program Files (x86)\Microchip\xc8\v1.36\include\math.h
+[v _pow `(d ~T0 @X0 0 ef2`d`d ]
+"11717 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
+"19880
+[v _IOLOCK `Vb ~T0 @X0 0 e@30200 ]
+"1267
+[v _RPINR21 `Vuc ~T0 @X0 0 e@3836 ]
+"1129
+[v _RPOR7 `Vuc ~T0 @X0 0 e@3783 ]
+"1141
+[v _RPOR9 `Vuc ~T0 @X0 0 e@3785 ]
+"37 digipot_spi.h
+[v _adjustDigipot `(v ~T0 @X0 0 ef ]
+"39
+[v _unselect `(v ~T0 @X0 0 ef ]
+"16198 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18lf27j53.h
+[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
+"7035
+[s S453 :2 `uc 1 :1 `uc 1 ]
+[n S453 . . R_NOT_W ]
+"7039
+[s S454 :5 `uc 1 :1 `uc 1 ]
+[n S454 . . D_NOT_A ]
+"7043
+[s S455 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S455 . BF UA R_nW S P D_nA CKE SMP ]
+"7053
+[s S456 :1 `uc 1 ]
+[n S456 . BF2 ]
+"7056
+[s S457 :6 `uc 1 :1 `uc 1 ]
+[n S457 . . CKE2 ]
+"7060
+[s S458 :5 `uc 1 :1 `uc 1 ]
+[n S458 . . DA2 ]
+"7064
+[s S459 :5 `uc 1 :1 `uc 1 ]
+[n S459 . . DATA_ADDRESS2 ]
+"7068
+[s S460 :5 `uc 1 :1 `uc 1 ]
+[n S460 . . D_A2 ]
+"7072
+[s S461 :5 `uc 1 :1 `uc 1 ]
+[n S461 . . D_nA2 ]
+"7076
+[s S462 :5 `uc 1 :1 `uc 1 ]
+[n S462 . . I2C_DAT2 ]
+"7080
+[s S463 :2 `uc 1 :1 `uc 1 ]
+[n S463 . . I2C_READ2 ]
+"7084
+[s S464 :3 `uc 1 :1 `uc 1 ]
+[n S464 . . I2C_START2 ]
+"7088
+[s S465 :4 `uc 1 :1 `uc 1 ]
+[n S465 . . I2C_STOP2 ]
+"7092
+[s S466 :4 `uc 1 :1 `uc 1 ]
+[n S466 . . P2 ]
+"7096
+[s S467 :2 `uc 1 :1 `uc 1 ]
+[n S467 . . READ_WRITE2 ]
+"7100
+[s S468 :2 `uc 1 :1 `uc 1 ]
+[n S468 . . RW2 ]
+"7104
+[s S469 :2 `uc 1 :1 `uc 1 ]
+[n S469 . . R_W2 ]
+"7108
+[s S470 :2 `uc 1 :1 `uc 1 ]
+[n S470 . . R_nW2 ]
+"7112
+[s S471 :3 `uc 1 :1 `uc 1 ]
+[n S471 . . S2 ]
+"7116
+[s S472 :7 `uc 1 :1 `uc 1 ]
+[n S472 . . SMP2 ]
+"7120
+[s S473 :3 `uc 1 :1 `uc 1 ]
+[n S473 . . START2 ]
+"7124
+[s S474 :4 `uc 1 :1 `uc 1 ]
+[n S474 . . STOP2 ]
+"7128
+[s S475 :1 `uc 1 :1 `uc 1 ]
+[n S475 . . UA2 ]
+"7132
+[s S476 :5 `uc 1 :1 `uc 1 ]
+[n S476 . . nA2 ]
+"7136
+[s S477 :5 `uc 1 :1 `uc 1 ]
+[n S477 . . nADDRESS2 ]
+"7140
+[s S478 :2 `uc 1 :1 `uc 1 ]
+[n S478 . . nW2 ]
+"7144
+[s S479 :2 `uc 1 :1 `uc 1 ]
+[n S479 . . nWRITE2 ]
+"7034
+[u S452 `S453 1 `S454 1 `S455 1 `S456 1 `S457 1 `S458 1 `S459 1 `S460 1 `S461 1 `S462 1 `S463 1 `S464 1 `S465 1 `S466 1 `S467 1 `S468 1 `S469 1 `S470 1 `S471 1 `S472 1 `S473 1 `S474 1 `S475 1 `S476 1 `S477 1 `S478 1 `S479 1 ]
+[n S452 . . . . . . . . . . . . . . . . . . . . . . . . . . . . ]
+"7149
+[v _SSP2STATbits `VS452 ~T0 @X0 0 e@3955 ]
+"7 digipot_spi.c
+[p x XINST=OFF ]
+[; ;math.h: 30: extern double fabs(double);
+[; ;math.h: 31: extern double floor(double);
+[; ;math.h: 32: extern double ceil(double);
+[; ;math.h: 33: extern double modf(double, double *);
+[; ;math.h: 34: extern double sqrt(double);
+[; ;math.h: 35: extern double atof(const char *);
+[; ;math.h: 36: extern double sin(double) ;
+[; ;math.h: 37: extern double cos(double) ;
+[; ;math.h: 38: extern double tan(double) ;
+[; ;math.h: 39: extern double asin(double) ;
+[; ;math.h: 40: extern double acos(double) ;
+[; ;math.h: 41: extern double atan(double);
+[; ;math.h: 42: extern double atan2(double, double) ;
+[; ;math.h: 43: extern double log(double);
+[; ;math.h: 44: extern double log10(double);
+[; ;math.h: 45: extern double pow(double, double) ;
+[; ;math.h: 46: extern double exp(double) ;
+[; ;math.h: 47: extern double sinh(double) ;
+[; ;math.h: 48: extern double cosh(double) ;
+[; ;math.h: 49: extern double tanh(double);
+[; ;math.h: 50: extern double eval_poly(double, const double *, int);
+[; ;math.h: 51: extern double frexp(double, int *);
+[; ;math.h: 52: extern double ldexp(double, int);
+[; ;math.h: 53: extern double fmod(double, double);
+[; ;math.h: 54: extern double trunc(double);
+[; ;math.h: 55: extern double round(double);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8047,339 +8219,243 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;uart.h: 43: extern unsigned char uart_receive_buffer[100];
-[; ;uart.h: 44: extern unsigned char last_uart_message[30];
-"45 uart.h
-[v _uart_receive_buffer_index `ui ~T0 @X0 1 e ]
-[; ;uart.h: 45: unsigned int uart_receive_buffer_index;
-"46
-[v _isCommandSent `uc ~T0 @X0 1 e ]
-[; ;uart.h: 46: char isCommandSent;
-"47
-[v _currentMessagePointer `*uc ~T0 @X0 1 e ]
-[; ;uart.h: 47: unsigned char *currentMessagePointer;
-[; ;uart.h: 52: void initUART1(void);
-[; ;uart.h: 53: void UARTReceive(char on_or_off);
-[; ;uart.h: 54: void clearUARTReceiveBuffer(void);
-[; ;uart.h: 55: void sendUARTMessage(unsigned char *newMessagePointer);
-[; ;uart.h: 56: void uart_interrupt(void);
-[; ;delay.h: 36: void delay_ms(int ms);
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-"14 lora.c
-[v _set_dev_eui `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_dev_eui
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 100 `c
--> 101 `c
--> 118 `c
--> 101 `c
--> 117 `c
--> 105 `c
--> 32 `c
--> 48 `c
--> 48 `c
--> 48 `c
--> 52 `c
--> 65 `c
--> 51 `c
--> 48 `c
--> 66 `c
--> 48 `c
--> 48 `c
--> 49 `c
--> 65 `c
--> 67 `c
--> 70 `c
--> 55 `c
--> 68 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
+[; ;digipot_spi.h: 35: void initSPI();
+[; ;digipot_spi.h: 36: void checkFrequency();
+[; ;digipot_spi.h: 37: void adjustDigipot();
+[; ;digipot_spi.h: 38: void remappings();
+[; ;digipot_spi.h: 39: void unselect();
+[; ;digipot_spi.h: 40: extern float frequency;
+[; ;digipot_spi.h: 41: extern char bigorsmall;
+[; ;digipot_spi.h: 42: extern char step;
+"12 digipot_spi.c
+[v _step `uc ~T0 @X0 1 e ]
+[; ;digipot_spi.c: 12: char step;
+"13
+[v _nominalfrequency `f ~T0 @X0 1 e ]
+[; ;digipot_spi.c: 13: float nominalfrequency;
+"14
+[v _state `uc ~T0 @X0 1 e ]
+[i _state
+-> -> 0 `i `uc
 ]
-[; ;lora.c: 14: const unsigned char set_dev_eui[] = "mac set deveui 0004A30B001ACF7D\r\n";
+[; ;digipot_spi.c: 14: char state=0x00;
 "15
-[v _set_app_eui `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_app_eui
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 97 `c
--> 112 `c
--> 112 `c
--> 101 `c
--> 117 `c
--> 105 `c
--> 32 `c
--> 55 `c
--> 52 `c
--> 67 `c
--> 53 `c
--> 52 `c
--> 50 `c
--> 52 `c
--> 53 `c
--> 51 `c
--> 56 `c
--> 53 `c
--> 55 `c
--> 57 `c
--> 55 `c
--> 52 `c
--> 65 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.c: 15: const unsigned char set_app_eui[] = "mac set appeui 74C542453857974A\r\n";
+[v _frequency `f ~T0 @X0 1 e ]
+[; ;digipot_spi.c: 15: float frequency;
 "16
-[v _set_app_key `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_app_key
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 97 `c
--> 112 `c
--> 112 `c
--> 107 `c
--> 101 `c
--> 121 `c
--> 32 `c
--> 50 `c
--> 69 `c
--> 49 `c
--> 53 `c
--> 65 `c
--> 70 `c
--> 67 `c
--> 57 `c
--> 52 `c
--> 65 `c
--> 55 `c
--> 69 `c
--> 70 `c
--> 54 `c
--> 57 `c
--> 65 `c
--> 69 `c
--> 54 `c
--> 49 `c
--> 65 `c
--> 56 `c
--> 49 `c
--> 52 `c
--> 55 `c
--> 51 `c
--> 55 `c
--> 67 `c
--> 51 `c
--> 56 `c
--> 54 `c
--> 57 `c
--> 57 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.c: 16: const unsigned char set_app_key[] = "mac set appkey 2E15AFC94A7EF69AE61A814737C38699\r\n";
-"17
-[v _getVerCommand `Cuc ~T0 @X0 -> 14 `i e ]
-[i _getVerCommand
-:U ..
--> 115 `c
--> 121 `c
--> 115 `c
--> 32 `c
--> 103 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 118 `c
--> 101 `c
--> 114 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.c: 17: const unsigned char getVerCommand[14] = "sys get ver\r\n";
+[v _bigorsmall `uc ~T0 @X0 1 e ]
+[; ;digipot_spi.c: 16: char bigorsmall;
 "20
-[v _send_data_part_1 `Cuc ~T0 @X0 1 e ]
-[i _send_data_part_1
--> :s 1C `Cuc
-]
-[; ;lora.c: 20: const unsigned char send_data_part_1 = "mac tx cnf 1 ";
-"21
-[v _send_data_EOL `Cuc ~T0 @X0 1 e ]
-[i _send_data_EOL
--> :s 2C `Cuc
-]
-[; ;lora.c: 21: const unsigned char send_data_EOL = " \r\n";
-"22
-[v _delimiter `Cuc ~T0 @X0 1 e ]
-[i _delimiter
--> :s 3C `Cuc
-]
-[; ;lora.c: 22: const unsigned char delimiter = "_";
-"24
-[v _set_data_rate `Cuc ~T0 @X0 -> 0 `x e ]
-[i _set_data_rate
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 115 `c
--> 101 `c
--> 116 `c
--> 32 `c
--> 100 `c
--> 114 `c
--> 32 `c
--> 120 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.c: 24: const unsigned char set_data_rate[] = "mac set dr x\r\n";
-"26
-[v _join_network `Cuc ~T0 @X0 -> 0 `x e ]
-[i _join_network
-:U ..
--> 109 `c
--> 97 `c
--> 99 `c
--> 32 `c
--> 106 `c
--> 111 `c
--> 105 `c
--> 110 `c
--> 32 `c
--> 111 `c
--> 116 `c
--> 97 `c
--> 97 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;lora.c: 26: const unsigned char join_network[]= "mac join otaa\r\n";
-"28
-[v _initLoRa `(v ~T0 @X0 1 ef ]
+[v _initSPI `(v ~T0 @X0 1 ef ]
 {
-[; ;lora.c: 28: void initLoRa(void){
-[e :U _initLoRa ]
+[; ;digipot_spi.c: 20: void initSPI(){
+[e :U _initSPI ]
 [f ]
-[; ;lora.c: 30: sendUARTMessage(set_dev_eui);
+[; ;digipot_spi.c: 21: SSP2STAT = 0b00000000;
+"21
+[e = _SSP2STAT -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 22: SSP2CON1 = 0b00110010;
+"22
+[e = _SSP2CON1 -> -> 50 `i `uc ]
+[; ;digipot_spi.c: 23: TRISB = 0x01;
+"23
+[e = _TRISB -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 24: TRISC = 0x00;
+"24
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 25: TRISA = 0x01;
+"25
+[e = _TRISA -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 26: PORTBbits.RB2=1;
+"26
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 27: ADCON1 = 0x0F;
+"27
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;digipot_spi.c: 28: remappings();
+"28
+[e ( _remappings ..  ]
+[; ;digipot_spi.c: 29: nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
+"29
+[e = _nominalfrequency -> / .1.44 * * + -> -> 1000 `i `d * -> * -> 2 `i -> _step `i `d .390.63 .0.000288 ( _pow (2 , .0.9384 -> _step `d `f ]
+[; ;digipot_spi.c: 30: }
 "30
-[e ( _sendUARTMessage (1 -> &U _set_dev_eui `*uc ]
-[; ;lora.c: 31: delay_ms(800);
-"31
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;lora.c: 33: sendUARTMessage(set_app_eui);
+[e :UE 1209 ]
+}
+"32
+[v _remappings `(v ~T0 @X0 1 ef ]
+{
+[; ;digipot_spi.c: 32: void remappings(){
+[e :U _remappings ]
+[f ]
+[; ;digipot_spi.c: 33: EECON2 = 0x55;
 "33
-[e ( _sendUARTMessage (1 -> &U _set_app_eui `*uc ]
-[; ;lora.c: 34: delay_ms(800);
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;digipot_spi.c: 34: EECON2 = 0xaa;
 "34
-[e ( _delay_ms (1 -> 800 `i ]
-[; ;lora.c: 36: sendUARTMessage(set_app_key);
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;digipot_spi.c: 35: IOLOCK = 0;
+"35
+[e = _IOLOCK -> -> 0 `i `b ]
+[; ;digipot_spi.c: 36: RPINR21 = 0x08;
 "36
-[e ( _sendUARTMessage (1 -> &U _set_app_key `*uc ]
-[; ;lora.c: 37: delay_ms(3000);
+[e = _RPINR21 -> -> 8 `i `uc ]
+[; ;digipot_spi.c: 37: RPOR7 = 0x0b;
 "37
-[e ( _delay_ms (1 -> 3000 `i ]
-[; ;lora.c: 39: sendUARTMessage(join_network);
-"39
-[e ( _sendUARTMessage (1 -> &U _join_network `*uc ]
-[; ;lora.c: 40: delay_ms(3000);
+[e = _RPOR7 -> -> 11 `i `uc ]
+[; ;digipot_spi.c: 38: RPOR9 = 0x0a;
+"38
+[e = _RPOR9 -> -> 10 `i `uc ]
+[; ;digipot_spi.c: 40: }
 "40
-[e ( _delay_ms (1 -> 3000 `i ]
-[; ;lora.c: 41: }
-"41
 [e :UE 1210 ]
 }
-"42
-[v _sendData `(v ~T0 @X0 1 ef4`d`d`d`d ]
+"41
+[v _checkFrequency `(v ~T0 @X0 1 ef ]
 {
-[; ;lora.c: 42: void sendData(double capacitance, double ambient_temp, double pipe_temp, double inductance){
-[e :U _sendData ]
-[v _capacitance `d ~T0 @X0 1 r1 ]
-[v _ambient_temp `d ~T0 @X0 1 r2 ]
-[v _pipe_temp `d ~T0 @X0 1 r3 ]
-[v _inductance `d ~T0 @X0 1 r4 ]
+[; ;digipot_spi.c: 41: void checkFrequency(){
+[e :U _checkFrequency ]
 [f ]
+[; ;digipot_spi.c: 43: }
 "43
-[v _message `uc ~T0 @X0 -> 200 `i a ]
-[; ;lora.c: 43: unsigned char message[200];
-[; ;lora.c: 44: sprintf(message,"mac tx cnf 1 %x%s%x%s%x%s%x \r\n",
-[; ;lora.c: 45: capacitance, delimiter, ambient_temp, pipe_temp, inductance);
-"45
-[e ( _sprintf (1 , , , , , (. , &U _message :s 4C _capacitance -> _delimiter `i _ambient_temp _pipe_temp _inductance ]
-[; ;lora.c: 46: sendUARTMessage(message);
-"46
-[e ( _sendUARTMessage (1 &U _message ]
-[; ;lora.c: 47: delay_ms(3000);
-"47
-[e ( _delay_ms (1 -> 3000 `i ]
-[; ;lora.c: 48: }
-"48
 [e :UE 1211 ]
 }
-[p f _sprintf 12845056 ]
-[a 3C 95 0 ]
-[a 1C 109 97 99 32 116 120 32 99 110 102 32 49 32 0 ]
-[a 4C 109 97 99 32 116 120 32 99 110 102 32 49 32 37 120 37 115 37 120 37 115 37 120 37 115 37 120 32 13 10 0 ]
-[a 2C 32 13 10 0 ]
+"45
+[v _digipot `(v ~T0 @X0 1 ef ]
+{
+[; ;digipot_spi.c: 45: void digipot(){
+[e :U _digipot ]
+[f ]
+[; ;digipot_spi.c: 46: checkFrequency();
+"46
+[e ( _checkFrequency ..  ]
+[; ;digipot_spi.c: 47: if (frequency > 1.033*nominalfrequency ){
+"47
+[e $ ! > -> _frequency `d * .1.033 -> _nominalfrequency `d 1213  ]
+{
+[; ;digipot_spi.c: 48: bigorsmall = 0x01;
+"48
+[e = _bigorsmall -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 49: adjustDigipot();
+"49
+[e ( _adjustDigipot ..  ]
+"50
+}
+[e :U 1213 ]
+[; ;digipot_spi.c: 50: }
+[; ;digipot_spi.c: 51: if (frequency< 0.9692*nominalfrequency&&step>0){
+"51
+[e $ ! && < -> _frequency `d * .0.9692 -> _nominalfrequency `d > -> _step `i -> 0 `i 1214  ]
+{
+[; ;digipot_spi.c: 52: bigorsmall =0x02;
+"52
+[e = _bigorsmall -> -> 2 `i `uc ]
+[; ;digipot_spi.c: 53: adjustDigipot();
+"53
+[e ( _adjustDigipot ..  ]
+"54
+}
+[; ;digipot_spi.c: 54: }
+[e $U 1215  ]
+"55
+[e :U 1214 ]
+[; ;digipot_spi.c: 55: else{
+{
+[; ;digipot_spi.c: 56: if(PORTBbits.RB3==0){
+"56
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 1216  ]
+{
+[; ;digipot_spi.c: 57: unselect();
+"57
+[e ( _unselect ..  ]
+"58
+}
+[e :U 1216 ]
+"59
+}
+[e :U 1215 ]
+[; ;digipot_spi.c: 58: }
+[; ;digipot_spi.c: 59: }
+[; ;digipot_spi.c: 60: }
+"60
+[e :UE 1212 ]
+}
+"62
+[v _adjustDigipot `(v ~T0 @X0 1 ef ]
+{
+[; ;digipot_spi.c: 62: void adjustDigipot(){
+[e :U _adjustDigipot ]
+[f ]
+[; ;digipot_spi.c: 64: PORTBbits.RB3=0;
+"64
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 65: if(state==0x00){
+"65
+[e $ ! == -> _state `i -> 0 `i 1218  ]
+{
+[; ;digipot_spi.c: 66: SSPBUF = 0x00;
+"66
+[e = _SSPBUF -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 67: state++;
+"67
+[e ++ _state -> -> 1 `i `uc ]
+"68
+}
+[e :U 1218 ]
+[; ;digipot_spi.c: 68: }
+[; ;digipot_spi.c: 69: if(SSP2STATbits.BF==1){
+"69
+[e $ ! == -> . . _SSP2STATbits 2 0 `i -> 1 `i 1219  ]
+{
+[; ;digipot_spi.c: 70: if(bigorsmall==0x01){
+"70
+[e $ ! == -> _bigorsmall `i -> 1 `i 1220  ]
+{
+[; ;digipot_spi.c: 71: step++;
+"71
+[e ++ _step -> -> 1 `i `uc ]
+"72
+}
+[e :U 1220 ]
+[; ;digipot_spi.c: 72: }
+[; ;digipot_spi.c: 73: if(bigorsmall==0x02){
+"73
+[e $ ! == -> _bigorsmall `i -> 2 `i 1221  ]
+{
+[; ;digipot_spi.c: 74: step--;
+"74
+[e -- _step -> -> 1 `i `uc ]
+"75
+}
+[e :U 1221 ]
+[; ;digipot_spi.c: 75: }
+[; ;digipot_spi.c: 76: SSPBUF = step;
+"76
+[e = _SSPBUF _step ]
+[; ;digipot_spi.c: 77: state=0x00;
+"77
+[e = _state -> -> 0 `i `uc ]
+[; ;digipot_spi.c: 78: nominalfrequency = 1.44/((1000+2*step*390.63)*0.000288 * pow(0.9384, step));
+"78
+[e = _nominalfrequency -> / .1.44 * * + -> -> 1000 `i `d * -> * -> 2 `i -> _step `i `d .390.63 .0.000288 ( _pow (2 , .0.9384 -> _step `d `f ]
+"79
+}
+[e :U 1219 ]
+[; ;digipot_spi.c: 79: }
+[; ;digipot_spi.c: 80: }
+"80
+[e :UE 1217 ]
+}
+"82
+[v _unselect `(v ~T0 @X0 1 ef ]
+{
+[; ;digipot_spi.c: 82: void unselect(){
+[e :U _unselect ]
+[f ]
+[; ;digipot_spi.c: 83: PORTBbits.RB3=1;
+"83
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
+[; ;digipot_spi.c: 84: }
+"84
+[e :UE 1222 ]
+}

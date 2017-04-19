@@ -10279,11 +10279,13 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 42 "uart.h"
+# 43 "uart.h"
 extern unsigned char uart_receive_buffer[100];
+extern unsigned char last_uart_message[30];
 unsigned int uart_receive_buffer_index;
 char isCommandSent;
 unsigned char *currentMessagePointer;
+
 
 
 
@@ -10342,7 +10344,7 @@ double percent;
 unsigned int value;
 
 
-# 14 "main.c"
+# 15 "main.c"
 #pragma config XINST = 0
 #pragma config WDTEN = 0
 #pragma config CFGPLLEN = 0
@@ -10365,6 +10367,7 @@ init_frequency();
 initUART1();
 initADC();
 initInterrupts();
+initSPI();
 while(1){
 inductive= 40*value*value;
 UARTReceive(1);
@@ -10383,6 +10386,9 @@ delay_ms(800);
 makeTempMessage(1);
 sendUARTMessage(temp_display_message);
 delay_ms(800);
+
+
+digipot();
 }
 }
 
