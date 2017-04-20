@@ -19,7 +19,6 @@
  * TERMS. 
  */
 
-
 /* 
  * File:   
  * Author: 
@@ -29,30 +28,29 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
-
+#ifndef XC_HEADER_DIGIPOT
+#define	XC_HEADER_DIGIPOT
 
 #include <xc.h> // include processor files - each processor file is guarded.  
-void frequency_interrupt(void);   //high priority interrupt routine
-//low priority interrupt routine, not used in this example
-void init_frequency(void);
-void make_frequency_message(void);
-extern char cap_frequency_message[];
-extern char ind_frequency_message[];
-extern unsigned long cap_value;
-extern float cap_freq;
-unsigned int value;
-unsigned int ind_measurement_old;
-unsigned int ind_measurement_new;
-unsigned int cap_measurement_old;
-unsigned int cap_measurement_new;
-unsigned int  valueH;
-unsigned int  valueL;
-unsigned int  timer;
-unsigned int  inductive;
-double percent;
-unsigned int value;
+#pragma config XINST = OFF
+#include <math.h>
+#include "frequency.h"
+
+char step;
+float nominalfrequency;
+char state=0x00;
+float frequency;
+char bigorsmall;
+unsigned char cap_step_message[200];
+
+
+void initSPI();
+void remappings();
+void adjustDigipot();
+void adjustDigipot();
+void unselect();
+void make_step_message();
+
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate

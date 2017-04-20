@@ -34,7 +34,7 @@ void initADC(void){
 	//PORTB = 0x00;
     //TRISB = 0x00;
     ANCON0 = 0xFC;  //Pin AN0 and AN1 are analog, the rest digital
-    ANCON1 = 0x1C; //pin 8-12 are digital
+    ANCON1 = 0x1F; //pin 8-12 are digital
     ADCON0 = 0x00;  //VSS, VDD, channel 00 (AN0), GO/DONE = 0 (idle), ADON = 1    clear ADCON0 to select channel 0 (AN0)
 	ADCON1 = 0b10111110;    //Right justified, normal ADC operation, slowest acquisition time and conversion clock
   	ADCON0bits.ADON = 0x01;//Enable A/D module

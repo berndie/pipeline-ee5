@@ -21,19 +21,27 @@ void init_frequency(void);
 /*
  * Global Variables
  */
-unsigned int ind_value = 0 ;
-unsigned int cap_value = 0 ;
-unsigned int ind_measurement1 = 0;
-unsigned int ind_measurement2 = 0;
-unsigned int cap_measurement1 = 0;
-unsigned int cap_measurement2 = 0;
+unsigned long int ind_value = 0 ;
+unsigned int ind_measurement_old = 0;
+unsigned int ind_measurement_new = 0;
+unsigned long int cap_value;
+unsigned int cap_measurement_old;
+unsigned int cap_measurement_new;
+float cap_freq;
+float ind_freq;
+float ind_freq2;
+
 unsigned int  valueH = 0;
 unsigned int  valueL = 0;
 unsigned int  timer  = 0;
-unsigned int  inductive   = 0;
+unsigned int interrupt_count_ind = 0;
+unsigned int interrupt_count_cap = 0;
+
+//unsigned int  inductive   = 0;
 double percent = 0.0; 
-char ind_frequency_message[] = "The inductive frequency is:      \r\n";
-char cap_frequency_message[] = "The capacitive frequency is:      \r\n";
+unsigned char ind_frequency_message[200];
+unsigned char cap_frequency_message[200];
+
 /*
  * Interrupt Service Routines
  */
@@ -45,32 +53,47 @@ void frequency_interrupt(void)
 	if(PIR4bits.CCP8IF == 1)
      {
        
-        ind_measurement1 = ind_measurement2; 
-        ind_measurement2 = CCPR8L + 256*CCPR8H;
-        if((ind_measurement2 - ind_measurement1)/16 < 1600){
-            ind_value = (ind_measurement2 - ind_measurement1)/16;
-        }
+        ind_measurement_old = ind_measurement_new; 
+        ind_measurement_new = CCPR8L + 256*CCPR8H;
+        ind_value = (ind_measurement_new + (interrupt_count_ind * 65535) - ind_measurement_old)/16;
+        //if(ind_value  1600)
+        ind_freq2 = ind_value*40*ind_value;
+        ind_freq = 2000000/ind_value;
+        
+        interrupt_count_ind = 0;
          //valueH = CCPR7H;
          //valueL = CCPR7L;
          
          
          PIR4bits.CCP8IF=0;     //CLEAR interrupt flag when you are done!!!
      }
-    if(PIR4bits.CCP7IF == 1)
+   if(PIR4bits.CCP4IF == 1)
      {
        
-        cap_measurement1 = cap_measurement2; 
-        cap_measurement2 = CCPR7L + 256*CCPR7H;
-        if((cap_measurement2 - cap_measurement1)/16 < 1600){    //capturing every 16th edge
-            cap_value = (cap_measurement2 - cap_measurement1)/16;
-        }
+        cap_measurement_old = cap_measurement_new; 
+        cap_measurement_new = (CCPR4L + 256*CCPR4H);     
+        cap_value = (cap_measurement_new + (interrupt_count_cap * 65535) - cap_measurement_old)/16;
+        cap_freq = 2000000/cap_value;
+        
+        interrupt_count_cap = 0;
+        //cap_value = (cap_measurement2 - cap_measurement1)/16;
          //valueH = CCPR7H;
          //valueL = CCPR7L;
          
          
-         PIR4bits.CCP7IF=0;     //CLEAR interrupt flag when you are done!!!
+         PIR4bits.CCP4IF=0;     //CLEAR interrupt flag when you are done!!!
      }
     
+}
+
+void timer1_interrupt(void)
+{
+    if(PIR1bits.TMR1IF == 1)
+    {
+        interrupt_count_ind++;
+        interrupt_count_cap++;
+        PIR1bits.TMR1IF = 0;
+    }
 }
 
 /*
@@ -97,14 +120,9 @@ void frequency_interrupt(void)
 //}
 
 void make_frequency_message(){ 
-    ind_frequency_message[29] = (ind_value / 1000 + 48); 
-    ind_frequency_message[30] =  (ind_value % 1000 / 100 + 48);
-    ind_frequency_message[31] =  (ind_value % 100 / 10 + 48);
-    ind_frequency_message[32] =  (ind_value % 10 + 48);
-    cap_frequency_message[30] = (cap_value / 1000 + 48); 
-    cap_frequency_message[31] =  (cap_value % 1000 / 100 + 48);
-    cap_frequency_message[32] =  (cap_value % 100 / 10 + 48);
-    cap_frequency_message[33] =  (cap_value % 10 + 48);
+    sprintf(ind_frequency_message,"The inductive frequency is: %f, %f, %lu \r\n", ind_freq, ind_freq2, ind_value);
+    sprintf(cap_frequency_message,"The capacitive frequency is: %f\r\n",
+            cap_freq);
 }
 
 /*************************************************
@@ -127,7 +145,7 @@ void init_frequency(void)
     //PRE=1:1 enable Timer1 ("Always On" mode)	
     T1CONbits.RD16=1;
     T1CONbits.TMR1ON=1;
-    T1CONbits.TMR1CS0=1;
+    T1CONbits.TMR1CS0=0;
     T1CONbits.TMR1CS1=0;//select internal Fosc = 8Mhz 
     T1CONbits.T1CKPS1=0;
     T1CONbits.T1CKPS0=0;
@@ -136,29 +154,29 @@ void init_frequency(void)
     TMR1H=0X00;
     CCPR8H=0x00;
     CCPR8L=0x00;
-    //still need to set pr1 and some gate
+    //still need to set pr1 and some gate*/
     
     
-    //CAPACITIVE
-    TRISBbits.TRISB7 = 1;
+ //CAPACITIVE
+    TRISBbits.TRISB4 = 1;
     //select timer5
-    CCPTMRS1bits.C7TSEL0=0;
-    CCPTMRS1bits.C7TSEL1=1;
-    PIE4bits.CCP7IE=1;
-    PIR4bits.CCP7IF=0;
-    CCP7CON=0x07;
+    CCPTMRS1bits.C4TSEL0=0;
+    CCPTMRS1bits.C4TSEL1=0;
+    PIE4bits.CCP4IE=1;
+    PIR4bits.CCP4IF=0;
+    CCP4CON=0x07;
+    PIE1bits.TMR1IE = 1;
     
-    T5CONbits.RD16=1;
-    T5CONbits.TMR5ON=1;
-    T5CONbits.TMR5CS0=1;//select internal Fosc = 8Mhz 
-    T5CONbits.TMR5CS1=0;
-    T5CONbits.T5CKPS1=0;//prescale 1:1
-    T5CONbits.T5CKPS0=0;
-    T5CONbits.T5OSCEN=0;
+    T1CONbits.RD16=1;
+    T1CONbits.TMR1ON=1;
+    T1CONbits.TMR1CS0=0;
+    T1CONbits.TMR1CS1=0;//select internal Fosc/4 = 2Mhz
+    T1CONbits.T1CKPS1=0;
+    T1CONbits.T1CKPS0=0;
+    T1CONbits.T1OSCEN=0;
+    TMR1L=0X00;
+    TMR1H=0X00;
     
-    TMR5L=0X00;
-    TMR5H=0X00;
-    CCPR7H=0x00;
-    CCPR7L=0x00;
-
+    CCPR4H=0x00;
+    CCPR4L=0x00;
 }

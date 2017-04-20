@@ -1,0 +1,1365 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18LF27J53 ]
+[d frameptr 4065 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"42 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"409 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
+[v _fround fround `(d  1 s 3 fround ]
+"425
+[v _scale scale `(d  1 s 3 scale ]
+"492
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 3 0 ]
+"12 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\exp.c
+[v _exp exp `(d  1 e 3 0 ]
+"60 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fldivl.c
+[v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+[v i2___ftpack __ftpack `(f  1 e 3 0 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\floor.c
+[v _floor floor `(d  1 e 3 0 ]
+"254 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\frexp.c
+[v _frexp frexp `(d  1 e 3 0 ]
+"277
+[v _ldexp ldexp `(d  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"60 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdivl.c
+[v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+[v i2___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"35 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+[v i2___lltoft __lltoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\log.c
+[v _log log `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\pow.c
+[v _pow pow `(d  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"11 C:\Users\Marnik\Documents\pipeline-ee5-master\delay.c
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
+"28 C:\Users\Marnik\Documents\pipeline-ee5-master\digipot.c
+[v _initSPI initSPI `(v  1 e 0 0 ]
+"39
+[v _remappings remappings `(v  1 e 0 0 ]
+"49
+[v _make_step_message make_step_message `(v  1 e 0 0 ]
+"55
+[v _digipot digipot `(i  1 e 2 0 ]
+"73
+[v _adjustDigipot adjustDigipot `(v  1 e 0 0 ]
+"93
+[v _unselect unselect `(v  1 e 0 0 ]
+"51 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.c
+[v _frequency_interrupt frequency_interrupt `(v  1 e 0 0 ]
+"89
+[v _timer1_interrupt timer1_interrupt `(i  1 e 2 0 ]
+"122
+[v _make_frequency_message make_frequency_message `(v  1 e 0 0 ]
+"131
+[v _init_frequency init_frequency `(v  1 e 0 0 ]
+"28 C:\Users\Marnik\Documents\pipeline-ee5-master\lora.c
+[v _initLoRa initLoRa `(v  1 e 0 0 ]
+"42
+[v _sendSensorData sendSensorData `(v  1 e 0 0 ]
+"21 C:\Users\Marnik\Documents\pipeline-ee5-master\main.c
+[v _initInterrupts initInterrupts `(v  1 e 0 0 ]
+"26
+[v _main main `(v  1 e 0 0 ]
+"69
+[v _high_ISR high_ISR `II(v  1 e 0 0 ]
+"24 C:\Users\Marnik\Documents\pipeline-ee5-master\temperature.c
+[v _initADC initADC `(v  1 e 0 0 ]
+"50
+[v _fillInTemp fillInTemp `(v  1 e 0 0 ]
+"90
+[v _calculateTemp calculateTemp `(i  1 e 2 0 ]
+"113
+[v _temperature_interrupt temperature_interrupt `(v  1 e 0 0 ]
+"21 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.c
+[v _initUART1 initUART1 `(v  1 e 0 0 ]
+"54
+[v _UARTReceive UARTReceive `(v  1 e 0 0 ]
+"62
+[v _sendUARTMessage sendUARTMessage `(v  1 e 0 0 ]
+"103
+[v _uart_interrupt uart_interrupt `(v  1 e 0 0 ]
+"1099 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18lf27j53.h
+[v _RPOR2 RPOR2 `VEuc  1 e 1 @3778 ]
+"1117
+[v _RPOR5 RPOR5 `VEuc  1 e 1 @3781 ]
+"1267
+[v _RPINR21 RPINR21 `VEuc  1 e 1 @3836 ]
+"1493
+[v _CCP8CON CCP8CON `VEuc  1 e 1 @3846 ]
+"1556
+[v _CCPR8L CCPR8L `VEuc  1 e 1 @3847 ]
+"1575
+[v _CCPR8H CCPR8H `VEuc  1 e 1 @3848 ]
+"1897
+[v _CCP4CON CCP4CON `VEuc  1 e 1 @3858 ]
+"1960
+[v _CCPR4L CCPR4L `VEuc  1 e 1 @3859 ]
+"1979
+[v _CCPR4H CCPR4H `VEuc  1 e 1 @3860 ]
+"5624
+[v _ANCON0 ANCON0 `VEuc  1 e 1 @3912 ]
+"5667
+[v _ANCON1 ANCON1 `VEuc  1 e 1 @3913 ]
+[s S1295 . 1 `uc 1 C8TSEL 1 0 :2:0 
+`uc 1 C9TSEL0 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 C10TSEL0 1 0 :1:4 
+]
+"5914
+[s S1300 . 1 `uc 1 C8TSEL0 1 0 :1:0 
+`uc 1 C8TSEL1 1 0 :1:1 
+]
+[u S1303 . 1 `S1295 1 . 1 0 `S1300 1 . 1 0 ]
+[v _CCPTMRS2bits CCPTMRS2bits `VES1303  1 e 1 @3920 ]
+[s S1479 . 1 `uc 1 C4TSEL 1 0 :2:0 
+`uc 1 C5TSEL0 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 C6TSEL0 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 C7TSEL 1 0 :2:6 
+]
+"5965
+[s S1486 . 1 `uc 1 C4TSEL0 1 0 :1:0 
+`uc 1 C4TSEL1 1 0 :1:1 
+`uc 1 . 1 0 :4:2 
+`uc 1 C7TSEL0 1 0 :1:6 
+`uc 1 C7TSEL1 1 0 :1:7 
+]
+[u S1492 . 1 `S1479 1 . 1 0 `S1486 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES1492  1 e 1 @3921 ]
+"6889
+[v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @3954 ]
+"7029
+[v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3955 ]
+[s S1722 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"7149
+[s S1725 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S1728 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S1737 . 1 `uc 1 BF2 1 0 :1:0 
+]
+[s S1739 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CKE2 1 0 :1:6 
+]
+[s S1742 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA2 1 0 :1:5 
+]
+[s S1745 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DATA_ADDRESS2 1 0 :1:5 
+]
+[s S1748 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_A2 1 0 :1:5 
+]
+[s S1751 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_nA2 1 0 :1:5 
+]
+[s S1754 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 I2C_DAT2 1 0 :1:5 
+]
+[s S1757 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ2 1 0 :1:2 
+]
+[s S1760 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 I2C_START2 1 0 :1:3 
+]
+[s S1763 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 I2C_STOP2 1 0 :1:4 
+]
+[s S1766 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 P2 1 0 :1:4 
+]
+[s S1769 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE2 1 0 :1:2 
+]
+[s S1772 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW2 1 0 :1:2 
+]
+[s S1775 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W2 1 0 :1:2 
+]
+[s S1778 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_nW2 1 0 :1:2 
+]
+[s S1781 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 S2 1 0 :1:3 
+]
+[s S1784 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SMP2 1 0 :1:7 
+]
+[s S1787 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START2 1 0 :1:3 
+]
+[s S1790 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP2 1 0 :1:4 
+]
+[s S1793 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 UA2 1 0 :1:1 
+]
+[s S1796 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nA2 1 0 :1:5 
+]
+[s S1799 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nADDRESS2 1 0 :1:5 
+]
+[s S1802 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW2 1 0 :1:2 
+]
+[s S1805 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE2 1 0 :1:2 
+]
+[u S1808 . 1 `S1722 1 . 1 0 `S1725 1 . 1 0 `S1728 1 . 1 0 `S1737 1 . 1 0 `S1739 1 . 1 0 `S1742 1 . 1 0 `S1745 1 . 1 0 `S1748 1 . 1 0 `S1751 1 . 1 0 `S1754 1 . 1 0 `S1757 1 . 1 0 `S1760 1 . 1 0 `S1763 1 . 1 0 `S1766 1 . 1 0 `S1769 1 . 1 0 `S1772 1 . 1 0 `S1775 1 . 1 0 `S1778 1 . 1 0 `S1781 1 . 1 0 `S1784 1 . 1 0 `S1787 1 . 1 0 `S1790 1 . 1 0 `S1793 1 . 1 0 `S1796 1 . 1 0 `S1799 1 . 1 0 `S1802 1 . 1 0 `S1805 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES1808  1 e 1 @3955 ]
+[s S341 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"8010
+[s S350 . 1 `uc 1 ABDEN1 1 0 :1:0 
+]
+[s S352 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 ABDOVF1 1 0 :1:7 
+]
+[s S355 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 BRG161 1 0 :1:3 
+]
+[s S358 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CKTXP 1 0 :1:4 
+]
+[s S361 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DTRXP 1 0 :1:5 
+]
+[s S364 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DTRXP1 1 0 :1:5 
+]
+[s S367 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RCIDL1 1 0 :1:6 
+]
+[s S370 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S373 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RCMT1 1 0 :1:6 
+]
+[s S376 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXDTP1 1 0 :1:5 
+]
+[s S379 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+]
+[s S382 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP1 1 0 :1:4 
+]
+[s S385 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXCKP1 1 0 :1:4 
+]
+[s S388 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 WUE1 1 0 :1:1 
+]
+[s S391 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S394 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S397 . 1 `S341 1 . 1 0 `S350 1 . 1 0 `S352 1 . 1 0 `S355 1 . 1 0 `S358 1 . 1 0 `S361 1 . 1 0 `S364 1 . 1 0 `S367 1 . 1 0 `S370 1 . 1 0 `S373 1 . 1 0 `S376 1 . 1 0 `S379 1 . 1 0 `S382 1 . 1 0 `S385 1 . 1 0 `S388 1 . 1 0 `S391 1 . 1 0 `S394 1 . 1 0 ]
+[v _BAUDCON1bits BAUDCON1bits `VES397  1 e 1 @3966 ]
+"8514
+[v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3967 ]
+[s S707 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"8634
+[s S716 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S725 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS1 1 0 :1:5 
+]
+[s S728 . 1 `uc 1 C1INA 1 0 :1:0 
+`uc 1 C2INA 1 0 :1:1 
+`uc 1 VREF_MINUS 1 0 :1:2 
+`uc 1 VREF_PLUS 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 nSS1 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S737 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CVREF 1 0 :1:2 
+`uc 1 C1INB 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S743 . 1 `uc 1 RP0 1 0 :1:0 
+`uc 1 RP1 1 0 :1:1 
+`uc 1 C2INB 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 RCV 1 0 :1:5 
+]
+[s S749 . 1 `uc 1 ULPWU 1 0 :1:0 
+`uc 1 VBG 1 0 :1:1 
+`uc 1 C1IND 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 RP2 1 0 :1:5 
+]
+[s S755 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 C3INB 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 C1INC 1 0 :1:5 
+]
+[s S760 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S763 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RA4 1 0 :1:4 
+]
+[s S766 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S769 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S771 . 1 `S707 1 . 1 0 `S716 1 . 1 0 `S725 1 . 1 0 `S728 1 . 1 0 `S737 1 . 1 0 `S743 1 . 1 0 `S749 1 . 1 0 `S755 1 . 1 0 `S760 1 . 1 0 `S763 1 . 1 0 `S766 1 . 1 0 `S769 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES771  1 e 1 @3968 ]
+[s S849 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"8912
+[s S858 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S866 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 CTED1 1 0 :1:2 
+`uc 1 CTED2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S875 . 1 `uc 1 RP3 1 0 :1:0 
+`uc 1 RTCC 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 SCK1 1 0 :1:4 
+`uc 1 SDI1 1 0 :1:5 
+`uc 1 RP9 1 0 :1:6 
+`uc 1 RP10 1 0 :1:7 
+]
+[s S883 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RP4 1 0 :1:1 
+`uc 1 VMO 1 0 :1:2 
+`uc 1 VPO 1 0 :1:3 
+`uc 1 SCL1 1 0 :1:4 
+`uc 1 SDA1 1 0 :1:5 
+]
+[s S890 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 REFO 1 0 :1:2 
+`uc 1 RP6 1 0 :1:3 
+`uc 1 RP7 1 0 :1:4 
+`uc 1 RP8 1 0 :1:5 
+]
+[s S896 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 C3INC 1 0 :1:1 
+`uc 1 RP5 1 0 :1:2 
+`uc 1 C3INA 1 0 :1:3 
+`uc 1 CCP4 1 0 :1:4 
+`uc 1 CCP5 1 0 :1:5 
+`uc 1 CCP6 1 0 :1:6 
+`uc 1 CCP7 1 0 :1:7 
+]
+[s S905 . 1 `uc 1 C3IND 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 C2INC 1 0 :1:2 
+]
+[s S909 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S912 . 1 `S849 1 . 1 0 `S858 1 . 1 0 `S866 1 . 1 0 `S875 1 . 1 0 `S883 1 . 1 0 `S890 1 . 1 0 `S896 1 . 1 0 `S905 1 . 1 0 `S909 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES912  1 e 1 @3969 ]
+[s S1315 . 1 `uc 1 CCP3IE 1 0 :1:0 
+`uc 1 CCP4IE 1 0 :1:1 
+`uc 1 CCP5IE 1 0 :1:2 
+`uc 1 CCP6IE 1 0 :1:3 
+`uc 1 CCP7IE 1 0 :1:4 
+`uc 1 CCP8IE 1 0 :1:5 
+`uc 1 CCP9IE 1 0 :1:6 
+`uc 1 CCP10IE 1 0 :1:7 
+]
+"10046
+[u S1324 . 1 `S1315 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1324  1 e 1 @3982 ]
+[s S1238 . 1 `uc 1 CCP3IF 1 0 :1:0 
+`uc 1 CCP4IF 1 0 :1:1 
+`uc 1 CCP5IF 1 0 :1:2 
+`uc 1 CCP6IF 1 0 :1:3 
+`uc 1 CCP7IF 1 0 :1:4 
+`uc 1 CCP8IF 1 0 :1:5 
+`uc 1 CCP9IF 1 0 :1:6 
+`uc 1 CCP10IF 1 0 :1:7 
+]
+"10107
+[u S1247 . 1 `S1238 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1247  1 e 1 @3983 ]
+[s S686 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"10286
+[u S695 . 1 `S686 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES695  1 e 1 @3986 ]
+[s S986 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"10342
+[u S995 . 1 `S986 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES995  1 e 1 @3987 ]
+[s S254 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"10405
+[s S261 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 TRISC3 1 0 :1:3 
+]
+[u S264 . 1 `S254 1 . 1 0 `S261 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES264  1 e 1 @3988 ]
+[s S555 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"10994
+[s S563 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[u S568 . 1 `S555 1 . 1 0 `S563 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES568  1 e 1 @3997 ]
+[s S585 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"11070
+[s S593 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[u S598 . 1 `S585 1 . 1 0 `S593 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES598  1 e 1 @3998 ]
+"11780
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+[s S474 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"12039
+[s S483 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 ADEN 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S489 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_RC8 1 0 :1:6 
+]
+[s S492 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S495 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S498 . 1 `uc 1 RX9D1 1 0 :1:0 
+`uc 1 OERR1 1 0 :1:1 
+`uc 1 FERR1 1 0 :1:2 
+`uc 1 ADDEN1 1 0 :1:3 
+`uc 1 CREN1 1 0 :1:4 
+`uc 1 SREN1 1 0 :1:5 
+`uc 1 RX91 1 0 :1:6 
+`uc 1 SPEN1 1 0 :1:7 
+]
+[s S507 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S510 . 1 `S474 1 . 1 0 `S483 1 . 1 0 `S489 1 . 1 0 `S492 1 . 1 0 `S495 1 . 1 0 `S498 1 . 1 0 `S507 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES510  1 e 1 @4012 ]
+[s S278 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"12366
+[s S287 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S291 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_TX8 1 0 :1:6 
+]
+[s S294 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S297 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[u S306 . 1 `S278 1 . 1 0 `S287 1 . 1 0 `S291 1 . 1 0 `S294 1 . 1 0 `S297 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES306  1 e 1 @4013 ]
+"12608
+[v _TXREG1 TXREG1 `VEuc  1 e 1 @4014 ]
+"12645
+[v _RCREG1 RCREG1 `VEuc  1 e 1 @4015 ]
+"12682
+[v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4016 ]
+"14228
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"14330
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S1011 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"14381
+[s S1014 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 VCFG 1 0 :2:6 
+]
+[s S1019 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 VCFG0 1 0 :1:6 
+`uc 1 VCFG1 1 0 :1:7 
+]
+[s S1028 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S1031 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S1034 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S1037 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S1040 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 ADCAL 1 0 :1:7 
+]
+[s S1043 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S1046 . 1 `S1011 1 . 1 0 `S1014 1 . 1 0 `S1019 1 . 1 0 `S1028 1 . 1 0 `S1031 1 . 1 0 `S1034 1 . 1 0 `S1037 1 . 1 0 `S1040 1 . 1 0 `S1043 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1046  1 e 1 @4034 ]
+"14475
+[v _ADRES ADRES `VEus  1 e 2 @4035 ]
+"16261
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S1414 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"16541
+[s S1417 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 RD16 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1CS 1 0 :2:6 
+]
+[s S1424 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 TMR1CS0 1 0 :1:6 
+`uc 1 TMR1CS1 1 0 :1:7 
+]
+[s S1430 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+]
+[s S1433 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S1436 . 1 `S1414 1 . 1 0 `S1417 1 . 1 0 `S1424 1 . 1 0 `S1430 1 . 1 0 `S1433 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1436  1 e 1 @4045 ]
+"16616
+[v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
+"16635
+[v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
+[s S22 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"16702
+[s S24 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S27 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S30 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S33 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S36 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_CM 1 0 :1:5 
+]
+[s S39 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 nCM 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S48 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+`uc 1 CM 1 0 :1:5 
+]
+[u S55 . 1 `S22 1 . 1 0 `S24 1 . 1 0 `S27 1 . 1 0 `S30 1 . 1 0 `S33 1 . 1 0 `S36 1 . 1 0 `S39 1 . 1 0 `S48 1 . 1 0 ]
+[v _RCONbits RCONbits `VES55  1 e 1 @4048 ]
+[s S98 . 1 `uc 1 SCS 1 0 :2:0 
+`uc 1 FLTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+`uc 1 IDLEN 1 0 :1:7 
+]
+"17443
+[s S104 . 1 `uc 1 SCS0 1 0 :1:0 
+`uc 1 SCS1 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S111 . 1 `S98 1 . 1 0 `S104 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES111  1 e 1 @4051 ]
+"18294
+[v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+[s S1337 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"18341
+[s S1346 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S1355 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S1372 . 1 `S1337 1 . 1 0 `S1346 1 . 1 0 `S1355 1 . 1 0 `S1346 1 . 1 0 `S1355 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1372  1 e 1 @4082 ]
+"19958
+[v _IOLOCK IOLOCK `VEb  1 e 0 @30200 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
+[v _dpowers dpowers `C[10]ul  1 s 40 dpowers ]
+"362
+[v _hexpowers hexpowers `C[8]ul  1 s 32 hexpowers ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\errno.c
+[v _errno errno `i  1 e 2 0 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\powers.c
+[v __powers_ _powers_ `C[13]d  1 e 39 0 ]
+"39
+[v __npowers_ _npowers_ `C[13]d  1 e 39 0 ]
+"13 C:\Users\Marnik\Documents\pipeline-ee5-master\digipot.c
+[v _step step `uc  1 e 1 0 ]
+"14
+[v _nominalfrequency nominalfrequency `f  1 e 3 0 ]
+"15
+[v _state state `uc  1 e 1 0 ]
+"16
+[v _frequency frequency `f  1 e 3 0 ]
+"17
+[v _bigorsmall bigorsmall `uc  1 e 1 0 ]
+"18
+[v _cap_step_message cap_step_message `[200]uc  1 e 200 0 ]
+"24 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.c
+[v _ind_value ind_value `ul  1 e 4 0 ]
+"27
+[v _cap_value cap_value `ul  1 e 4 0 ]
+"30
+[v _cap_freq cap_freq `f  1 e 3 0 ]
+"31
+[v _ind_freq ind_freq `f  1 e 3 0 ]
+"32
+[v _ind_freq2 ind_freq2 `f  1 e 3 0 ]
+"37
+[v _interrupt_count_ind interrupt_count_ind `ui  1 e 2 0 ]
+"38
+[v _interrupt_count_cap interrupt_count_cap `ui  1 e 2 0 ]
+"42
+[v _ind_frequency_message ind_frequency_message `[200]uc  1 e 200 0 ]
+"43
+[v _cap_frequency_message cap_frequency_message `[200]uc  1 e 200 0 ]
+"46 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.h
+[v _ind_measurement_old ind_measurement_old `ui  1 e 2 0 ]
+"47
+[v _ind_measurement_new ind_measurement_new `ui  1 e 2 0 ]
+"48
+[v _cap_measurement_old cap_measurement_old `ui  1 e 2 0 ]
+"49
+[v _cap_measurement_new cap_measurement_new `ui  1 e 2 0 ]
+"14 C:\Users\Marnik\Documents\pipeline-ee5-master\lora.c
+[v _set_dev_eui set_dev_eui `C[34]uc  1 e 34 0 ]
+"15
+[v _set_app_eui set_app_eui `C[34]uc  1 e 34 0 ]
+"16
+[v _set_app_key set_app_key `C[50]uc  1 e 50 0 ]
+"18
+[v _lora_message lora_message `[200]uc  1 e 200 0 ]
+"26
+[v _join_network join_network `C[16]uc  1 e 16 0 ]
+"12 C:\Users\Marnik\Documents\pipeline-ee5-master\temperature.c
+[v _pipe_ascii pipe_ascii `C[5]uc  1 e 5 0 ]
+"13
+[v _ambient_ascii ambient_ascii `C[5]uc  1 e 5 0 ]
+"21
+[v _temp_display_message temp_display_message `[20]uc  1 e 20 0 ]
+"47 C:\Users\Marnik\Documents\pipeline-ee5-master\temperature.h
+[v _plus_pipe plus_pipe `i  1 e 2 0 ]
+"48
+[v _minus_pipe minus_pipe `i  1 e 2 0 ]
+"49
+[v _plus_ambient plus_ambient `i  1 e 2 0 ]
+"50
+[v _minus_ambient minus_ambient `i  1 e 2 0 ]
+"51
+[v _temp_pipe temp_pipe `i  1 e 2 0 ]
+"52
+[v _temp_ambient temp_ambient `i  1 e 2 0 ]
+"53
+[v _currentChannel currentChannel `ui  1 e 2 0 ]
+"55
+[v _asciiTemp asciiTemp `[5]uc  1 e 5 0 ]
+"16 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.c
+[v _uart_receive_buffer uart_receive_buffer `[100]uc  1 e 100 0 ]
+"18
+[v _last_received_message_index last_received_message_index `ui  1 e 2 0 ]
+"19
+[v _last_uart_message last_uart_message `[30]uc  1 e 30 0 ]
+"45 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.h
+[v _uart_receive_buffer_index uart_receive_buffer_index `ui  1 e 2 0 ]
+"46
+[v _isCommandSent isCommandSent `uc  1 e 1 0 ]
+"47
+[v _currentMessagePointer currentMessagePointer `*.34uc  1 e 2 0 ]
+"26 C:\Users\Marnik\Documents\pipeline-ee5-master\main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"67
+} 0
+"42 C:\Users\Marnik\Documents\pipeline-ee5-master\lora.c
+[v _sendSensorData sendSensorData `(v  1 e 0 0 ]
+{
+[v sendSensorData@capacitance capacitance `d  1 p 3 109 ]
+[v sendSensorData@ambient_temp ambient_temp `d  1 p 3 112 ]
+[v sendSensorData@pipe_temp pipe_temp `d  1 p 3 115 ]
+[v sendSensorData@inductance inductance `d  1 p 3 118 ]
+"47
+} 0
+"49 C:\Users\Marnik\Documents\pipeline-ee5-master\digipot.c
+[v _make_step_message make_step_message `(v  1 e 0 0 ]
+{
+"53
+} 0
+"122 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.c
+[v _make_frequency_message make_frequency_message `(v  1 e 0 0 ]
+{
+"126
+} 0
+"492 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+"1500
+[v sprintf@idx idx `uc  1 a 1 88 ]
+[u S1994 . 4 `ul 1 vd 4 0 `d 1 integ 3 0 ]
+"526
+[v sprintf@tmpval tmpval `S1994  1 a 4 101 ]
+"528
+[v sprintf@val val `ul  1 a 4 95 ]
+"516
+[v sprintf@fval fval `d  1 a 3 105 ]
+[v sprintf@exp exp `i  1 a 2 99 ]
+"504
+[v sprintf@prec prec `i  1 a 2 93 ]
+"508
+[v sprintf@flag flag `us  1 a 2 91 ]
+"494
+[v sprintf@ap ap `[1]*.39v  1 a 2 89 ]
+"499
+[v sprintf@c c `c  1 a 1 108 ]
+"492
+[v sprintf@sp sp `*.39uc  1 p 2 63 ]
+[v sprintf@f f `*.32Cuc  1 p 2 65 ]
+"1541
+} 0
+"425
+[v _scale scale `(d  1 s 3 scale ]
+{
+[v scale@scl scl `c  1 a 1 wreg ]
+[v scale@scl scl `c  1 a 1 wreg ]
+"428
+[v scale@scl scl `c  1 a 1 41 ]
+"441
+} 0
+"409
+[v _fround fround `(d  1 s 3 fround ]
+{
+[v fround@prec prec `uc  1 a 1 wreg ]
+[v fround@prec prec `uc  1 a 1 wreg ]
+"413
+[v fround@prec prec `uc  1 a 1 44 ]
+"418
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"35
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 12 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 11 ]
+[v ___awdiv@counter counter `uc  1 a 1 10 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 6 ]
+[v ___awdiv@divisor divisor `i  1 p 2 8 ]
+"42
+} 0
+"60 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdivl.c
+[v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
+{
+"63
+[v __tdiv_to_l_@quot quot `ul  1 a 4 9 ]
+"62
+[v __tdiv_to_l_@exp1 exp1 `uc  1 a 1 14 ]
+[v __tdiv_to_l_@cntr cntr `uc  1 a 1 13 ]
+"60
+[v __tdiv_to_l_@f1 f1 `f  1 p 3 0 ]
+[v __tdiv_to_l_@f2 f2 `f  1 p 3 3 ]
+"101
+} 0
+"60 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fldivl.c
+[v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
+{
+"63
+[v __div_to_l_@quot quot `ul  1 a 4 6 ]
+"62
+[v __div_to_l_@exp1 exp1 `uc  1 a 1 11 ]
+[v __div_to_l_@cntr cntr `uc  1 a 1 10 ]
+"60
+[v __div_to_l_@f1 f1 `d  1 p 3 0 ]
+[v __div_to_l_@f2 f2 `d  1 p 3 3 ]
+"101
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+{
+"11
+[v ___llmod@counter counter `uc  1 a 1 21 ]
+"8
+[v ___llmod@dividend dividend `ul  1 p 4 13 ]
+[v ___llmod@divisor divisor `ul  1 p 4 17 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
+"8
+[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
+"31
+} 0
+"131 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.c
+[v _init_frequency init_frequency `(v  1 e 0 0 ]
+{
+"182
+} 0
+"21 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.c
+[v _initUART1 initUART1 `(v  1 e 0 0 ]
+{
+"53
+} 0
+"28 C:\Users\Marnik\Documents\pipeline-ee5-master\digipot.c
+[v _initSPI initSPI `(v  1 e 0 0 ]
+{
+"37
+} 0
+"39
+[v _remappings remappings `(v  1 e 0 0 ]
+{
+"47
+} 0
+"28 C:\Users\Marnik\Documents\pipeline-ee5-master\lora.c
+[v _initLoRa initLoRa `(v  1 e 0 0 ]
+{
+"41
+} 0
+"62 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.c
+[v _sendUARTMessage sendUARTMessage `(v  1 e 0 0 ]
+{
+[v sendUARTMessage@newMessagePointer newMessagePointer `*.34uc  1 p 2 5 ]
+"82
+} 0
+"11 C:\Users\Marnik\Documents\pipeline-ee5-master\delay.c
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
+{
+"12
+[v delay_ms@i i `i  1 a 2 3 ]
+"11
+[v delay_ms@ms ms `i  1 p 2 0 ]
+"15
+} 0
+"21 C:\Users\Marnik\Documents\pipeline-ee5-master\main.c
+[v _initInterrupts initInterrupts `(v  1 e 0 0 ]
+{
+"24
+} 0
+"24 C:\Users\Marnik\Documents\pipeline-ee5-master\temperature.c
+[v _initADC initADC `(v  1 e 0 0 ]
+{
+"48
+} 0
+"55 C:\Users\Marnik\Documents\pipeline-ee5-master\digipot.c
+[v _digipot digipot `(i  1 e 2 0 ]
+{
+"71
+} 0
+"93
+[v _unselect unselect `(v  1 e 0 0 ]
+{
+"95
+} 0
+"73
+[v _adjustDigipot adjustDigipot `(v  1 e 0 0 ]
+{
+"91
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\pow.c
+[v _pow pow `(d  1 e 3 0 ]
+{
+"8
+[v pow@yi yi `ul  1 a 4 98 ]
+"7
+[v pow@sign sign `uc  1 a 1 97 ]
+"5
+[v pow@x x `d  1 p 3 85 ]
+[v pow@y y `d  1 p 3 88 ]
+"31
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\log.c
+[v _log log `(d  1 e 3 0 ]
+{
+"7
+[v log@exponent exponent `i  1 a 2 72 ]
+"5
+[v log@x x `d  1 p 3 69 ]
+"9
+[v log@coeff coeff `C[9]d  1 s 27 coeff ]
+"36
+} 0
+"12 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\exp.c
+[v _exp exp `(d  1 e 3 0 ]
+{
+"14
+[v exp@exponent exponent `i  1 a 2 82 ]
+"15
+[v exp@sign sign `uc  1 a 1 84 ]
+"12
+[v exp@x x `d  1 p 3 76 ]
+"17
+[v exp@coeff coeff `C[10]d  1 s 30 coeff ]
+"57
+} 0
+"277 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\frexp.c
+[v _ldexp ldexp `(d  1 e 3 0 ]
+{
+[v ldexp@value value `d  1 p 3 69 ]
+[v ldexp@newexp newexp `i  1 p 2 72 ]
+"307
+} 0
+"13 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\floor.c
+[v _floor floor `(d  1 e 3 0 ]
+{
+"15
+[v floor@i i `d  1 a 3 70 ]
+"16
+[v floor@expon expon `i  1 a 2 73 ]
+"13
+[v floor@x x `d  1 p 3 67 ]
+"30
+} 0
+"254 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\frexp.c
+[v _frexp frexp `(d  1 e 3 0 ]
+{
+[v frexp@value value `d  1 p 3 0 ]
+[v frexp@eptr eptr `*.39i  1 p 2 3 ]
+"274
+} 0
+"44 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 52 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 56 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 51 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 42 ]
+"73
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+{
+[v ___ftge@ff1 ff1 `f  1 p 3 35 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 38 ]
+"13
+} 0
+"42 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+{
+"44
+[v ___altoft@sign sign `uc  1 a 1 66 ]
+[v ___altoft@exp exp `uc  1 a 1 65 ]
+"42
+[v ___altoft@c c `l  1 p 4 57 ]
+"57
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 3 0 ]
+{
+"6
+[v eval_poly@res res `d  1 a 3 66 ]
+"4
+[v eval_poly@x x `d  1 p 3 57 ]
+[v eval_poly@d d `*.32Cd  1 p 2 60 ]
+[v eval_poly@n n `i  1 p 2 62 ]
+"12
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 18 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 14 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 16 ]
+"53
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 30 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 34 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 33 ]
+[v ___ftmul@exp exp `uc  1 a 1 29 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 20 ]
+[v ___ftmul@f2 f2 `f  1 p 3 23 ]
+"157
+} 0
+"20 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+{
+[v ___ftsub@f1 f1 `f  1 p 3 57 ]
+[v ___ftsub@f2 f2 `f  1 p 3 60 ]
+"27
+} 0
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+{
+"88
+[v ___ftadd@exp1 exp1 `uc  1 a 1 56 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 55 ]
+[v ___ftadd@sign sign `uc  1 a 1 54 ]
+"86
+[v ___ftadd@f1 f1 `f  1 p 3 45 ]
+[v ___ftadd@f2 f2 `f  1 p 3 48 ]
+"148
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+{
+[v ___ftneg@f1 f1 `f  1 p 3 0 ]
+"20
+} 0
+"54 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"60
+[v ___ftdiv@f3 f3 `f  1 a 3 67 ]
+"59
+[v ___ftdiv@sign sign `uc  1 a 1 71 ]
+[v ___ftdiv@exp exp `uc  1 a 1 70 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 66 ]
+"54
+[v ___ftdiv@f1 f1 `f  1 p 3 57 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 60 ]
+"86
+} 0
+"32 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+{
+"34
+[v ___awtoft@sign sign `uc  1 a 1 11 ]
+"32
+[v ___awtoft@c c `i  1 p 2 8 ]
+"42
+} 0
+"35 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+{
+"37
+[v ___lltoft@exp exp `uc  1 a 1 16 ]
+"35
+[v ___lltoft@c c `ul  1 p 4 8 ]
+"46
+} 0
+"27 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+{
+[v ___lbtoft@c c `uc  1 a 1 wreg ]
+[v ___lbtoft@c c `uc  1 a 1 wreg ]
+"29
+[v ___lbtoft@c c `uc  1 a 1 11 ]
+"30
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"54 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.c
+[v _UARTReceive UARTReceive `(v  1 e 0 0 ]
+{
+[v UARTReceive@on_or_off on_or_off `uc  1 a 1 wreg ]
+[v UARTReceive@on_or_off on_or_off `uc  1 a 1 wreg ]
+[v UARTReceive@on_or_off on_or_off `uc  1 a 1 0 ]
+"61
+} 0
+"69 C:\Users\Marnik\Documents\pipeline-ee5-master\main.c
+[v _high_ISR high_ISR `II(v  1 e 0 0 ]
+{
+"74
+} 0
+"103 C:\Users\Marnik\Documents\pipeline-ee5-master\uart.c
+[v _uart_interrupt uart_interrupt `(v  1 e 0 0 ]
+{
+"119
+} 0
+"89 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.c
+[v _timer1_interrupt timer1_interrupt `(i  1 e 2 0 ]
+{
+"97
+} 0
+"113 C:\Users\Marnik\Documents\pipeline-ee5-master\temperature.c
+[v _temperature_interrupt temperature_interrupt `(v  1 e 0 0 ]
+{
+"143
+} 0
+"51 C:\Users\Marnik\Documents\pipeline-ee5-master\frequency.c
+[v _frequency_interrupt frequency_interrupt `(v  1 e 0 0 ]
+{
+"87
+} 0
+"35 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lltoft.c
+[v i2___lltoft __lltoft `(f  1 e 3 0 ]
+{
+[v i2___lltoft@exp __lltoft `uc  1 a 1 21 ]
+[v i2___lltoft@c c `ul  1 p 4 13 ]
+"46
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v i2___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v i2___ftpack@arg arg `um  1 p 3 0 ]
+[v i2___ftpack@exp exp `uc  1 p 1 3 ]
+[v i2___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
+[v i2___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+[v i2___lldiv@quotient __lldiv `ul  1 a 4 8 ]
+[v i2___lldiv@counter __lldiv `uc  1 a 1 12 ]
+[v i2___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v i2___lldiv@divisor divisor `ul  1 p 4 4 ]
+"31
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 8 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 22 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 21 ]
+[v ___aldiv@counter counter `uc  1 a 1 20 ]
+"8
+[v ___aldiv@dividend dividend `l  1 p 4 12 ]
+[v ___aldiv@divisor divisor `l  1 p 4 16 ]
+"42
+} 0
